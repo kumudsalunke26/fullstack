@@ -19,7 +19,7 @@ const Header = () => {
             </nav>
 
             <div className='flex items-center'>
-                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl'>
+                <button className='border-2 border-white bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl'>
                     Contact Us
                 </button>
             </div>
