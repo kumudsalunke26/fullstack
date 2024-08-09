@@ -1,40 +1,12 @@
-import { useEffect, useRef } from "react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 const TopProdcast = () => {
-    const controls = useAnimation();
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    controls.start({ x: 0 });
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
-            }
-        };
-    }, [controls]);
-
     return (
-        <Card
-            ref={sectionRef}
-            className='py-4 w-[80%] mx-auto bg-black text-white grid lg:grid-cols-[2fr_3fr] gap-6'
-        >
+        <Card className='py-4 w-[80%] mx-auto bg-black text-white grid lg:grid-cols-[2fr_3fr] gap-6'>
             <motion.div
                 initial={{ x: "-100%" }}
-                animate={controls}
+                animate={{ x: 0 }}
                 transition={{ duration: 1 }}
                 className='flex space-x-4'
             >
@@ -47,7 +19,7 @@ const TopProdcast = () => {
             <div className='flex flex-col md:flex-row justify-center gap-2 flex-1'>
                 <motion.div
                     initial={{ x: "100%" }}
-                    animate={controls}
+                    animate={{ x: 0 }}
                     transition={{ duration: 1 }}
                     className='flex flex-col md:flex-row justify-center gap-2 flex-1'
                 >
