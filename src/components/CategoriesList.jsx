@@ -14,7 +14,7 @@ const names = [
     "Arts",
 ];
 
-const AnimatedList = () => {
+const CategoriesList = () => {
     return (
         <div className='my-10 h-20 flex items-center mx-auto w-[80%] overflow-hidden bg-gradient-to-b from-blue-900 to-black shadow-lg'>
             <div className='relative flex overflow-hidden'>
@@ -54,4 +54,4 @@ const AnimatedList = () => {
     );
 };
 
-export default AnimatedList;
+export default CategoriesList;

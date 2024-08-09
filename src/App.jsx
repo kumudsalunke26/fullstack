@@ -1,15 +1,14 @@
+import { Outlet } from "react-router";
 import "./App.css";
-import AnimatedList from "./components/AnimatedList";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import TopProdcast from "./components/TopProdcast";
+import Footer from "./components/Footer";
+
 const App = () => {
     return (
         <div className='bg-black text-white'>
             <Header />
-            <Hero />
-            <AnimatedList />
-            <TopProdcast />
+            <Outlet />
+            <Footer />
         </div>
     );
 };
