@@ -1,29 +1,71 @@
-import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-const Header = () => {
-    return (
-        <header className='flex justify-between items-center p-4 bg-black px-10 md:px-20'>
-            <div className='flex items-center'>
-                <img src={logo} alt='Logo' className='w-28' />
-            </div>
-            <nav className='ml-4 hidden lg:flex text-white gap-10'>
-                <Link to='/'>Episodes</Link>
-                <Link to='/about'>Blogs</Link>
-                <Link to='/services' className='mr-4'>
-                    About us
-                </Link>
-                <Link to='/contact'>Team</Link>
-                <Link to='/contact'>Subscribe</Link>
-                <Link to='/contact'>Reviews</Link>
-                <Link to='/contact'>Contact us</Link>
-            </nav>
+import { useState } from "react";
+import {
+    Navbar,
+    NavbarBrand,
+    NavbarContent,
+    NavbarItem,
+    NavbarMenuToggle,
+    NavbarMenu,
+    NavbarMenuItem,
+    Link,
+    Button,
+} from "@nextui-org/react";
+import PrimaryButton from "./PrimaryButton";
 
-            <div className='flex items-center'>
-                <button className='border-2 border-white bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl'>
+const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuItems = [
+        { label: "Episodes", toLink: "/episodes" },
+        { label: "Blogs", toLink: "/about" },
+        { label: "About us", toLink: "/services" },
+        { label: "Team", toLink: "/contact" },
+        { label: "Subscribe", toLink: "/subscribe" },
+        { label: "Reviews", toLink: "/reviews" },
+    ];
+    return (
+        <Navbar onMenuOpenChange={setIsMenuOpen} className='bg-black'>
+            <NavbarContent>
+                <NavbarMenuToggle
+                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                    className='sm:hidden'
+                />
+                <NavbarBrand>
+                    <img src={logo} alt='Logo' className='w-28' />
+                </NavbarBrand>
+            </NavbarContent>
+
+            <NavbarContent className='hidden sm:flex gap-4' justify='center'>
+                {menuItems.map((item, index) => (
+                    <NavbarItem
+                        key={`${item.label}-${index}`}
+                        className='cursor-pointer'
+                    >
+                        <Link to={item.toLink} className='text-white'>
+                            {item.label}
+                        </Link>
+                    </NavbarItem>
+                ))}
+            </NavbarContent>
+            <NavbarContent justify='end'>
+                <PrimaryButton text='Contact us' toLink='/contact-us'>
                     Contact Us
-                </button>
-            </div>
-        </header>
+                </PrimaryButton>
+            </NavbarContent>
+            <NavbarMenu className='bg-black bg-opacity-50'>
+                {menuItems.map((item, index) => (
+                    <NavbarMenuItem key={`${item.label}-${index}`}>
+                        <Link
+                            className='w-full text-white'
+                            to={item.toLink}
+                            size='lg'
+                        >
+                            {item.label}
+                        </Link>
+                    </NavbarMenuItem>
+                ))}
+            </NavbarMenu>
+        </Navbar>
     );
 };
 

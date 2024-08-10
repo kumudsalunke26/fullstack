@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import Episode from "./Episode";
+import PrimaryButton from "./PrimaryButton";
 
 const LatestEpisodesData = [
     {
@@ -35,17 +35,15 @@ const LatestEpisodesData = [
 ];
 const LatestEpisodesSection = () => {
     return (
-        <section className='w-[80%] mx-auto'>
-            <h2 className='text-2xl font-bold'>Latest Episodes</h2>
+        <section className='w-[70%] mx-auto mt-24'>
+            <h2 className='text-4xl font-extrabold'>Latest Episodes</h2>
             <div className='w-full'>
                 {LatestEpisodesData.map((episode) => (
                     <Episode episode={episode} key={episode.id} />
                 ))}
             </div>
             <div className='w-full md:w-[40%] flex justify-center'>
-                <button className='mt-4 border-2 border-white bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl'>
-                    <Link to='/episodes'>View All Episodes</Link>
-                </button>
+                <PrimaryButton text='View All episodes' toLink='/episodes' />
             </div>
         </section>
     );
