@@ -16,7 +16,7 @@ const names = [
 
 const CategoriesList = () => {
     return (
-        <div className='my-10 h-20 flex items-center mx-auto w-[70%] overflow-hidden bg-gradient-to-b from-blue-900 to-black shadow-lg'>
+        <div className='my-10 h-20 flex items-center overflow-hidden bg-gradient-to-b from-blue-900 to-black shadow-lg w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <div className='relative flex overflow-hidden'>
                 <motion.div
                     className='flex space-x-4 whitespace-nowrap items-center'

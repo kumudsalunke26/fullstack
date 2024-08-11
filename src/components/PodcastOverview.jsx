@@ -5,7 +5,7 @@ import { HiRectangleStack } from "react-icons/hi2";
 const PodcastOverview = () => {
     return (
         <motion.div
-            className='w-[70%] grid lg:grid-cols-[1fr_2fr] gap-4 mx-auto my-8 mt-24'
+            className='grid lg:grid-cols-[1fr_2fr] gap-4 mt-24 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'
             initial={{ y: "15%" }}
             whileInView={{ y: 0 }}
             transition={{ duration: 0.8 }}
@@ -26,16 +26,16 @@ const PodcastOverview = () => {
                     <li>3. Podcast Pioneers in Action</li>
                 </ol>
             </div>
-            <div className='flex flex-col md:flex-row gap-10'>
-                <div className='h-full'>
+            <div className='flex flex-col md:flex-row gap-6'>
+                <div className='h-full w-full'>
                     <Image
                         src='https://placehold.co/350x550'
-                        className='object-cover'
+                        className='object-cover min-w-[250px]'
                     />
                 </div>
                 <div className='flex flex-col gap-6 justify-center'>
-                    <div className='flex gap-4'>
-                        <HiRectangleStack className='text-4xl h-fit bg-purple-900 text-purple-500 rounded-full p-1' />
+                    <div className='flex gap-4 w-full'>
+                        <HiRectangleStack className='min-w-8 min-h-8 bg-purple-900 text-purple-500 rounded-full p-1' />
                         <div>
                             <h3 className='text-md font-semibold'>
                                 Unmatched Audio Quality
@@ -48,7 +48,7 @@ const PodcastOverview = () => {
                         </div>
                     </div>
                     <div className='flex gap-4'>
-                        <HiRectangleStack className='text-4xl h-fit bg-purple-900 text-purple-500 rounded-full p-1' />
+                        <HiRectangleStack className='min-w-8 min-h-8 bg-purple-900 text-purple-500 rounded-full p-1' />
                         <div>
                             <h3 className='text-md font-semibold'>
                                 Thoughtful Content Curation
@@ -61,7 +61,7 @@ const PodcastOverview = () => {
                         </div>
                     </div>
                     <div className='flex gap-4'>
-                        <HiRectangleStack className='text-4xl h-fit bg-purple-900 text-purple-500 rounded-full p-1' />
+                        <HiRectangleStack className='min-w-8 min-h-8 bg-purple-900 text-purple-500 rounded-full p-1' />
                         <div>
                             <h3 className='text-md font-semibold'>
                                 Engaging Community Interaction

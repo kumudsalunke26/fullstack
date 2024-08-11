@@ -7,12 +7,12 @@ const SubsciptionSection = () => {
             initial={{ y: "50%" }}
             whileInView={{ y: 0 }}
             transition={{ duration: 0.8 }}
-            className='gap-8 mt-20 flex flex-col lg:flex-row  bg-transparent w-[70%] mx-auto'
+            className='gap-8 mt-20 flex flex-col lg:flex-row bg-transparent w-[90%] lg:w-[70%] md:w-[80%] mx-auto'
         >
-            <div className='pb-0 pt-2 px-4 flex-col w-[500px]'>
+            <div className='pb-0 pt-2 px-4 flex-col w-full md:w-[500px]'>
                 <Image
                     alt='Card background'
-                    className='object-cover w-[500px]'
+                    className='object-cover md:w-[500px] w-full'
                     src='https://framerusercontent.com/images/poAVdP1X7ojkg3A0HgFpJYIfI.png?scale-down-to=512'
                 />
             </div>
@@ -25,12 +25,12 @@ const SubsciptionSection = () => {
                     Subscribe to our newsletter to get the latest news and
                     updates.
                 </p>
-                <div className='mt-4 flex px-2 py-1 items-center space-x-2 rounded-full bg-purple-600 h-fit max-w-[400px]'>
+                <div className='mt-4 flex px-2 py-1 items-center space-x-2 rounded-full bg-[#751269] h-fit w-fit'>
                     <input
-                        className='flex-1 focus:outline-none bg-transparent text-white'
+                        className='flex-1 px-2 flex-shrink focus:outline-none placeholder-white bg-transparent text-white'
                         placeholder='Enter your email address'
                     />
-                    <Button className='text-white rounded-full px-6 py-1 bg-purple-950'>
+                    <Button className='text-white rounded-full px-6 py-1 bg-[#290324]'>
                         Subscribe
                     </Button>
                 </div>

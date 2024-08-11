@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
     return (
-        <div className='bg-black text-white'>
+        <div className='bg-[#290324] text-white'>
             <Header />
             <Outlet />
             <Footer />

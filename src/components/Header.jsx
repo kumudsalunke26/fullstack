@@ -1,5 +1,6 @@
 import logo from "../assets/logo.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
     Navbar,
     NavbarBrand,
@@ -8,7 +9,6 @@ import {
     NavbarMenuToggle,
     NavbarMenu,
     NavbarMenuItem,
-    Link,
     Button,
 } from "@nextui-org/react";
 import PrimaryButton from "./PrimaryButton";
@@ -17,21 +17,23 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuItems = [
         { label: "Episodes", toLink: "/episodes" },
-        { label: "Blogs", toLink: "/about" },
-        { label: "About us", toLink: "/services" },
-        { label: "Team", toLink: "/contact" },
+        { label: "Blogs", toLink: "/blogs" },
+        { label: "About us", toLink: "/about" },
+        { label: "Team", toLink: "/hosts" },
         { label: "Subscribe", toLink: "/subscribe" },
         { label: "Reviews", toLink: "/reviews" },
     ];
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen} className='bg-black'>
+        <Navbar onMenuOpenChange={setIsMenuOpen} className='bg-transparent'>
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className='sm:hidden'
                 />
                 <NavbarBrand>
-                    <img src={logo} alt='Logo' className='w-28' />
+                    <Link to='/'>
+                        <img src={logo} alt='Logo' className='w-28 h-[100%]' />
+                    </Link>
                 </NavbarBrand>
             </NavbarContent>
 

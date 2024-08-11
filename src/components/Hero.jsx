@@ -14,7 +14,6 @@ const Hero = () => {
                     <img src={apple} alt='' className='h-10 object-cover' />
                     <img src={spotify} alt='' className='h-10 object-cover' />
                 </div>
-                {}
             </div>
         </div>
     );

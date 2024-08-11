@@ -35,7 +35,7 @@ const LatestEpisodesData = [
 ];
 const LatestEpisodesSection = () => {
     return (
-        <section className='w-[70%] mx-auto mt-24'>
+        <section className='mt-24 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <h2 className='text-4xl font-extrabold'>Latest Episodes</h2>
             <div className='w-full'>
                 {LatestEpisodesData.map((episode) => (

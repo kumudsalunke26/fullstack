@@ -41,7 +41,7 @@ const OurTeamSection = () => {
     };
 
     return (
-        <div className='flex flex-col gap-10 w-[70%] mx-auto mt-20'>
+        <div className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <div className='flex justify-between items-center w-full'>
                 <h2 className='text-4xl font-extrabold'>Our team</h2>
                 <PrimaryButton text='See All Hosts' toLink='/hosts' />

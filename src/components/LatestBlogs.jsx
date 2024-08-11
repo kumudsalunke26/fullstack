@@ -1,4 +1,4 @@
-import Blog from "./Blog";
+import Blog from "./BlogCard";
 import PrimaryButton from "./PrimaryButton";
 
 const BlogsData = [
@@ -33,7 +33,7 @@ const BlogsData = [
 ];
 const LatestBlogs = () => {
     return (
-        <div className='flex flex-col gap-10 w-[70%] mx-auto mt-20'>
+        <div className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <div className='flex justify-between items-center w-full'>
                 <h2 className='text-4xl font-extrabold'>Latest Articles</h2>
                 <PrimaryButton toLink='/hosts' text='See All Hosts' />

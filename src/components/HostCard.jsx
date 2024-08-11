@@ -19,7 +19,7 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className='relative cursor-pointer w-[280px] lg:w-[300px] overflow-hidden'
+            className='relative cursor-pointer w-[300px] overflow-hidden'
             onMouseEnter={() => handleHover(index)}
             onMouseLeave={() => handleHover(null)}
         >

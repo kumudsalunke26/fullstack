@@ -4,7 +4,7 @@ import PrimaryButton from "./PrimaryButton";
 
 const TopPodcast = () => {
     return (
-        <Card className='py-4 w-[70%] mx-auto bg-black text-white grid lg:grid-cols-[2fr_3fr] gap-6'>
+        <Card className='py-4 mx-auto bg-transparent text-white grid lg:grid-cols-[2fr_3fr] gap-6 w-[90%] lg:w-[70%] md:w-[80%]'>
             <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: 0 }}
