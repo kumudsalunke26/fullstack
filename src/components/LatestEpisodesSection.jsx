@@ -9,7 +9,7 @@ const LatestEpisodesData = [
         date: "2021-09-01",
         genre: "Technology",
         duration: "30",
-        thumbnail: "https://placehold.co/1600x600",
+        thumbnail: "https://framerusercontent.com/images/NeyrABTuK1VDCirywGk9mqJbQ1g.png",
         vol: 1,
     },
     {
@@ -19,7 +19,7 @@ const LatestEpisodesData = [
         date: "2021-09-08",
         genre: "Technology",
         duration: "45",
-        thumbnail: "https://placehold.co/1600x600",
+        thumbnail: "https://framerusercontent.com/images/CzQNl9xaVBJQALAk17pzAdDhw.png",
         vol: 1,
     },
     {
@@ -29,7 +29,7 @@ const LatestEpisodesData = [
         date: "2021-09-15",
         genre: "Technology",
         duration: "45",
-        thumbnail: "https://placehold.co/1600x600",
+        thumbnail: "https://framerusercontent.com/images/WZiBqRCRuKwYbOtZXZyIuhbVjNg.png",
         vol: 1,
     },
 ];

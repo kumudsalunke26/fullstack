@@ -5,7 +5,7 @@ const BlogsData = [
     {
         id: 1,
         title: "Blog Title One",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png?scale-down-to=512",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -14,7 +14,7 @@ const BlogsData = [
     {
         id: 2,
         title: "Blog Title Two",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/M2QhmZ49orRBBQ2MUojCmUS0I.png?scale-down-to=512",
         date: "01-01-2021",
         category: "Technology",
 
@@ -24,7 +24,7 @@ const BlogsData = [
     {
         id: 3,
         title: "Blog Title Three",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png?scale-down-to=512",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",

@@ -29,7 +29,7 @@ const PodcastOverview = () => {
             <div className='flex flex-col md:flex-row gap-6'>
                 <div className='h-full w-full'>
                     <Image
-                        src='https://placehold.co/350x550'
+                        src='https://framerusercontent.com/images/C07mv8pwLCEQbyTaezgpcr5LbN4.png?scale-down-to=1024'
                         className='object-cover min-w-[250px]'
                     />
                 </div>
