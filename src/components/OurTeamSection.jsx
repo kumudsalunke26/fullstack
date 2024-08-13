@@ -46,7 +46,7 @@ const OurTeamSection = () => {
                 <h2 className='text-4xl font-extrabold'>Our team</h2>
                 <PrimaryButton text='See All Hosts' toLink='/hosts' />
             </div>
-            <div className='flex flex-wrap items-center justify-center md:justify-normal gap-8 px-10'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full'>
                 {Hostdata.map((host, index) => (
                     <HostCard
                         key={index}

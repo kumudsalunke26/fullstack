@@ -23,11 +23,11 @@ const TopPodcast = () => {
                 transition={{ duration: 0.8 }}
                 className='flex flex-col md:flex-row justify-center gap-2 flex-1'
             >
-                <div className='flex flex-col md:flex-row justify-center gap-2 flex-1'>
-                    <CardBody className='overflow-visible py-2 w-full flex justify-center md:justify-start'>
+                <div className='flex flex-col md:flex-row justify-center gap-2 flex-1 h-full'>
+                    <CardBody className='overflow-hidden py-2 w-full flex justify-center md:justify-start max-h-[600px]'>
                         <Image
                             alt='Card background'
-                            className='object-cover rounded-xl'
+                            className='object-cover w-full max-h-[600px]'
                             src='https://img.freepik.com/premium-photo/podcast-live-streaming-microphone-with-sound-wave-magenta-backdrop-vertical-mobile-wallpaper_892776-28637.jpg'
                             width={270}
                         />

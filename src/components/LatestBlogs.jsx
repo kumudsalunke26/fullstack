@@ -38,7 +38,7 @@ const LatestBlogs = () => {
                 <h2 className='text-4xl font-extrabold'>Latest Articles</h2>
                 <PrimaryButton toLink='/hosts' text='See All Hosts' />
             </div>
-            <div className='flex flex-wrap items-center justify-center md:justify-normal gap-8 px-10'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full'>
                 {BlogsData.map((blog, index) => (
                     <Blog blog={blog} key={index} />
                 ))}

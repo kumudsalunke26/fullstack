@@ -19,7 +19,7 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className='relative cursor-pointer w-[300px] overflow-hidden'
+            className='relative cursor-pointer w-full max-h-[500px] overflow-hidden'
             onMouseEnter={() => handleHover(index)}
             onMouseLeave={() => handleHover(null)}
         >
@@ -43,10 +43,10 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
                     className={`flex justify-between gap-4 px-4 py-2 items-center m-4 h-fit w-full bg-white`}
                 >
                     <div>
-                        <p className='text-black text-md font-bold mb-1'>
+                        <p className='text-black text-md font-bold mb-1 whitespace-nowrap'>
                             {item.name}
                         </p>
-                        <p className='text-gray-500 text-md'>{item.genre}</p>
+                        <p className='text-gray-500 text-md whitespace-nowrap'>{item.genre}</p>
                     </div>
                     <div className='flex space-x-4'>
                         <a

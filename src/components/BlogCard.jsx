@@ -8,9 +8,9 @@ const Blog = ({ blog }) => {
             initial={{ scale: 1.3 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.8 }}
-            className='relative cursor-pointer w-[300px]'
+            className='relative cursor-pointer w-full overflow-hidden'
         >
-            <Card className='bg-transparent text-white'>
+            <Card className='bg-transparent text-white w-full h-full'>
                 <CardHeader>
                     <Image
                         src={blog.image}

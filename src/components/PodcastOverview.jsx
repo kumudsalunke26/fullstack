@@ -26,11 +26,11 @@ const PodcastOverview = () => {
                     <li>3. Podcast Pioneers in Action</li>
                 </ol>
             </div>
-            <div className='flex flex-col md:flex-row gap-6'>
-                <div className='h-full w-full'>
-                    <Image
+            <div className='flex flex-col md:flex-row gap-6 h-full'>
+                <div className='w-full h-[600px] md:h-[100%] overflow-hidden'>
+                    <img
                         src='https://framerusercontent.com/images/C07mv8pwLCEQbyTaezgpcr5LbN4.png?scale-down-to=1024'
-                        className='object-cover min-w-[250px]'
+                        className='object-cover w-full h-full'
                     />
                 </div>
                 <div className='flex flex-col gap-6 justify-center'>
