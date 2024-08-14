@@ -1,6 +1,6 @@
 import logo from "../assets/logo.png";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
     Navbar,
     NavbarBrand,
@@ -9,12 +9,17 @@ import {
     NavbarMenuToggle,
     NavbarMenu,
     NavbarMenuItem,
-    Button,
 } from "@nextui-org/react";
 import PrimaryButton from "./PrimaryButton";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
     const menuItems = [
         { label: "Episodes", toLink: "/episodes" },
         { label: "Blogs", toLink: "/blogs" },

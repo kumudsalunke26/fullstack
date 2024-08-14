@@ -17,14 +17,13 @@ const CategoriesList = () => {
     return (
         <div className='my-10 h-20 flex items-center overflow-hidden bg-gradient-to-b from-primary to-background shadow-lg w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <motion.div
-                className='flex items-center space-x-4'
+                className='flex items-center space-x-4 whitespace-nowrap'
                 animate={{ x: ["0%", "-45%"] }}
                 transition={{
                     duration: 10,
                     repeat: Infinity,
                     ease: "linear",
                 }}
-                style={{ whiteSpace: "nowrap" }}
             >
                 {[...names, ...names].map((name, index) => (
                     <React.Fragment key={index}>

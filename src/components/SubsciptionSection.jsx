@@ -29,8 +29,9 @@ const SubsciptionSection = () => {
                 <Button className='text-mainText rounded-full px-6 py-1 bg-primary'>
                     <a
                         target='_blank'
-                        href='https://www.youtube.com/'
+                        href='https://www.youtube.com/channel/UCO0mVgRyCGWXOqmJ3UukIlg'
                         rel='noopener noreferrer'
+                        className='text-center w-full'
                     >
                         Subscribe
                     </a>
