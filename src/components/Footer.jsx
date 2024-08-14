@@ -1,8 +1,7 @@
 import { BsTwitter } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa6";
-import { FaStarOfLife } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { PiApplePodcastsLogo } from "react-icons/pi";
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -10,8 +9,11 @@ const Footer = () => {
         <footer className='text-mainText p-8 border-t-2 border-secondary mt-20'>
             <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_4fr_2fr_2fr] gap-8'>
                 <div className='flex flex-col gap-2 items-center md:items-start'>
-                    <PiApplePodcastsLogo className='text-4xl' />
-                    <h3 className='text-xl font-semibold '>Podkuthar</h3>
+                    <img
+                        src={logo}
+                        alt='Logo'
+                        className='w-28 h-fit ml-[-15px]'
+                    />
                     <p className='text-sm text-center md:text-start'>
                         Whether you're a seasoned listener or a newcomer to the
                         world of podcasts, our platform provides a hub for
@@ -75,7 +77,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h2 className='text-2xl font-bold mb-3'>Contact Info</h2>
-                    <p className='text-sm'>Email: info@podkuthar.com</p>
+                    <p className='text-sm'>Email: info@journeystory.com</p>
                     <p className='text-sm'>Phone: 123-456-7890</p>
                 </div>
                 <div className='flex flex-col gap-4'>
@@ -111,7 +113,7 @@ const Footer = () => {
             </div>
 
             <div className='flex justify-center items-center mt-8'>
-                <p className='text-sm'>© 2024 PODKUTHIR.</p>
+                <p className='text-sm'>© 2024 Journey Story.</p>
             </div>
         </footer>
     );

@@ -20,7 +20,6 @@ const Header = () => {
         { label: "Blogs", toLink: "/blogs" },
         { label: "About us", toLink: "/about" },
         { label: "Team", toLink: "/hosts" },
-        { label: "Subscribe", toLink: "/subscribe" },
         { label: "Reviews", toLink: "/reviews" },
     ];
     return (
@@ -37,7 +36,7 @@ const Header = () => {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className='hidden sm:flex gap-4' justify='center'>
+            <NavbarContent className='hidden sm:flex gap-12' justify='center'>
                 {menuItems.map((item, index) => (
                     <NavbarItem
                         key={`${item.label}-${index}`}

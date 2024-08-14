@@ -22,7 +22,7 @@ const ContactUsSection = () => {
                         alt='Contact us'
                         className='rounded-none object-cover min-w-[430px] mx-auto md:mx-0 md:min-w-[300px] lg:min-w-[400px] h-[450px] md:h-[100%]'
                     />
-                    <div className='bg-[#4a1043] h-full flex flex-col gap-4 p-3'>
+                    <div className='bg-primary h-full flex flex-col gap-4 p-3'>
                         <h2 className='text-2xl font-bold'>Contact details</h2>
                         <div className='grid lg:grid-cols-2 gap-8 mt-4'>
                             <div>

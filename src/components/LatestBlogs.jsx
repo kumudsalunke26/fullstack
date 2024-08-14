@@ -21,15 +21,6 @@ const BlogsData = [
         userName: "John Doe",
         userStatus: "Author",
     },
-    {
-        id: 3,
-        title: "Blog Title Three",
-        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png?scale-down-to=512",
-        date: "01-01-2021",
-        category: "Technology",
-        userName: "John Doe",
-        userStatus: "Author",
-    },
 ];
 const LatestBlogs = () => {
     return (
@@ -38,7 +29,7 @@ const LatestBlogs = () => {
                 <h2 className='text-4xl font-extrabold'>Latest Articles</h2>
                 <PrimaryButton toLink='/hosts' text='See All Hosts' />
             </div>
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full'>
+            <div className='grid lg:grid-cols-2 gap-4 w-full'>
                 {BlogsData.map((blog, index) => (
                     <Blog blog={blog} key={index} />
                 ))}

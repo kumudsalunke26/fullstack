@@ -10,7 +10,6 @@ import AboutUsPage from "./pages/AboutUsPage.jsx";
 import BlogsPage from "./pages/BlogsPage.jsx";
 import HostsPage from "./pages/HostsPage.jsx";
 import ReviewsPage from "./pages/ReviewsPage.jsx";
-import SubscriptionPage from "./pages/SubscriptionPage.jsx";
 import ConatctUsPage from "./pages/ConatctUsPage.jsx";
 
 const router = createBrowserRouter([
@@ -38,10 +37,7 @@ const router = createBrowserRouter([
                 path: "/hosts",
                 element: <HostsPage />,
             },
-            {
-                path: "/subscribe",
-                element: <SubscriptionPage />,
-            },
+
             {
                 path: "/reviews",
                 element: <ReviewsPage />,

@@ -1,5 +1,6 @@
 import { Button, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const SubsciptionSection = () => {
     return (
@@ -25,15 +26,15 @@ const SubsciptionSection = () => {
                     Subscribe to our newsletter to get the latest news and
                     updates.
                 </p>
-                <div className='mt-4 flex px-2 py-1 items-center space-x-2 rounded-full bg-primary h-fit w-fit'>
-                    <input
-                        className='flex-1 px-2 flex-shrink focus:outline-none placeholder-mainText bg-transparent text-mainText'
-                        placeholder='Enter your email address'
-                    />
-                    <Button className='text-mainText rounded-full px-6 py-1 bg-secondary'>
+                <Button className='text-mainText rounded-full px-6 py-1 bg-primary'>
+                    <a
+                        target='_blank'
+                        href='https://www.youtube.com/'
+                        rel='noopener noreferrer'
+                    >
                         Subscribe
-                    </Button>
-                </div>
+                    </a>
+                </Button>
             </div>
         </motion.div>
     );

@@ -1,15 +1,13 @@
 import { Avatar } from "@nextui-org/avatar";
-import { Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import apple from "../assets/Apple-Prodcast.svg";
-import google from "../assets/Google-Prodcast.svg";
 import spotify from "../assets/Spotify.svg";
+import youtube from "../assets/Youtube.svg";
 
 const CompanyInfo = () => {
     return (
         <div className='bg-transparent w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <h2 className='text-2xl md:text-4xl font-extrabold'>
-                Storyof Podkuthir’s <br /> Journey
+                Journey Story
             </h2>
 
             <motion.div
@@ -24,7 +22,7 @@ const CompanyInfo = () => {
                         Podcast Pioneers in Action Sculptors of Sonic Stories
                     </p>
                     <p className='text-mainText'>
-                        Podkuthir's narrative unfolds as a story fueled by
+                        Journey Story's narrative unfolds as a story fueled by
                         passion, innovation, and a dedication to fostering a
                         lively community of audio enthusiasts. Originating as a
                         concept rooted in a collective love for storytelling,
@@ -32,8 +30,8 @@ const CompanyInfo = () => {
                         come to life.
                     </p>
                     <p className='text-mainText'>
-                        Remaining committed to constant growth, Podkuthir has
-                        adeptly sailed through the dynamic waves of the
+                        Remaining committed to constant growth, Journey Story
+                        has adeptly sailed through the dynamic waves of the
                         expanding podcasting realm, consistently adapting and
                         embracing emerging trends. This commitment ensures an
                         enriching experience for both creators and listeners
@@ -67,21 +65,28 @@ const CompanyInfo = () => {
                     <div className='flex lg:hidden items-center justify-between mt-5 h-16'>
                         <h2 className='text-xl font-bold'>Available on:</h2>
                         <div className='ml-3 flex items-center justify-between gap-4'>
-                            <img
-                                src={google}
-                                alt=''
-                                className='h-8 object-cover'
-                            />
-                            <img
-                                src={apple}
-                                alt=''
-                                className='h-8 object-cover'
-                            />
-                            <img
-                                src={spotify}
-                                alt=''
-                                className='h-8 object-cover'
-                            />
+                            <a
+                                href='https://www.spotify.com/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <img
+                                    src={spotify}
+                                    alt='Spotify'
+                                    className='h-8 object-cover'
+                                />
+                            </a>
+                            <a
+                                href='https://www.youtube.com/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <img
+                                    src={youtube}
+                                    alt='YouTube'
+                                    className='h-8 object-cover'
+                                />
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -93,21 +98,28 @@ const CompanyInfo = () => {
                     <div className='flex flex-col items-center justify-between mt-5 h-16'>
                         <h2 className='text-xl font-bold'>Available on:</h2>
                         <div className='ml-3 flex items-center justify-between gap-4'>
-                            <img
-                                src={google}
-                                alt=''
-                                className='h-8 object-cover'
-                            />
-                            <img
-                                src={apple}
-                                alt=''
-                                className='h-8 object-cover'
-                            />
-                            <img
-                                src={spotify}
-                                alt=''
-                                className='h-8 object-cover'
-                            />
+                            <a
+                                href='https://www.spotify.com/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <img
+                                    src={spotify}
+                                    alt='Spotify'
+                                    className='h-8 object-cover'
+                                />
+                            </a>
+                            <a
+                                href='https://www.youtube.com/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <img
+                                    src={youtube}
+                                    alt='YouTube'
+                                    className='h-8 object-cover'
+                                />
+                            </a>
                         </div>
                     </div>
                 </div>

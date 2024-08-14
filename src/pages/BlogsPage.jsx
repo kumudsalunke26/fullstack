@@ -6,7 +6,7 @@ const BlogsData = [
     {
         id: 1,
         title: "Blog Title One",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/M2QhmZ49orRBBQ2MUojCmUS0I.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -15,7 +15,7 @@ const BlogsData = [
     {
         id: 2,
         title: "Blog Title Two",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png",
         date: "01-01-2021",
         category: "Technology",
 
@@ -25,7 +25,7 @@ const BlogsData = [
     {
         id: 3,
         title: "Blog Title Three",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/M2QhmZ49orRBBQ2MUojCmUS0I.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -34,7 +34,7 @@ const BlogsData = [
     {
         id: 4,
         title: "Blog Title Four",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -43,7 +43,7 @@ const BlogsData = [
     {
         id: 5,
         title: "Blog Title Five",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/M2QhmZ49orRBBQ2MUojCmUS0I.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -52,7 +52,7 @@ const BlogsData = [
     {
         id: 6,
         title: "Blog Title Six",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -61,7 +61,7 @@ const BlogsData = [
     {
         id: 7,
         title: "Blog Title Seven",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/M2QhmZ49orRBBQ2MUojCmUS0I.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -70,7 +70,7 @@ const BlogsData = [
     {
         id: 8,
         title: "Blog Title Eight",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -79,7 +79,7 @@ const BlogsData = [
     {
         id: 9,
         title: "Blog Title Nine",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/M2QhmZ49orRBBQ2MUojCmUS0I.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -88,7 +88,7 @@ const BlogsData = [
     {
         id: 10,
         title: "Blog Title Ten",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -97,7 +97,7 @@ const BlogsData = [
     {
         id: 11,
         title: "Blog Title Ten",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/M2QhmZ49orRBBQ2MUojCmUS0I.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -106,7 +106,7 @@ const BlogsData = [
     {
         id: 12,
         title: "Blog Title Ten",
-        image: "https://placehold.co/400x500",
+        image: "https://framerusercontent.com/images/9anqlPzKmBC4zMgvvHBsbhn6M.png",
         date: "01-01-2021",
         category: "Technology",
         userName: "John Doe",
@@ -129,7 +129,7 @@ const BlogsPage = () => {
                 </div>
             </div>
 
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            <div className='grid lg:grid-cols-2 gap-8'>
                 {BlogsData.map((blog, index) => (
                     <Blog blog={blog} key={index} />
                 ))}
