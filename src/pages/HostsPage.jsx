@@ -67,8 +67,8 @@ const HostsPage = () => {
         setHoverValue(index);
     };
     return (
-        <div className='min-h-[100vh] mt-20 w-full'>
-            <div className='flex flex-col md:flex-row gap-6 mx-auto w-[90%] lg:w-[70%] md:w-[80%]'>
+        <div className='min-h-[100vh] mt-20 w-[90%] md:w-[80%] lg:w-[70%] mx-auto'>
+            <div className='flex flex-col md:flex-row gap-6'>
                 <h1 className='text-white text-4xl font-bold whitespace-nowrap'>
                     Our Hosts
                 </h1>
@@ -80,7 +80,7 @@ const HostsPage = () => {
                     </p>
                 </div>
             </div>
-            <div className='flex flex-wrap w-[90%] md:w-[80%] lg:w-[70%] gap-3 mx-auto mt-10'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-3 mt-10'>
                 {Hostdata.map((host, index) => (
                     <HostCard
                         key={index}

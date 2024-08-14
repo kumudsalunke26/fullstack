@@ -8,7 +8,7 @@ export default function FAQAccordion() {
     return (
         <Accordion
             variant='shadow'
-            className='bg-gradient-to-tr from-[#751269] to-[#140412] rounded-none'
+            className='bg-gradient-to-tr from-primary to-background rounded-none'
         >
             <AccordionItem key='1' aria-label='Accordion 1' title='Accordion 1'>
                 <ScrollShadow className='h-[150px]'>

@@ -18,10 +18,13 @@ export default function PaginationSection({ pages, page }) {
             return (
                 <button
                     key={key}
-                    className={cn(className, "bg-[#751269] min-w-9 w-9 h-9")}
+                    className={cn(className, "bg-primary min-w-9 w-9 h-9")}
                     onClick={onNext}
                 >
-                    <IoChevronForwardSharp size={22} className='text-white' />
+                    <IoChevronForwardSharp
+                        size={22}
+                        className='text-mainText'
+                    />
                 </button>
             );
         }
@@ -30,10 +33,10 @@ export default function PaginationSection({ pages, page }) {
             return (
                 <button
                     key={key}
-                    className={cn(className, "bg-[#751269] min-w-9 w-9 h-9")}
+                    className={cn(className, "bg-primary min-w-9 w-9 h-9")}
                     onClick={onPrevious}
                 >
-                    <IoChevronBackSharp size={22} className='text-white' />
+                    <IoChevronBackSharp size={22} className='text-mainText' />
                 </button>
             );
         }
@@ -42,7 +45,7 @@ export default function PaginationSection({ pages, page }) {
             return (
                 <button
                     key={key}
-                    className={`${className} text-white tracking-widest`}
+                    className={`${className} text-mainText tracking-widest`}
                 >
                     ...
                 </button>
@@ -54,9 +57,9 @@ export default function PaginationSection({ pages, page }) {
             <button
                 key={key}
                 ref={ref}
-                className={`text-white border-1 border-gray-500 rounded-full ${cn(
+                className={`text-mainText border-1 border-secondary rounded-full ${cn(
                     className,
-                    isActive && " bg-[#45103f] font-bold"
+                    isActive && " bg-primary font-bold"
                 )}`}
                 onClick={() => setPage(value)}
             >

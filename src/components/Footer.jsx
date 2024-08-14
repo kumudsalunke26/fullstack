@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className='text-white p-8 border-t-2 border-gray-500 mt-20'>
+        <footer className='text-mainText p-8 border-t-2 border-secondary mt-20'>
             <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_4fr_2fr_2fr] gap-8'>
                 <div className='flex flex-col gap-2 items-center md:items-start'>
                     <PiApplePodcastsLogo className='text-4xl' />
@@ -86,7 +86,7 @@ const Footer = () => {
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
                     >
-                        <BsTwitter className='text-3xl bg-[#290324] rounded-full p-1 border border-purple-500' />
+                        <BsTwitter className='text-3xl bg-background rounded-full p-1 border border-primary' />
                         <div className='text-md'>Twitter</div>
                     </a>
                     <a
@@ -95,7 +95,7 @@ const Footer = () => {
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
                     >
-                        <FaInstagram className='text-3xl bg-[#290324] rounded-full p-1 border border-purple-500' />
+                        <FaInstagram className='text-3xl bg-background rounded-full p-1 border border-primary' />
                         <div className='text-md'>Instagram</div>
                     </a>
                     <a
@@ -104,7 +104,7 @@ const Footer = () => {
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
                     >
-                        <FaFacebook className='text-3xl bg-[#290324] rounded-full p-1 border border-purple-500' />
+                        <FaFacebook className='text-3xl bg-background rounded-full p-1 border border-primary' />
                         <div className='text-md'>Facebook</div>
                     </a>
                 </div>

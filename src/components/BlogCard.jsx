@@ -10,13 +10,11 @@ const Blog = ({ blog }) => {
             transition={{ duration: 0.8 }}
             className='relative cursor-pointer w-full overflow-hidden'
         >
-            <Card className='bg-transparent text-white w-full h-full'>
-                <CardHeader>
-                    <Image
+            <Card className='bg-transparent text-text w-full h-full'>
+                <CardHeader className='w-full h-[500px]'>
+                    <img
                         src={blog.image}
-                        width={320}
-                        height={400}
-                        className='object-cover hover:scale-95'
+                        className='object-cover hover:scale-95 h-full w-full'
                     />
                 </CardHeader>
                 <CardBody className='w-full mt-[-25px] flex flex-col gap-2 items-start'>

@@ -106,8 +106,8 @@ const LatestEpisodesData = [
 ];
 const EpisodesPage = () => {
     return (
-        <div className='min-h-[100vh] mt-20 w-full'>
-            <div className='flex flex-col md:flex-row gap-6 mx-auto w-[90%] lg:w-[70%] md:w-[80%]'>
+        <div className='min-h-[100vh] mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
+            <div className='flex flex-col md:flex-row gap-6'>
                 <h1 className='text-white text-4xl font-bold whitespace-nowrap'>
                     All Episodes
                 </h1>

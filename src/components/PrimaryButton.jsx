@@ -6,7 +6,7 @@ const PrimaryButton = ({ text, toLink }) => {
         <Button
             variant='bordered'
             radius='full'
-            className='bg-blue-700 hover:bg-blue-900 text-white font-bold'
+            className='bg-primary text-white font-bold'
         >
             <Link to={toLink}>{text}</Link>
         </Button>

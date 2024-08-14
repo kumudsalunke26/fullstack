@@ -19,12 +19,12 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className='relative cursor-pointer w-full max-h-[500px] overflow-hidden'
+            className='relative cursor-pointer w-fit overflow-hidden'
             onMouseEnter={() => handleHover(index)}
             onMouseLeave={() => handleHover(null)}
         >
-            <div className='h-full w-full overflow-hidden'>
-                <Image
+            <div className='h-[500px] md:h-full w-full overflow-hidden'>
+                <img
                     src={item.image}
                     className={`object-cover w-full h-full transition-transform duration-500 ${
                         index === hoverValue ? "scale-110" : ""
@@ -32,28 +32,30 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
                 />
             </div>
             <div
-                className={`absolute h-full w-full bottom-0 left-0 right-0 flex justify-center items-end transition-all duration-500 z-10 ${
+                className={`absolute h-full md:w-full bottom-0 left-0 right-0 flex justify-center items-end transition-all duration-500 z-10 ${
                     index === hoverValue
-                        ? "translate-y-0 opacity-100 bg-gradient-to-b from-transparent to-purple-950 bg-opacity-80"
+                        ? "translate-y-0 opacity-100 bg-gradient-to-b from-transparent to-primary bg-opacity-80"
                         : "translate-y-[100%] opacity-100"
                 }`}
                 onClick={handleClick}
             >
                 <div
-                    className={`flex justify-between gap-4 px-4 py-2 items-center m-4 h-fit w-full bg-white`}
+                    className={`flex justify-between gap-4 px-4 py-2 items-center m-4 h-fit w-full bg-mainText`}
                 >
                     <div>
-                        <p className='text-black text-md font-bold mb-1 whitespace-nowrap'>
+                        <p className='text-background text-md font-bold mb-1 whitespace-nowrap'>
                             {item.name}
                         </p>
-                        <p className='text-gray-500 text-md whitespace-nowrap'>{item.genre}</p>
+                        <p className='text-mainText text-md whitespace-nowrap'>
+                            {item.genre}
+                        </p>
                     </div>
                     <div className='flex space-x-4'>
                         <a
                             href={item.twitter}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-black'
+                            className='text-background'
                         >
                             <FaTwitter size={25} />
                         </a>
@@ -61,7 +63,7 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
                             href={item.instagram}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-black'
+                            className='text-background'
                         >
                             <FaInstagram size={25} />
                         </a>
@@ -69,7 +71,7 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
                             href={item.facebook}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-black'
+                            className='text-background'
                         >
                             <FaFacebook size={25} />
                         </a>

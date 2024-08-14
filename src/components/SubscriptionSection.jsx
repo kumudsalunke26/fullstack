@@ -47,18 +47,18 @@ const SubscriptionSection = () => {
         <div className='w-[90%] md:w-[80%] mx-auto flex gap-4'>
             <div className='flex gap-6 flex-col'>
                 <div className='flex flex-col md:flex-row gap-10 w-full'>
-                    <h1 className='text-white text-4xl font-bold whitespace-nowrap'>
+                    <h1 className='text-mainText text-4xl font-bold whitespace-nowrap'>
                         Subscription Plans
                     </h1>
                     <div className='text-md'>
-                        <p className='text-white'>
+                        <p className='text-mainText'>
                             We are a collective of passionate dedicated to
                             delivering immersive audio experiences that resonate
                             with your heart & mind.
                         </p>
                     </div>
                 </div>
-                <div className='grid md:grid-cols-3 gap-3 bg-[#2e0a2a] p-4 rounded-md w-[100%] min-h-[500px] overflow-hidden'>
+                <div className='grid md:grid-cols-3 gap-3 bg-background p-4 rounded-md w-[100%] min-h-[500px] overflow-hidden'>
                     {subscriptionDetails.map((subscription, index) => (
                         <motion.div
                             initial={{ y: "30%" }}
@@ -66,28 +66,28 @@ const SubscriptionSection = () => {
                             transition={{ duration: 0.5, delay: index * 0.2 }}
                             className='flex flex-col gap-6 justify-between h-full'
                         >
-                            <div className='text-md text-[#751269]'>
+                            <div className='text-md text-primary'>
                                 {subscription.title}
                             </div>
-                            <div className='text-md text-gray-500'>
+                            <div className='text-md text-mainText'>
                                 {subscription.description}
                             </div>
-                            <LuChevronsDown className='min-w-10 min-h-10 text-[#751269]' />
-                            <div className='text-xl md:text-2xl text-white font-bold'>
+                            <LuChevronsDown className='min-w-10 min-h-10 text-primary' />
+                            <div className='text-xl md:text-2xl text-mainText font-bold'>
                                 {subscription.price}
                             </div>
                             <ul>
                                 {subscription.features.map((feature, index) => (
                                     <li
                                         key={index}
-                                        className='flex items-center gap-2 text-gray-500'
+                                        className='flex items-center gap-2 text-mainText'
                                     >
-                                        <FaStarOfLife className='min-h-1 min-w-1 text-xs text-[#751269]' />
+                                        <FaStarOfLife className='min-h-1 min-w-1 text-xs text-primary' />
                                         <span>{feature}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <Button className='w-full rounded-full text-white bg-transparent border border-[#751269] hover:bg-[#162549]'>
+                            <Button className='w-full rounded-full text-mainText bg-transparent border border-primary'>
                                 Purchase to continue
                             </Button>
                         </motion.div>

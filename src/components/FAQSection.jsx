@@ -14,8 +14,8 @@ const FAQSection = () => {
                 transition={{ duration: 0.8 }}
                 className='w-full grid sm:grid-cols-[2fr_3fr] gap-4 mt-8 overflow-hidden'
             >
-                <Image
-                    className='max-w-[350px] md:max-w-[400px] rounded-none'
+                <img
+                    className='object-cover h-[500px] md:h-full w-full'
                     src='https://framerusercontent.com/images/Wel8eucm6iNDyJ74fZd8CuimsAE.png'
                 />
                 <FAQAccordion />

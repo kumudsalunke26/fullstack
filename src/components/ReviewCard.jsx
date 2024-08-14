@@ -2,11 +2,11 @@ import { User } from "@nextui-org/react";
 
 const ReviewCard = ({ review }) => {
     return (
-        <div className='flex flex-col justify-between gap-4 w-full md:min-w-[300px] p-3 shadow-sm shadow-[#5d3051] bg-gradient-to-b from-[#53204d] to-[#32132e] min-h-[450px] min-w-[200px]'>
-            <div className='text-[#e03eb5] font-semibold text-md p-2'>
+        <div className='flex flex-col justify-between gap-4 w-full md:min-w-[300px] p-3 shadow-sm bg-gradient-to-b from-primary to-background min-h-[450px] min-w-[200px]'>
+            <div className='text-primary font-semibold text-md p-2'>
                 {review.category}
             </div>
-            <div className='text-md font-semibold text-white'>
+            <div className='text-md font-semibold text-mainText'>
                 {review.content}
             </div>
             <User

@@ -5,11 +5,11 @@ const ContactUsSection = () => {
         <div className='w-[90%] md:w-[80%] mx-auto flex gap-4'>
             <div className='flex gap-6 flex-col'>
                 <div className='flex flex-col md:flex-row gap-10 w-full'>
-                    <h1 className='text-white text-4xl font-bold whitespace-nowrap'>
+                    <h1 className='text-mainText text-4xl font-bold whitespace-nowrap'>
                         Contact us
                     </h1>
                     <div className='text-md'>
-                        <p className='text-white'>
+                        <p className='text-mainText'>
                             We are a collective of passionate dedicated to
                             delivering immersive audio experiences that resonate
                             with your heart & mind.
@@ -30,7 +30,7 @@ const ContactUsSection = () => {
                                 <p className='text-sm'>
                                     You can email us at support@example.com
                                 </p>
-                                <p className='text-sm text-gray-500'>
+                                <p className='text-sm text-mainText'>
                                     Whether you have inquiries about our
                                     podcasts, need technical support.
                                 </p>
@@ -47,20 +47,20 @@ const ContactUsSection = () => {
                                 type='text'
                                 label='Your name'
                                 placeholder='Enter your name'
-                                className='w-full bg-[#2e0a2a] rounded-xl'
+                                className='w-full bg-background rounded-xl'
                                 variant='bordered'
                             />
                             <Input
                                 type='email'
                                 label='Email'
                                 placeholder='Enter your email'
-                                className='w-full bg-[#2e0a2a] rounded-xl'
+                                className='w-full bg-background rounded-xl'
                                 variant='bordered'
                             />
                             <Textarea
                                 label='Message'
                                 placeholder='Enter your message...'
-                                className='w-full bg-[#2e0a2a] rounded-xl'
+                                className='w-full bg-background rounded-xl'
                                 variant='bordered'
                             />
                         </form>

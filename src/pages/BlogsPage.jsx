@@ -129,7 +129,7 @@ const BlogsPage = () => {
                 </div>
             </div>
 
-            <div className='flex flex-wrap items-center justify-center md:justify-normal gap-8 px-10'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {BlogsData.map((blog, index) => (
                     <Blog blog={blog} key={index} />
                 ))}

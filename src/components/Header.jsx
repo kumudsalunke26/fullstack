@@ -54,11 +54,11 @@ const Header = () => {
                     Contact Us
                 </PrimaryButton>
             </NavbarContent>
-            <NavbarMenu className='bg-black bg-opacity-50'>
+            <NavbarMenu className='bg-background bg-opacity-50'>
                 {menuItems.map((item, index) => (
                     <NavbarMenuItem key={`${item.label}-${index}`}>
                         <Link
-                            className='w-full text-white'
+                            className='w-full text-mainText'
                             to={item.toLink}
                             size='lg'
                         >

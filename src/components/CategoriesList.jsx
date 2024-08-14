@@ -15,7 +15,7 @@ const names = [
 
 const CategoriesList = () => {
     return (
-        <div className='my-10 h-20 flex items-center overflow-hidden bg-gradient-to-b from-blue-900 to-black shadow-lg w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
+        <div className='my-10 h-20 flex items-center overflow-hidden bg-gradient-to-b from-primary to-background shadow-lg w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <motion.div
                 className='flex items-center space-x-4'
                 animate={{ x: ["0%", "-45%"] }}
@@ -28,11 +28,11 @@ const CategoriesList = () => {
             >
                 {[...names, ...names].map((name, index) => (
                     <React.Fragment key={index}>
-                        <span className='py-2 px-3 text-center text-md font-normal min-w-max text-white'>
+                        <span className='py-2 px-3 text-center text-md font-normal min-w-max text-mainText'>
                             {name}
                         </span>
                         {index < names.length * 2 - 1 && (
-                            <FaStarOfLife className='min-h-3 min-w-3 text-xs text-white' />
+                            <FaStarOfLife className='min-h-3 min-w-3 text-xs text-mainText' />
                         )}
                     </React.Fragment>
                 ))}

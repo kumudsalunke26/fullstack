@@ -1,6 +1,5 @@
 import { useState } from "react";
 import HostCard from "./HostCard";
-import { Button } from "@nextui-org/react";
 import PrimaryButton from "./PrimaryButton";
 
 const Hostdata = [

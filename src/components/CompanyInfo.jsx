@@ -19,11 +19,11 @@ const CompanyInfo = () => {
                 className='mt-10 grid md:grid-cols-2 lg:grid-cols-[3fr_3fr_2fr] gap-6'
             >
                 <div className='flex flex-col gap-4'>
-                    <p className='text-white text-lg'>
+                    <p className='text-mainText text-lg'>
                         Navigating Audio Excellence Where Stories Set Sail
                         Podcast Pioneers in Action Sculptors of Sonic Stories
                     </p>
-                    <p className='text-gray-500'>
+                    <p className='text-mainText'>
                         Podkuthir's narrative unfolds as a story fueled by
                         passion, innovation, and a dedication to fostering a
                         lively community of audio enthusiasts. Originating as a
@@ -31,7 +31,7 @@ const CompanyInfo = () => {
                         diverse voices come together, and captivating stories
                         come to life.
                     </p>
-                    <p className='text-gray-500'>
+                    <p className='text-mainText'>
                         Remaining committed to constant growth, Podkuthir has
                         adeptly sailed through the dynamic waves of the
                         expanding podcasting realm, consistently adapting and
@@ -52,17 +52,17 @@ const CompanyInfo = () => {
                             />
                         </div>
                         <div>
-                            <h2 className='text-2xl font-bold text-purple-900'>
+                            <h2 className='text-2xl font-bold text-primary'>
                                 +16 k
                             </h2>
                             <p>Worldwide Podcaster</p>
                         </div>
                     </div>
                 </div>
-                <div className='px-2'>
-                    <Image
+                <div className='px-2 w-full h-[650px] md:h-full md:min-w-[250px] overflow-hidden'>
+                    <img
                         src='https://framerusercontent.com/images/2PiliRgNnLnYKoYwe11bgOLUY.png'
-                        className='w-[450px] md:min-w-[250px] h-[200px] md:h-fit object-cover'
+                        className='object-cover'
                     />
                     <div className='flex lg:hidden items-center justify-between mt-5 h-16'>
                         <h2 className='text-xl font-bold'>Available on:</h2>
@@ -86,7 +86,7 @@ const CompanyInfo = () => {
                     </div>
                 </div>
                 <div className='flex-col gap-4 hidden lg:flex'>
-                    <Image
+                    <img
                         src='https://framerusercontent.com/images/sGtLM8QqwydirNiuKtc0l73rHSg.png'
                         className='w-[200px]'
                     />

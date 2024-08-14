@@ -4,7 +4,7 @@ import PrimaryButton from "./PrimaryButton";
 
 const TopPodcast = () => {
     return (
-        <Card className='py-4 mx-auto bg-transparent text-white grid lg:grid-cols-[2fr_3fr] gap-6 w-[90%] lg:w-[70%] md:w-[80%]'>
+        <Card className='py-4 mx-auto bg-transparent text-mainText grid lg:grid-cols-[2fr_3fr] gap-6 w-[90%] lg:w-[70%] md:w-[80%] shadow-none'>
             <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: 0 }}
@@ -24,23 +24,22 @@ const TopPodcast = () => {
                 className='flex flex-col md:flex-row justify-center gap-2 flex-1'
             >
                 <div className='flex flex-col md:flex-row justify-center gap-2 flex-1 h-full'>
-                    <CardBody className='overflow-hidden py-2 w-full flex justify-center md:justify-start max-h-[600px]'>
-                        <Image
+                    <CardBody className='overflow-hidden py-2 flex justify-center md:justify-start h-[600px] md:h-[100%]'>
+                        <img
                             alt='Card background'
-                            className='object-cover w-full max-h-[600px]'
+                            className='object-cover w-full h-full'
                             src='https://img.freepik.com/premium-photo/podcast-live-streaming-microphone-with-sound-wave-magenta-backdrop-vertical-mobile-wallpaper_892776-28637.jpg'
-                            width={270}
                         />
                     </CardBody>
                     <CardBody className='overflow-visible py-1 flex flex-row md:flex-col gap-4 md:gap-1 justify-between'>
                         <div className='font-semibold'>
                             Total Listeners
-                            <h2 className='text-4xl font-bold text-purple-900'>
+                            <h2 className='text-4xl font-bold text-primary'>
                                 1.5M
                             </h2>
                         </div>
                         <div>
-                            <div className='text-gray-600 font-normal text-md'>
+                            <div className='font-normal text-md'>
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipisicing elit. Sunt dignissimos ducimus
                                 veritatis laboriosam ab illo voluptas nemo eaque
