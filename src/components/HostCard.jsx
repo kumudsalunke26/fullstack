@@ -40,10 +40,10 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
                 onClick={handleClick}
             >
                 <div
-                    className={`flex justify-between gap-4 px-4 py-2 items-center m-4 h-fit w-full bg-mainText`}
+                    className={`flex justify-between gap-4 px-4 py-2 items-center m-4 h-fit w-full bg-secondary`}
                 >
                     <div>
-                        <p className='text-background text-md font-bold mb-1 whitespace-nowrap'>
+                        <p className='text-mainText text-md font-bold mb-1 whitespace-nowrap'>
                             {item.name}
                         </p>
                         <p className='text-mainText text-md whitespace-nowrap'>
@@ -55,7 +55,7 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
                             href={item.twitter}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-background'
+                            className='text-mainText'
                         >
                             <FaTwitter size={25} />
                         </a>
@@ -63,7 +63,7 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
                             href={item.instagram}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-background'
+                            className='text-mainText'
                         >
                             <FaInstagram size={25} />
                         </a>
@@ -71,7 +71,7 @@ const HostCard = ({ item, index, hoverValue, handleHover }) => {
                             href={item.facebook}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-background'
+                            className='text-mainText'
                         >
                             <FaFacebook size={25} />
                         </a>
