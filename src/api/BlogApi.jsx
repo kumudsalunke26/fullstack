@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 export const useGetBlogById = (blogId) => {
     const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(true);
