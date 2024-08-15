@@ -1,18 +1,14 @@
-import { blogContent } from "../utils/blogContent";
+import React from "react";
+import ReactMarkdown from "react-markdown";
 
-const BlogContent = () => {
-    return (
-        <div className='w-[80%] mx-auto mt-32'>
-            {blogContent.map((paragraph, index) => (
-                <p
-                    key={index}
-                    className='mb-5 font-normal text-md tracking-wide'
-                >
-                    {paragraph}
-                </p>
-            ))}
-        </div>
-    );
+const BlogContent = ({ content }) => {
+  return (
+    <div className="w-[80%] mx-auto mt-32">
+      <ReactMarkdown className="rich-text">
+        {content}
+      </ReactMarkdown>
+    </div>
+  );
 };
 
 export default BlogContent;
