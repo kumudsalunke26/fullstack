@@ -11,7 +11,11 @@ const BlogDetailsPage = () => {
     const { blogs, loading: SimilerBlogsLoading } = useGetBlogs();
 
     if (blogDetailsLoading || SimilerBlogsLoading) {
-        return <h1 className='text-xl font-semibold'>Loading...</h1>;
+        return (
+            <h1 className='mt-10 w-[90%] md:w-[80%] mx-auto text-xl font-semibold'>
+                Loading...
+            </h1>
+        );
     }
 
     return (

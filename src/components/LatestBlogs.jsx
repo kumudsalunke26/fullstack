@@ -1,11 +1,12 @@
+import { Skeleton } from "@nextui-org/skeleton";
 import { useGetBlogs } from "../api/BlogApi";
 import Blog from "./BlogCard";
 import PrimaryButton from "./PrimaryButton";
+import LoadingSkeleton from "./LoadingSkeleton";
 
 const LatestBlogs = () => {
     const { blogs, loading } = useGetBlogs();
 
-    if (loading) return <h1 className='text-xl font-semibold'>Loading...</h1>;
     return (
         <div className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <div className='flex justify-between items-center w-full'>
@@ -13,9 +14,17 @@ const LatestBlogs = () => {
                 <PrimaryButton toLink='/hosts' text='See All Hosts' />
             </div>
             <div className='grid lg:grid-cols-2 gap-4 w-full'>
-                {blogs.slice(0, 2).map((blog, index) => (
-                    <Blog blog={blog} key={index} />
-                ))}
+                {loading
+                    ? Array(2)
+                          .fill()
+                          .map((_, index) => {
+                              return <LoadingSkeleton key={index} />;
+                          })
+                    : blogs
+                          .slice(0, 2)
+                          .map((blog, index) => (
+                              <Blog blog={blog} key={index} />
+                          ))}
             </div>
         </div>
     );
