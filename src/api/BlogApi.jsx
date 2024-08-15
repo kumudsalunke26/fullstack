@@ -9,9 +9,7 @@ export const useGetBlogById = (blogId) => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await axios.get(
-                    `${FRONTEND_URL}/api/blog/${blogId}`
-                );
+                const res = await axios.get(`${BASE_URL}/api/blog/${blogId}`);
                 setBlog(res.data);
             } catch (err) {
                 console.error(err);
@@ -33,7 +31,7 @@ export const useGetBlogs = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const res = await axios.get(`${FRONTEND_URL}/api/blog`);
+                const res = await axios.get(`${BASE_URL}/api/blog`);
                 setBlogs(res.data);
             } catch (err) {
                 console.error(err);
