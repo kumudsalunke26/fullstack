@@ -8,7 +8,9 @@ const PrimaryButton = ({ text, toLink }) => {
             radius='full'
             className='bg-primary text-white font-bold'
         >
-            <Link to={toLink}>{text}</Link>
+            <Link to={toLink} className='w-full text-center'>
+                {text}
+            </Link>
         </Button>
     );
 };

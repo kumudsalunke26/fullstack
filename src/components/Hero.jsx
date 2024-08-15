@@ -8,7 +8,7 @@ const Hero = () => {
     return (
         <div className='w-full relative overflow-hidden'>
             <SoundWave />
-            <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:mt-[-40px] ml-[-30px] lg:ml-[-65px]'>
+            <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:mt-[-40px] ml-[-60px] lg:ml-[-65px]'>
                 <div className='flex gap-2 items-center'>
                     <img
                         src={jsLogo}
