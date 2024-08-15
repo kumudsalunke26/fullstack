@@ -12,8 +12,8 @@ const Blog = ({ blog }) => {
                 transition={{ duration: 0.8 }}
                 className='relative cursor-pointer w-full overflow-hidden'
             >
-                <Card className='bg-transparent text-text w-full h-full'>
-                    <CardHeader className='w-full h-[720px]'>
+                <Card className='bg-transparent text-text w-full h-fit'>
+                    <CardHeader className='w-full h-full'>
                         <img
                             src={blog.blogImageUrl}
                             className='object-cover h-full w-full'
@@ -24,7 +24,7 @@ const Blog = ({ blog }) => {
                             <div className='text-md'>{blog.category}</div>
                             <div className='text-md'>{blog.date}</div>
                         </div>
-                        <h3 className='text-2xl font-bold group-hover:underline'>
+                        <h3 className='text-xl md:text-2xl font-bold group-hover:underline'>
                             {blog.title}
                         </h3>
                         <User

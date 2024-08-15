@@ -26,7 +26,7 @@ const BlogDetailsPage = () => {
                     <PrimaryButton toLink='/hosts' text='See All Hosts' />
                 </div>
                 <div className='grid lg:grid-cols-2 gap-4 w-full'>
-                    {blogs.map((blog, index) => (
+                    {blogs.slice(0, 2).map((blog, index) => (
                         <Blog blog={blog} key={index} />
                     ))}
                 </div>
