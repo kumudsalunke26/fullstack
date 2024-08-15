@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Blog = ({ blog }) => {
     return (
-        <Link to={`/blogs/${blog.id}`} className='group'>
+        <Link to={`/blogs/${blog._id}`} className='group'>
             <motion.div
                 initial={{ scale: 1.3 }}
                 whileInView={{ scale: 1 }}
@@ -15,7 +15,7 @@ const Blog = ({ blog }) => {
                 <Card className='bg-transparent text-text w-full h-full'>
                     <CardHeader className='w-full h-[720px]'>
                         <img
-                            src={blog.image}
+                            src={blog.blogImageUrl}
                             className='object-cover h-full w-full'
                         />
                     </CardHeader>
@@ -28,10 +28,10 @@ const Blog = ({ blog }) => {
                             {blog.title}
                         </h3>
                         <User
-                            name='Jane Doe'
-                            description='Product Designer'
+                            name={blog.author}
+                            description={blog.authorProffesion}
                             avatarProps={{
-                                src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+                                src: blog.authorImageUrl,
                             }}
                         />
                     </CardBody>
