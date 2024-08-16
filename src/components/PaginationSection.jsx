@@ -3,41 +3,39 @@ import { cn, Pagination, PaginationItemType } from "@nextui-org/react";
 import { IoChevronBackSharp } from "react-icons/io5";
 import { IoChevronForwardSharp } from "react-icons/io5";
 
-export default function PaginationSection({ pages, page }) {
-    const renderItem = ({
-        ref,
-        key,
-        value,
-        isActive,
-        onNext,
-        onPrevious,
-        setPage,
-        className,
-    }) => {
+export default function PaginationSection({ pages, page, setPage }) {
+    const renderItem = ({ ref, key, value, isActive, className }) => {
         if (value === PaginationItemType.NEXT) {
             return (
-                <button
-                    key={key}
-                    className={cn(className, "bg-primary min-w-9 w-9 h-9")}
-                    onClick={onNext}
-                >
-                    <IoChevronForwardSharp
-                        size={22}
-                        className='text-mainText'
-                    />
-                </button>
+                page < pages && (
+                    <button
+                        key={key}
+                        className={cn(className, "min-w-9 w-9 h-9")}
+                        onClick={() => setPage(page + 1)}
+                    >
+                        <IoChevronForwardSharp
+                            size={22}
+                            className='text-mainText'
+                        />
+                    </button>
+                )
             );
         }
 
         if (value === PaginationItemType.PREV) {
             return (
-                <button
-                    key={key}
-                    className={cn(className, "bg-primary min-w-9 w-9 h-9")}
-                    onClick={onPrevious}
-                >
-                    <IoChevronBackSharp size={22} className='text-mainText' />
-                </button>
+                page > 1 && (
+                    <button
+                        key={key}
+                        className={cn(className, "min-w-9 w-9 h-9")}
+                        onClick={() => setPage(page - 1)}
+                    >
+                        <IoChevronBackSharp
+                            size={22}
+                            className='text-mainText'
+                        />
+                    </button>
+                )
             );
         }
 

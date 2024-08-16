@@ -18,6 +18,14 @@ const BlogDetailsPage = () => {
         );
     }
 
+    if (!blog) {
+        return (
+            <h1 className='mt-10 w-[90%] md:w-[80%] mx-auto text-xl font-semibold'>
+                Blog not found
+            </h1>
+        );
+    }
+
     return (
         <div className='mt-10 w-[90%] md:w-[80%] mx-auto'>
             <BlogTitle blog={blog} />
@@ -30,7 +38,7 @@ const BlogDetailsPage = () => {
                     <PrimaryButton toLink='/hosts' text='See All Hosts' />
                 </div>
                 <div className='grid lg:grid-cols-2 gap-4 w-full'>
-                    {blogs.slice(0, 2).map((blog, index) => (
+                    {blogs.data.slice(0, 2).map((blog, index) => (
                         <Blog blog={blog} key={index} />
                     ))}
                 </div>

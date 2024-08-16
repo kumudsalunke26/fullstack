@@ -1,12 +1,31 @@
-import { Skeleton } from "@nextui-org/skeleton";
 import { useGetBlogs } from "../api/BlogApi";
 import Blog from "../components/BlogCard";
 import PaginationSection from "../components/PaginationSection";
 import SubsciptionSection from "../components/SubsciptionSection";
 import LoadingSkeleton from "../components/LoadingSkeleton";
+import { useState } from "react";
 
 const BlogsPage = () => {
-    const { blogs, loading } = useGetBlogs();
+    const [searchState, setSearchState] = useState({
+        page: 1,
+        sortOption: "date",
+    });
+    const { blogs, loading } = useGetBlogs(searchState);
+
+    const setPage = (page) => {
+        setSearchState((prevState) => ({
+            ...prevState,
+            page,
+        }));
+    };
+
+    if (!blogs || !blogs.data) {
+        return (
+            <h1 className='mt-10 w-[90%] md:w-[80%] mx-auto text-xl font-semibold'>
+                No Blogs Found
+            </h1>
+        );
+    }
 
     return (
         <div className='min-h-[100vh] mt-20 mx-auto w-[90%] lg:w-[70%] md:w-[80%]'>
@@ -30,13 +49,17 @@ const BlogsPage = () => {
                           .map((_, index) => {
                               return <LoadingSkeleton key={index} />;
                           })
-                    : blogs
+                    : blogs.data
                           .slice(0, 2)
                           .map((blog, index) => (
                               <Blog blog={blog} key={index} />
                           ))}
             </div>
-            <PaginationSection pages={10} page={3} />
+            <PaginationSection
+                pages={blogs.pagination.pages}
+                page={blogs.pagination.page}
+                setPage={setPage}
+            />
             <SubsciptionSection />
         </div>
     );

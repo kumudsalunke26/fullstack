@@ -24,14 +24,21 @@ export const useGetBlogById = (blogId) => {
     return { blog, loading };
 };
 
-export const useGetBlogs = () => {
+export const useGetBlogs = (
+    searchState = { page: 1, sortOption: "lastUpdated" }
+) => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
+    const params = new URLSearchParams();
+    params.set("page", searchState.page.toString());
+    params.set("sortOption", searchState.sortOption);
 
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const res = await axios.get(`${BASE_URL}/api/blog`);
+                const res = await axios.get(
+                    `${BASE_URL}/api/blog?${params.toString()}`
+                );
                 setBlogs(res.data);
             } catch (err) {
                 console.error(err);
@@ -41,7 +48,7 @@ export const useGetBlogs = () => {
         };
 
         fetchBlogs();
-    }, []);
+    }, [searchState]);
 
     return { blogs, loading };
 };

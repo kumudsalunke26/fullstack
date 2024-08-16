@@ -20,7 +20,7 @@ const LatestBlogs = () => {
                           .map((_, index) => {
                               return <LoadingSkeleton key={index} />;
                           })
-                    : blogs
+                    : blogs.data
                           .slice(0, 2)
                           .map((blog, index) => (
                               <Blog blog={blog} key={index} />
