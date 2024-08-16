@@ -1,25 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { usePostBlog } from "../api/BlogApi";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import { usePostEpisode } from "../api/EpisodeApi"; // Assuming you have an API hook for posting episodes
 
 // Define the Zod schema
-const blogSchema = z.object({
+const episodeSchema = z.object({
     title: z.string().min(1, "Title is required"),
-    description: z.string().min(1, "Description is required"),
-    content: z.string().min(1, "Content is required"),
     category: z.string().min(1, "Category is required"),
-    author: z.string().min(1, "Author is required"),
-    authorProfession: z.string().min(1, "Author Profession is required"),
-    authorImage: z.instanceof(File, "Author Image is required"),
-    blogImage: z.instanceof(File, "Blog Image is required"),
+    duration: z.string().min(1, "Duration is required"), // Changed to string
+    thumbnailImage: z.instanceof(File, "Thumbnail is required"),
+    EpisodeUrl: z.string().min(1, "Episode URL is required"),
 });
 
-const AddBlogPage = () => {
-    const { postBlog, loading } = usePostBlog();
+const AddEpisodePage = () => {
+    const { postEpisode, loading } = usePostEpisode();
 
     const {
         register,
@@ -27,15 +22,19 @@ const AddBlogPage = () => {
         setValue,
         formState: { errors },
     } = useForm({
-        resolver: zodResolver(blogSchema),
+        resolver: zodResolver(episodeSchema),
     });
 
     const onSubmit = (data) => {
+        // Convert duration and volume to numbers
+        data.duration = Number(data.duration);
+        data.volume = Number(data.volume);
+
         const formData = new FormData();
         for (const key in data) {
             formData.append(key, data[key]);
         }
-        postBlog(formData);
+        postEpisode(formData);
     };
 
     const handleImageChange = (e, name) => {
@@ -63,36 +62,7 @@ const AddBlogPage = () => {
                     </p>
                 )}
             </div>
-            <div>
-                <label className='block text-sm font-medium text-mainText'>
-                    Description
-                </label>
-                <textarea
-                    {...register("description")}
-                    className='mt-1 block w-full border border-secondary rounded-md shadow-sm bg-background text-mainText p-2'
-                />
-                {errors.description && (
-                    <p className='text-red-500 text-sm'>
-                        {errors.description.message}
-                    </p>
-                )}
-            </div>
-            <div>
-                <label className='block text-sm font-medium text-mainText'>
-                    Content
-                </label>
-                <ReactQuill
-                    onChange={(value) => {
-                        setValue("content", value);
-                    }}
-                    className='mt-1 block w-full border border-secondary rounded-md shadow-sm bg-background text-mainText'
-                />
-                {errors.content && (
-                    <p className='text-red-500 text-sm'>
-                        {errors.content.message}
-                    </p>
-                )}
-            </div>
+
             <div>
                 <label className='block text-sm font-medium text-mainText'>
                     Category
@@ -110,61 +80,47 @@ const AddBlogPage = () => {
             </div>
             <div>
                 <label className='block text-sm font-medium text-mainText'>
-                    Guest Name
+                    Duration
                 </label>
                 <input
                     type='text'
-                    {...register("author")}
+                    {...register("duration")}
                     className='mt-1 block w-full border border-secondary rounded-md shadow-sm bg-background text-mainText p-2'
                 />
-                {errors.author && (
+                {errors.duration && (
                     <p className='text-red-500 text-sm'>
-                        {errors.author.message}
+                        {errors.duration.message}
                     </p>
                 )}
             </div>
+
             <div>
                 <label className='block text-sm font-medium text-mainText'>
-                    Guest Profession
+                    Episode URL
                 </label>
                 <input
                     type='text'
-                    {...register("authorProfession")}
+                    {...register("EpisodeUrl")}
                     className='mt-1 block w-full border border-secondary rounded-md shadow-sm bg-background text-mainText p-2'
                 />
-                {errors.authorProfession && (
+                {errors.EpisodeUrl && (
                     <p className='text-red-500 text-sm'>
-                        {errors.authorProfession.message}
+                        {errors.EpisodeUrl.message}
                     </p>
                 )}
             </div>
             <div>
                 <label className='block text-sm font-medium text-mainText'>
-                    Author Image
+                    Thumbnail
                 </label>
                 <input
                     type='file'
-                    onChange={(e) => handleImageChange(e, "authorImage")}
+                    onChange={(e) => handleImageChange(e, "thumbnailImage")}
                     className='mt-1 block w-full border border-secondary rounded-md shadow-sm bg-background text-mainText p-2'
                 />
-                {errors.authorImage && (
+                {errors.thumbnail && (
                     <p className='text-red-500 text-sm'>
-                        {errors.authorImage.message}
-                    </p>
-                )}
-            </div>
-            <div>
-                <label className='block text-sm font-medium text-mainText'>
-                    Blog Image
-                </label>
-                <input
-                    type='file'
-                    onChange={(e) => handleImageChange(e, "blogImage")}
-                    className='mt-1 block w-full border border-secondary rounded-md shadow-sm bg-background text-mainText p-2'
-                />
-                {errors.blogImage && (
-                    <p className='text-red-500 text-sm'>
-                        {errors.blogImage.message}
+                        {errors.thumbnail.message}
                     </p>
                 )}
             </div>
@@ -187,4 +143,4 @@ const AddBlogPage = () => {
     );
 };
 
-export default AddBlogPage;
+export default AddEpisodePage;

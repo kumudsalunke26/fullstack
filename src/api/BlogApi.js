@@ -53,7 +53,7 @@ export const useGetBlogs = (
     return { blogs, loading };
 };
 
-export const usePostBlog = (formData) => {
+export const usePostBlog = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);

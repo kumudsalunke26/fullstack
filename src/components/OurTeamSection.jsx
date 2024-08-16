@@ -40,10 +40,12 @@ const OurTeamSection = () => {
     };
 
     return (
-        <div className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
+        <div
+            className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'
+            id='team'
+        >
             <div className='flex justify-between items-center w-full'>
                 <h2 className='text-4xl font-extrabold'>Our team</h2>
-                <PrimaryButton text='See All Hosts' toLink='/hosts' />
             </div>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full'>
                 {Hostdata.map((host, index) => (

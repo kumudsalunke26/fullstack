@@ -6,6 +6,7 @@ const PodcastOverview = () => {
     return (
         <motion.div
             className='grid lg:grid-cols-[1fr_2fr] gap-4 mt-24 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'
+            id='about'
             initial={{ y: "15%" }}
             whileInView={{ y: 0 }}
             transition={{ duration: 0.8 }}
