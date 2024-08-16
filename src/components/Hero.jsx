@@ -5,6 +5,7 @@ import youtube from "../assets/Youtube.svg";
 import video from "../assets/soundwaves.mp4"; // Replace with your video path
 
 const Hero = () => {
+
   return (
     <div className="relative w-full mt-8 h-[75vh] overflow-hidden">
       {/* Background Video */}

@@ -13,7 +13,7 @@ const TopPodcast = () => {
             >
                 <CardHeader className='pb-0 pt-2 px-4 flex-col items-start'>
                     <h4 className='font-bold text-3xl'>
-                        Navigating the waves of audio excellence
+                    A platform which inspires millions
                     </h4>
                 </CardHeader>
             </motion.div>
@@ -35,26 +35,24 @@ const TopPodcast = () => {
                         <div className='font-semibold'>
                             Total Listeners
                             <h2 className='text-4xl font-bold text-primary'>
-                                1.5M
+                            50K
                             </h2>
                         </div>
                         <div>
                             <div className='font-normal text-md'>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Sunt dignissimos ducimus
-                                veritatis laboriosam ab illo voluptas nemo eaque
-                                reiciendis magnam asperiores consequuntur modi
-                                nesciunt, iure unde facilis quo necessitatibus.
-                                Maiores, totam aut?
+                            Journey Story has a growing community of over 50,000 listeners who tune in for unparalleled insights, inspiration, and wisdom. Be part of the movement and learn from the best in the industry.
                             </div>
                             <div className='my-5'>
                                 <ul className='list-disc pl-6'>
                                     <li>
-                                        Engaging discussions on various topics
+                                    Inspiration Hub
                                     </li>
-                                    <li>Insights from industry experts</li>
+                                    <li>Diverse Journeys</li>
                                     <li>
-                                        Informative and entertaining episodes
+                                    Expert Insights
+                                    </li>
+                                    <li>
+                                    Entrepreneurial Wisdom
                                     </li>
                                 </ul>
                             </div>

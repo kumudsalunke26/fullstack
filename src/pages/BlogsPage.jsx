@@ -1,17 +1,11 @@
 import { useGetBlogs } from "../api/BlogApi";
 import Blog from "../components/BlogCard";
-import BlogPostForm from "../components/BlogPostForm";
 import PaginationSection from "../components/PaginationSection";
 import SubsciptionSection from "../components/SubsciptionSection";
 import LoadingSkeleton from "../components/LoadingSkeleton";
 import { useState } from "react";
 
 const BlogsPage = () => {
-  const [searchState, setSearchState] = useState({
-    page: 1,
-    sortOption: "date",
-  });
-  const { blogs, loading } = useGetBlogs(searchState);
 
   const setPage = (page) => {
     setSearchState((prevState) => ({

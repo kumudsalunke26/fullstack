@@ -6,14 +6,10 @@ import { createBrowserRouter } from "react-router-dom";
 import { NextUIProvider } from "@nextui-org/react";
 import HomePage from "./pages/HomePage.jsx";
 import EpisodesPage from "./pages/EpisodesPage.jsx";
-import AboutUsPage from "./pages/AboutUsPage.jsx";
 import BlogsPage from "./pages/BlogsPage.jsx";
-import HostsPage from "./pages/HostsPage.jsx";
 import ReviewsPage from "./pages/ReviewsPage.jsx";
 import ConatctUsPage from "./pages/ConatctUsPage.jsx";
 import BlogDetailsPage from "./pages/BlogDetailsPage.jsx";
-import AddBlogPage from "./pages/AddBlogPage.jsx";
-import AddEpisodePage from "./pages/AddEpisodePage.jsx";
 
 const router = createBrowserRouter([
     {

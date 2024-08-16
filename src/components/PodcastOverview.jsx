@@ -13,13 +13,14 @@ const PodcastOverview = () => {
         >
             <div className='grid md:grid-cols-[3fr_2fr_3fr] lg:grid-cols-1 gap-3'>
                 <h2 className='text-4xl font-extrabold'>
-                    Our <br />
-                    Holistic <br />
-                    Podcastig
+                    The <br />
+                    Journey <br />
+                    has a story
                 </h2>
                 <p className='text-md text-mainText'>
-                    Delve into the meticulous process behind our podcast
-                    production. From scriptwriting to sound engineering.
+                    Journey Story was created to inspire through real-life
+                    experiences of entrepreneurs and leaders, offering insights
+                    and motivation for personal and professional growth.
                 </p>
                 <ol className='text-md text-mainText'>
                     <li>1. Navigating Audio Excellence</li>
@@ -39,12 +40,13 @@ const PodcastOverview = () => {
                         <HiRectangleStack className='min-w-8 min-h-8 text-primary rounded-full p-1' />
                         <div>
                             <h3 className='text-md font-semibold'>
-                                Unmatched Audio Quality
+                                Inspirational Interviews
                             </h3>
                             <p className='text-md text-mainText'>
-                                Experience the difference in audio quality that
-                                sets us apart. Our commitment to impeccable
-                                sound engineering .
+                                Dive into exclusive interviews with top
+                                entrepreneurs, CEOs, and industry leaders,
+                                uncovering the secrets behind their success
+                                stories.
                             </p>
                         </div>
                     </div>
@@ -52,12 +54,13 @@ const PodcastOverview = () => {
                         <HiRectangleStack className='min-w-8 min-h-8 text-primary rounded-full p-1' />
                         <div>
                             <h3 className='text-md font-semibold'>
-                                Thoughtful Content Curation
+                                Diverse Perspectives
                             </h3>
                             <p className='text-md text-mainText'>
-                                We prioritize meaningful topics, providing you
-                                with content that not only entertains but also
-                                resonates deeply.
+                                Explore a wide range of journeys from
+                                individuals across different sectors, offering
+                                unique insights and strategies that cater to all
+                                walks of life.
                             </p>
                         </div>
                     </div>
@@ -65,12 +68,13 @@ const PodcastOverview = () => {
                         <HiRectangleStack className='min-w-8 min-h-8 text-primary rounded-full p-1' />
                         <div>
                             <h3 className='text-md font-semibold'>
-                                Engaging Community Interaction
+                                Growing Community
                             </h3>
                             <p className='text-md text-mainText'>
-                                Our interactive approach goes beyond the
-                                podcast, creating a space where listeners
-                                actively engage.
+                                Join over 50,000 listeners who are part of a
+                                thriving community, continuously inspired and
+                                motivated by the wealth of knowledge shared on
+                                our platform.
                             </p>
                         </div>
                     </div>

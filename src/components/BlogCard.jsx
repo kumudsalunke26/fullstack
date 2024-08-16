@@ -7,9 +7,9 @@ const Blog = ({ blog }) => {
     return (
         <Link to={`/blogs/${blog._id}`} className='group'>
             <motion.div
-                initial={{ scale: 1.3 }}
+                initial={{ scale: 1.2 }}
                 whileInView={{ scale: 1 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.4 }}
                 className='relative cursor-pointer w-full overflow-hidden'
             >
                 <Card className='bg-transparent text-text w-full h-fit'>
