@@ -26,6 +26,7 @@ const Header = () => {
         { label: "About us", toLink: "/about" },
         { label: "Team", toLink: "/hosts" },
         { label: "Reviews", toLink: "/reviews" },
+        { label: "Add Blogs", toLink: "/addblog" },
     ];
     return (
         <Navbar onMenuOpenChange={setIsMenuOpen} className='bg-transparent'>

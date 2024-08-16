@@ -1,11 +1,11 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
+import DOMPurify from "dompurify";
 
 const BlogContent = ({ blog }) => {
+    const sanitizedContent = DOMPurify.sanitize(blog.content);
+
     return (
-        <div className='w-[80%] mx-auto mt-24'>
-            <ReactMarkdown className='rich-text'>{blog.content}</ReactMarkdown>
-        </div>
+        <div className='w-[80%] mx-auto mt-24' dangerouslySetInnerHTML={{ __html: sanitizedContent }}></div>
     );
 };
 

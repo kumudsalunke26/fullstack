@@ -49,11 +49,9 @@ const BlogsPage = () => {
                           .map((_, index) => {
                               return <LoadingSkeleton key={index} />;
                           })
-                    : blogs.data
-                          .slice(0, 2)
-                          .map((blog, index) => (
-                              <Blog blog={blog} key={index} />
-                          ))}
+                    : blogs.data.map((blog, index) => (
+                          <Blog blog={blog} key={index} />
+                      ))}
             </div>
             <PaginationSection
                 pages={blogs.pagination.pages}

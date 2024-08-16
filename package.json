@@ -10,6 +10,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@hookform/resolvers": "^3.9.0",
         "@nextui-org/accordion": "^2.0.38",
         "@nextui-org/avatar": "^2.0.32",
         "@nextui-org/card": "^2.0.33",
@@ -22,17 +23,16 @@
         "@nextui-org/system": "^2.2.5",
         "@nextui-org/theme": "^2.2.9",
         "axios": "^1.7.4",
+        "dompurify": "^3.1.6",
         "framer-motion": "^11.3.24",
-        "gray-matter": "^4.0.3",
-        "lodash": "^4.17.21",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
+        "react-hook-form": "^7.52.2",
         "react-icons": "^5.2.1",
-        "react-markdown": "^9.0.1",
+        "react-quill": "^2.0.0",
         "react-router": "^6.26.0",
         "react-router-dom": "^6.26.0",
-        "remark": "^15.0.1",
-        "remark-html": "^16.0.1"
+        "zod": "^3.23.8"
     },
     "devDependencies": {
         "@eslint/js": "^9.8.0",

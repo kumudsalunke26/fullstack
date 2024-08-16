@@ -12,6 +12,7 @@ import HostsPage from "./pages/HostsPage.jsx";
 import ReviewsPage from "./pages/ReviewsPage.jsx";
 import ConatctUsPage from "./pages/ConatctUsPage.jsx";
 import BlogDetailsPage from "./pages/BlogDetailsPage.jsx";
+import AddBlogPage from "./pages/AddBlogPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: "/blogs/:id",
                 element: <BlogDetailsPage />,
+            },
+            {
+                path: "/addblog",
+                element: <AddBlogPage />,
             },
         ],
     },

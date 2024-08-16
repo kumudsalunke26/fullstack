@@ -29,7 +29,7 @@ const Blog = ({ blog }) => {
                         </h3>
                         <User
                             name={blog.author}
-                            description={blog.authorProffesion}
+                            description={blog.authorProfession}
                             avatarProps={{
                                 src: blog.authorImageUrl,
                             }}

@@ -48,7 +48,28 @@ export const useGetBlogs = (
         };
 
         fetchBlogs();
-    }, [searchState]);
+    }, []);
 
     return { blogs, loading };
+};
+
+export const usePostBlog = (formData) => {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(false);
+
+    const postBlog = async (formData) => {
+        setLoading(true);
+        try {
+            const blog = await axios.post(`${BASE_URL}/api/blog`, formData);
+            setSuccess(true);
+            return blog;
+        } catch (err) {
+            setError(err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return { postBlog, loading, error, success };
 };
