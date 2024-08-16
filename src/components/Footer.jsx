@@ -15,9 +15,10 @@ const Footer = () => {
                         className='w-28 h-fit ml-[-15px]'
                     />
                     <p className='text-sm text-center md:text-start'>
-                        Whether you're a seasoned listener or a newcomer to the
-                        world of podcasts, our platform provides a hub for
-                        discovery, connection, and continuous learning.
+                        Journey Story was created to inspire through real-life
+                        experiences of entrepreneurs and leaders, offering
+                        insights and motivation for personal and professional
+                        growth.
                     </p>
                 </div>
                 <div className='flex justify-between flex-1'>
@@ -34,24 +35,7 @@ const Footer = () => {
                                     Blogs
                                 </Link>
                             </li>
-                            <li>
-                                <Link
-                                    to='/services'
-                                    className='hover:underline'
-                                >
-                                    About us
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/contact' className='hover:underline'>
-                                    Team
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/contact' className='hover:underline'>
-                                    Subscribe
-                                </Link>
-                            </li>
+
                             <li>
                                 <Link to='/contact' className='hover:underline'>
                                     Reviews
@@ -69,9 +53,26 @@ const Footer = () => {
                             Where to listen
                         </h2>
                         <ul className='space-y-2'>
-                            <li>Spotify</li>
-                            <li>Apple Podcasts</li>
-                            <li>Google Podcasts</li>
+                            <li>
+                                <a
+                                    href='https://www.spotify.com/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='hover:underline'
+                                >
+                                    Spotify
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href='https://www.youtube.com/channel/UCO0mVgRyCGWXOqmJ3UukIlg'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='hover:underline'
+                                >
+                                    Youtube
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

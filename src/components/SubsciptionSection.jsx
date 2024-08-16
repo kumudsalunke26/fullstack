@@ -19,12 +19,11 @@ const SubsciptionSection = () => {
             </div>
             <div className='flex flex-col gap-6'>
                 <h3 className='text-4xl font-bold'>
-                    Subscribe for <br />
-                    insider insights
+                    Subscribe our <br />
+                    YouTube Channel
                 </h3>
                 <p className='text-sm text-mainText'>
-                    Subscribe to our newsletter to get the latest news and
-                    updates.
+                    Subscribe for update episodes
                 </p>
                 <Button className='text-mainText rounded-full px-6 py-1 bg-primary'>
                     <a

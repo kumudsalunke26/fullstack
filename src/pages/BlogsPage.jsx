@@ -8,7 +8,7 @@ import { useState } from "react";
 const BlogsPage = () => {
     const [searchState, setSearchState] = useState({
         page: 1,
-        sortOption: "date",
+        sortOption: "lastUpdated",
     });
     const { blogs, loading } = useGetBlogs(searchState);
 
