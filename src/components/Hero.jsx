@@ -2,7 +2,7 @@ import React from "react";
 import heroImage from "../assets/hero.png";
 import spotify from "../assets/Spotify.svg";
 import youtube from "../assets/Youtube.svg";
-import video from "../assets/video2.mp4"; // Replace with your video path
+import video from "../assets/soundwaves.mp4"; // Replace with your video path
 
 const Hero = () => {
   return (
