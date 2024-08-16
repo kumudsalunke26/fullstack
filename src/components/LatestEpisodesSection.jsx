@@ -1,45 +1,31 @@
+import { useGetEpisodes } from "../api/EpisodeApi";
 import Episode from "./Episode";
 import PrimaryButton from "./PrimaryButton";
 
-const LatestEpisodesData = [
-    {
-        id: 1,
-        title: "Episode 1: Introduction to the podcast",
-        host: "John Doe",
-        date: "2021-09-01",
-        genre: "Technology",
-        duration: "30",
-        thumbnail: "https://framerusercontent.com/images/NeyrABTuK1VDCirywGk9mqJbQ1g.png",
-        vol: 1,
-    },
-    {
-        id: 2,
-        title: "Episode 2: The future of AI",
-        host: "Jane Doe",
-        date: "2021-09-08",
-        genre: "Technology",
-        duration: "45",
-        thumbnail: "https://framerusercontent.com/images/CzQNl9xaVBJQALAk17pzAdDhw.png",
-        vol: 1,
-    },
-    {
-        id: 3,
-        title: "Episode 3: The future of robotics",
-        host: "John Doe",
-        date: "2021-09-15",
-        genre: "Technology",
-        duration: "45",
-        thumbnail: "https://framerusercontent.com/images/WZiBqRCRuKwYbOtZXZyIuhbVjNg.png",
-        vol: 1,
-    },
-];
 const LatestEpisodesSection = () => {
+    const { episodes, loading } = useGetEpisodes();
+
+    if (loading) {
+        return (
+            <h1 className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl'>
+                Loading...
+            </h1>
+        );
+    }
+    if (!episodes || !episodes.data || episodes.data.length === 0) {
+        return (
+            <h1 className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl'>
+                No latest episodes found
+            </h1>
+        );
+    }
+    console.log(episodes.data);
     return (
         <section className='mt-24 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <h2 className='text-4xl font-extrabold'>Latest Episodes</h2>
             <div className='w-full'>
-                {LatestEpisodesData.map((episode) => (
-                    <Episode episode={episode} key={episode.id} />
+                {episodes.data.slice(0, 3).map((episode) => (
+                    <Episode episode={episode} key={episode._id} />
                 ))}
             </div>
             <div className='w-full md:w-[40%] flex justify-center'>

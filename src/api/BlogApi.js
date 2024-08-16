@@ -48,7 +48,7 @@ export const useGetBlogs = (
         };
 
         fetchBlogs();
-    }, [searchState]);
+    }, []);
 
     return { blogs, loading };
 };

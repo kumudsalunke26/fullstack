@@ -12,6 +12,8 @@ import HostsPage from "./pages/HostsPage.jsx";
 import ReviewsPage from "./pages/ReviewsPage.jsx";
 import ConatctUsPage from "./pages/ConatctUsPage.jsx";
 import BlogDetailsPage from "./pages/BlogDetailsPage.jsx";
+import AddBlogPage from "./pages/AddBlogPage.jsx";
+import AddEpisodePage from "./pages/AddEpisodePage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -30,15 +32,6 @@ const router = createBrowserRouter([
                 path: "/blogs",
                 element: <BlogsPage />,
             },
-            {
-                path: "/about",
-                element: <AboutUsPage />,
-            },
-            {
-                path: "/hosts",
-                element: <HostsPage />,
-            },
-
             {
                 path: "/reviews",
                 element: <ReviewsPage />,

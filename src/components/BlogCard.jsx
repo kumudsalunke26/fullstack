@@ -22,14 +22,13 @@ const Blog = ({ blog }) => {
                     <CardBody className='w-full mt-[-25px] flex flex-col gap-2 items-start'>
                         <div className='flex justify-between w-full'>
                             <div className='text-md'>{blog.category}</div>
-                            <div className='text-md'>{blog.date}</div>
                         </div>
                         <h3 className='text-xl md:text-2xl font-bold group-hover:underline'>
                             {blog.title}
                         </h3>
                         <User
                             name={blog.author}
-                            description={blog.authorProffesion}
+                            description={blog.authorProfession}
                             avatarProps={{
                                 src: blog.authorImageUrl,
                             }}

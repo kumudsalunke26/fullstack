@@ -42,26 +42,25 @@ const BlogsPage = () => {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8 mt-4">
-        {loading
-          ? Array(6)
-              .fill()
-              .map((_, index) => {
-                return <LoadingSkeleton key={index} />;
-              })
-          : blogs.data
-              .slice(0, 2)
-              .map((blog, index) => <Blog blog={blog} key={index} />)}
-      </div>
-      <PaginationSection
-        pages={blogs.pagination.pages}
-        page={blogs.pagination.page}
-        setPage={setPage}
-      />
-      <SubsciptionSection />
-      <BlogPostForm></BlogPostForm>
-    </div>
-  );
+            <div className='grid lg:grid-cols-2 gap-8 mt-4'>
+                {loading
+                    ? Array(6)
+                          .fill()
+                          .map((_, index) => {
+                              return <LoadingSkeleton key={index} />;
+                          })
+                    : blogs.data.map((blog, index) => (
+                          <Blog blog={blog} key={index} />
+                      ))}
+            </div>
+            <PaginationSection
+                pages={blogs.pagination.pages}
+                page={blogs.pagination.page}
+                setPage={setPage}
+            />
+            <SubsciptionSection />
+        </div>
+    );
 };
 
 export default BlogsPage;
