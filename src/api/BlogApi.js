@@ -53,19 +53,25 @@ export const useGetBlogs = (
     return { blogs, loading };
 };
 
+
 export const usePostBlog = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
 
-    const postBlog = async (formData) => {
+    const postBlog = async (blogData) => {
         setLoading(true);
+        setError(null);
+        setSuccess(false);
+
         try {
-            const blog = await axios.post(`${BASE_URL}/api/blog`, formData);
-            setSuccess(true);
-            return blog;
+            const res = await axios.post(`${BASE_URL}/api/blog`, blogData);
+            if (res.status === 201) {
+                setSuccess(true);
+            }
         } catch (err) {
-            setError(err);
+            console.error(err);
+            setError(err.response?.data?.message || "Something went wrong");
         } finally {
             setLoading(false);
         }
