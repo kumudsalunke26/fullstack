@@ -6,7 +6,7 @@ import video from "../assets/soundwaves.mp4"; // Replace with your video path
 
 const Hero = () => {
     return (
-        <div className='relative w-full mt-8 h-[75vh] overflow-hidden'>
+        <div className='relative w-full mt-8 h-fit md:h-[75vh] overflow-hidden'>
             {/* Background Video */}
             <video
                 className='hidden absolute top-0 left-0 w-full h-full object-cover opacity-15 pointer-events-none md:block'
