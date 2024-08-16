@@ -1,6 +1,7 @@
 import { Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { HiRectangleStack } from "react-icons/hi2";
+import AryanImage from "../assets/AryanImage.png";
 
 const PodcastOverview = () => {
     return (
@@ -31,7 +32,7 @@ const PodcastOverview = () => {
             <div className='flex flex-col md:flex-row gap-6 h-full'>
                 <div className='w-full h-[450px] md:h-[100%] overflow-hidden'>
                     <img
-                        src='https://framerusercontent.com/images/C07mv8pwLCEQbyTaezgpcr5LbN4.png?scale-down-to=1024'
+                        src={AryanImage}
                         className='object-cover w-full h-full'
                     />
                 </div>

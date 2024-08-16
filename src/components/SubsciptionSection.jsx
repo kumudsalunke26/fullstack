@@ -1,6 +1,6 @@
 import { Button, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import subcribeImage from "../assets/SubscribeImage.png";
 
 const SubsciptionSection = () => {
     return (
@@ -10,11 +10,11 @@ const SubsciptionSection = () => {
             transition={{ duration: 0.8 }}
             className='gap-8 mt-20 flex flex-col lg:flex-row bg-transparent w-[90%] lg:w-[70%] md:w-[80%] mx-auto'
         >
-            <div className='pb-0 pt-2 px-4 flex-col h-[250px] md:h-full'>
+            <div className='pb-0 pt-2 px-4 flex-col h-[250px] md:w-[50%]'>
                 <img
                     alt='Card background'
                     className='object-cover h-full w-full'
-                    src='https://framerusercontent.com/images/poAVdP1X7ojkg3A0HgFpJYIfI.png?scale-down-to=512'
+                    src={subcribeImage}
                 />
             </div>
             <div className='flex flex-col gap-6'>

@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import PrimaryButton from "./PrimaryButton";
+import TopPodcastImage from "../assets/TopPodcast.png";
 
 const TopPodcast = () => {
     return (
@@ -13,7 +14,7 @@ const TopPodcast = () => {
             >
                 <CardHeader className='pb-0 pt-2 px-4 flex-col items-start'>
                     <h4 className='font-bold text-3xl'>
-                    A platform which inspires millions
+                        A platform which inspires millions
                     </h4>
                 </CardHeader>
             </motion.div>
@@ -28,32 +29,30 @@ const TopPodcast = () => {
                         <img
                             alt='Card background'
                             className='object-cover w-full h-full'
-                            src='https://img.freepik.com/premium-photo/podcast-live-streaming-microphone-with-sound-wave-magenta-backdrop-vertical-mobile-wallpaper_892776-28637.jpg'
+                            src={TopPodcastImage}
                         />
                     </CardBody>
                     <CardBody className='overflow-visible py-1 flex flex-row md:flex-col gap-4 md:gap-1 justify-between'>
                         <div className='font-semibold'>
                             Total Listeners
                             <h2 className='text-4xl font-bold text-primary'>
-                            50K
+                                50K
                             </h2>
                         </div>
                         <div>
                             <div className='font-normal text-md'>
-                            Journey Story has a growing community of over 50,000 listeners who tune in for unparalleled insights, inspiration, and wisdom. Be part of the movement and learn from the best in the industry.
+                                Journey Story has a growing community of over
+                                50,000 listeners who tune in for unparalleled
+                                insights, inspiration, and wisdom. Be part of
+                                the movement and learn from the best in the
+                                industry.
                             </div>
                             <div className='my-5'>
                                 <ul className='list-disc pl-6'>
-                                    <li>
-                                    Inspiration Hub
-                                    </li>
+                                    <li>Inspiration Hub</li>
                                     <li>Diverse Journeys</li>
-                                    <li>
-                                    Expert Insights
-                                    </li>
-                                    <li>
-                                    Entrepreneurial Wisdom
-                                    </li>
+                                    <li>Expert Insights</li>
+                                    <li>Entrepreneurial Wisdom</li>
                                 </ul>
                             </div>
                             <div>

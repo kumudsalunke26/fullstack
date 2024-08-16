@@ -1,6 +1,11 @@
 import { useState } from "react";
 import HostCard from "./HostCard";
-import PrimaryButton from "./PrimaryButton";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 
 const Hostdata = [
     {
@@ -30,6 +35,15 @@ const Hostdata = [
         instagram: "https://instagram.com/hostthree",
         facebook: "https://facebook.com/hostthree",
     },
+    {
+        id: 3,
+        name: "Host Three",
+        genre: "Genre Three",
+        image: "https://framerusercontent.com/images/0vaI7XIJ0hmlGmTh4HLjPf5uPOA.png",
+        twitter: "https://twitter.com/hostthree",
+        instagram: "https://instagram.com/hostthree",
+        facebook: "https://facebook.com/hostthree",
+    },
 ];
 
 const OurTeamSection = () => {
@@ -47,17 +61,27 @@ const OurTeamSection = () => {
             <div className='flex justify-between items-center w-full'>
                 <h2 className='text-4xl font-extrabold'>Our team</h2>
             </div>
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full'>
+            <Swiper
+                slidesPerView={3}
+                spaceBetween={30}
+                pagination={{
+                    type: "fraction",
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                className='mySwiper min-h-[400px] w-full'
+            >
                 {Hostdata.map((host, index) => (
-                    <HostCard
-                        key={index}
-                        item={host}
-                        index={index}
-                        hoverValue={hoverValue}
-                        handleHover={handleHover}
-                    />
+                    <SwiperSlide key={index}>
+                        <HostCard
+                            item={host}
+                            index={index}
+                            hoverValue={hoverValue}
+                            handleHover={handleHover}
+                        />
+                    </SwiperSlide>
                 ))}
-            </div>
+            </Swiper>
         </div>
     );
 };
