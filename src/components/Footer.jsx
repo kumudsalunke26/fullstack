@@ -1,8 +1,8 @@
 import { BsTwitter } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { RiLinkedinBoxFill } from "react-icons/ri";
 
 const Footer = () => {
     return (
@@ -55,7 +55,7 @@ const Footer = () => {
                         <ul className='space-y-2'>
                             <li>
                                 <a
-                                    href='https://www.spotify.com/'
+                                    href='https://open.spotify.com/show/1ZQE9AUhjChYhjKTgUr3ld?si=9cc36ba0d51345c5'
                                     target='_blank'
                                     rel='noopener noreferrer'
                                     className='hover:underline'
@@ -84,7 +84,7 @@ const Footer = () => {
                 <div className='flex flex-col gap-4'>
                     <h2 className='text-2xl font-bold mb-3'>Social Media</h2>
                     <a
-                        href='https://twitter.com'
+                        href='https://x.com/JourneyStory_in'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
@@ -93,7 +93,7 @@ const Footer = () => {
                         <div className='text-md'>Twitter</div>
                     </a>
                     <a
-                        href='https://instagram.com'
+                        href=' https://www.instagram.com/journeystory_me?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
@@ -102,13 +102,13 @@ const Footer = () => {
                         <div className='text-md'>Instagram</div>
                     </a>
                     <a
-                        href='https://facebook.com'
+                        href='https://www.linkedin.com/company/journeystory/ '
                         target='_blank'
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
                     >
-                        <FaFacebook className='text-3xl bg-background rounded-full p-1 border border-primary' />
-                        <div className='text-md'>Facebook</div>
+                        <RiLinkedinBoxFill className='text-3xl bg-background rounded-full p-1 border border-primary' />
+                        <div className='text-md'>LinkedIn</div>
                     </a>
                 </div>
             </div>
