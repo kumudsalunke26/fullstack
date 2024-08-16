@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
 const Hostdata = [
     {
         id: 1,
@@ -25,15 +24,6 @@ const Hostdata = [
         twitter: "https://twitter.com/hosttwo",
         instagram: "https://instagram.com/hosttwo",
         facebook: "https://facebook.com/hosttwo",
-    },
-    {
-        id: 3,
-        name: "Host Three",
-        genre: "Genre Three",
-        image: "https://framerusercontent.com/images/0vaI7XIJ0hmlGmTh4HLjPf5uPOA.png",
-        twitter: "https://twitter.com/hostthree",
-        instagram: "https://instagram.com/hostthree",
-        facebook: "https://facebook.com/hostthree",
     },
     {
         id: 3,
@@ -69,6 +59,17 @@ const OurTeamSection = () => {
                 }}
                 navigation={true}
                 modules={[Pagination, Navigation]}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                }}
                 className='mySwiper min-h-[400px] w-full'
             >
                 {Hostdata.map((host, index) => (
