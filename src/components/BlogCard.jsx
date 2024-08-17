@@ -1,3 +1,4 @@
+import React, { memo } from "react";
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { User } from "@nextui-org/react";
 import { motion } from "framer-motion";
@@ -9,13 +10,14 @@ const Blog = ({ blog }) => {
             <motion.div
                 initial={{ scale: 1.2 }}
                 whileInView={{ scale: 1 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.2 }}
                 className='relative cursor-pointer w-full overflow-hidden'
             >
                 <Card className='bg-transparent text-text w-full h-fit'>
                     <CardHeader className='w-full h-full'>
                         <img
                             src={blog.blogImageUrl}
+                            loading='lazy'
                             className='object-cover h-full w-full'
                         />
                     </CardHeader>
@@ -26,13 +28,6 @@ const Blog = ({ blog }) => {
                         <h3 className='text-xl md:text-2xl font-bold group-hover:underline'>
                             {blog.title}
                         </h3>
-                        <User
-                            name={blog.author}
-                            description={blog.authorProfession}
-                            avatarProps={{
-                                src: blog.authorImageUrl,
-                            }}
-                        />
                     </CardBody>
                 </Card>
             </motion.div>
@@ -40,4 +35,4 @@ const Blog = ({ blog }) => {
     );
 };
 
-export default Blog;
+export default memo(Blog);

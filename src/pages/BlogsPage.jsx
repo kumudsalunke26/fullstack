@@ -6,17 +6,8 @@ import LoadingSkeleton from "../components/LoadingSkeleton";
 import { useState } from "react";
 
 const BlogsPage = () => {
-    const [searchState, setSearchState] = useState({
-        page: 1,
-        sortOption: "lastUpdated",
-    });
-    const { blogs, loading } = useGetBlogs(searchState);
-    const setPage = (page) => {
-        setSearchState((prevState) => ({
-            ...prevState,
-            page,
-        }));
-    };
+    const [page, setPage] = useState(1);
+    const { blogs, loading } = useGetBlogs(page);
 
     if (!blogs || !blogs.data) {
         return (

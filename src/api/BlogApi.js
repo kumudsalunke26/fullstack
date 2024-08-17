@@ -24,14 +24,11 @@ export const useGetBlogById = (blogId) => {
     return { blog, loading };
 };
 
-export const useGetBlogs = (
-    searchState = { page: 1, sortOption: "lastUpdated" }
-) => {
+export const useGetBlogs = (page = 1) => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const params = new URLSearchParams();
-    params.set("page", searchState.page.toString());
-    params.set("sortOption", searchState.sortOption);
+    params.set("page", page.toString());
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -52,7 +49,6 @@ export const useGetBlogs = (
 
     return { blogs, loading };
 };
-
 
 export const usePostBlog = () => {
     const [loading, setLoading] = useState(false);

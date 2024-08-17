@@ -75,6 +75,19 @@ const Header = () => {
             <NavbarContent justify='end'>
                 <PrimaryButton text='Contact us' toLink='/contact-us' />
             </NavbarContent>
+            <NavbarMenu className='bg-background bg-opacity-50'>
+                {menuItems.map((item, index) => (
+                    <NavbarMenuItem key={`${item.label}-${index}`}>
+                        <Link
+                            className='w-full text-mainText'
+                            to={item.toLink}
+                            size='lg'
+                        >
+                            {item.label}
+                        </Link>
+                    </NavbarMenuItem>
+                ))}
+            </NavbarMenu>
         </Navbar>
     );
 };

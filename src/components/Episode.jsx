@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { AiFillClockCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import React, { memo } from "react";
 
 const Episode = ({ episode }) => {
     return (
@@ -42,4 +43,4 @@ const Episode = ({ episode }) => {
     );
 };
 
-export default Episode;
+export default memo(Episode);

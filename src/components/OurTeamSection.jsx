@@ -26,7 +26,6 @@ const Hostdata = [
         facebook: "https://facebook.com/hosttwo",
     },
     {
-        id: 3,
         name: "Host Three",
         genre: "Genre Three",
         image: "https://framerusercontent.com/images/0vaI7XIJ0hmlGmTh4HLjPf5uPOA.png",
@@ -36,7 +35,7 @@ const Hostdata = [
     },
 ];
 
-const OurTeamSection = () => {
+const OurTeamSection = ({ teamMembers, loading }) => {
     const [hoverValue, setHoverValue] = useState(null);
 
     const handleHover = (index) => {
@@ -72,10 +71,10 @@ const OurTeamSection = () => {
                 }}
                 className='mySwiper min-h-[400px] w-full'
             >
-                {Hostdata.map((host, index) => (
-                    <SwiperSlide key={index}>
+                {Hostdata.map((teamMember, index) => (
+                    <SwiperSlide key={teamMember._id}>
                         <HostCard
-                            item={host}
+                            teamMember={teamMember}
                             index={index}
                             hoverValue={hoverValue}
                             handleHover={handleHover}
