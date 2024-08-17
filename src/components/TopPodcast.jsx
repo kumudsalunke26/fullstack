@@ -32,7 +32,7 @@ const TopPodcast = () => {
                             src={TopPodcastImage}
                         />
                     </CardBody>
-                    <CardBody className='overflow-visible py-1 flex flex-row md:flex-col gap-4 md:gap-1 justify-between'>
+                    <CardBody className='overflow-visible py-1 flex flex-row md:flex-col gap-8'>
                         <div className='font-semibold'>
                             Total Listeners
                             <h2 className='text-4xl font-bold text-primary'>
