@@ -78,7 +78,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h2 className='text-2xl font-bold mb-3'>Contact Info</h2>
-                    <p className='text-sm'>Email: info@journeystory.com</p>
+                    <p className='text-sm'>Email: ceo@journeystory.in</p>
                     <p className='text-sm'>Phone: +91 74989 61739</p>
                 </div>
                 <div className='flex flex-col gap-4'>
