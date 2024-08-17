@@ -19,7 +19,6 @@ const LatestEpisodesSection = () => {
             </h1>
         );
     }
-    console.log(episodes.data);
     return (
         <section className='mt-24 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <h2 className='text-4xl font-extrabold'>Latest Episodes</h2>
