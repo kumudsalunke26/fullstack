@@ -26,12 +26,15 @@ const Footer = () => {
                         <h2 className='text-2xl font-bold mb-3'>Pages</h2>
                         <ul className='space-y-2'>
                             <li>
-                                <Link to='/episodes' className='hover:underline'>
+                                <Link
+                                    to='/episodes'
+                                    className='hover:underline'
+                                >
                                     Episodes
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/blog' className='hover:underline'>
+                                <Link to='/blogs' className='hover:underline'>
                                     Blogs
                                 </Link>
                             </li>
@@ -42,7 +45,10 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/contact' className='hover:underline'>
+                                <Link
+                                    to='/contact-us'
+                                    className='hover:underline'
+                                >
                                     Contact us
                                 </Link>
                             </li>
