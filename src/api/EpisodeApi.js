@@ -16,7 +16,7 @@ export const useGetEpisodes = (page = 1) => {
                 const res = await axios.get(
                     `${BASE_URL}/api/episode?${params.toString()}`
                 );
-                setEpisodes(res.data);
+                setEpisodes(res.data.data);
             } catch (err) {
                 console.error(err);
             } finally {
@@ -28,28 +28,4 @@ export const useGetEpisodes = (page = 1) => {
     }, []);
 
     return { episodes, loading };
-};
-
-export const usePostEpisode = () => {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
-
-    const postEpisode = async (formData) => {
-        setLoading(true);
-        try {
-            const episode = await axios.post(
-                `${BASE_URL}/api/episode`,
-                formData
-            );
-            setSuccess(true);
-            return episode;
-        } catch (err) {
-            setError(err);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    return { postEpisode, loading, error, success };
 };

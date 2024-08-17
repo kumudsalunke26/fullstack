@@ -11,7 +11,7 @@ export const useGetTeamMembers = () => {
         const fetchTeamMembers = async () => {
             try {
                 const res = await axios.get(`${BASE_URL}/api/team-members`);
-                setTeamMembers(res);
+                setTeamMembers(res.data.data);
             } catch (err) {
                 console.error(err);
             } finally {

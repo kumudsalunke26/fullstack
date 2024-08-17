@@ -10,7 +10,7 @@ export const useGetBlogById = (blogId) => {
         const fetchBlog = async () => {
             try {
                 const res = await axios.get(`${BASE_URL}/api/blog/${blogId}`);
-                setBlog(res.data);
+                setBlog(res.data.data);
             } catch (err) {
                 console.error(err);
             } finally {
@@ -36,7 +36,7 @@ export const useGetBlogs = (page = 1) => {
                 const res = await axios.get(
                     `${BASE_URL}/api/blog?${params.toString()}`
                 );
-                setBlogs(res.data);
+                setBlogs(res.data.data);
             } catch (err) {
                 console.error(err);
             } finally {
@@ -48,30 +48,4 @@ export const useGetBlogs = (page = 1) => {
     }, []);
 
     return { blogs, loading };
-};
-
-export const usePostBlog = () => {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
-
-    const postBlog = async (blogData) => {
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
-
-        try {
-            const res = await axios.post(`${BASE_URL}/api/blog`, blogData);
-            if (res.status === 201) {
-                setSuccess(true);
-            }
-        } catch (err) {
-            console.error(err);
-            setError(err.response?.data?.message || "Something went wrong");
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    return { postBlog, loading, error, success };
 };

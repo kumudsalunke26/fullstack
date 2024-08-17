@@ -10,14 +10,14 @@ const HostCard = ({ teamMember, index, hoverValue, handleHover }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className='relative cursor-pointer w-fit overflow-hidden'
+            className='relative cursor-pointer overflow-hidden  w-full'
             onMouseEnter={() => handleHover(index)}
             onMouseLeave={() => handleHover(null)}
         >
-            <div className='h-[500px] md:h-full w-full overflow-hidden'>
+            <div className=' w-full overflow-hidden'>
                 <img
                     src={teamMember.imageUrl}
-                    className={`object-cover w-full h-full transition-transform duration-500 ${
+                    className={`object-cover w-full min-h-[400px] transition-transform duration-500 ${
                         index === hoverValue ? "scale-110" : ""
                     }`}
                 />
@@ -36,7 +36,7 @@ const HostCard = ({ teamMember, index, hoverValue, handleHover }) => {
                         <p className='text-mainText text-md font-bold mb-1 whitespace-nowrap'>
                             {teamMember.name}
                         </p>
-                        <p className='text-mainText text-md whitespace-nowrap'>
+                        <p className='text-mainText text-md'>
                             {teamMember.position}
                         </p>
                     </div>
@@ -58,7 +58,7 @@ const HostCard = ({ teamMember, index, hoverValue, handleHover }) => {
                             <FaInstagram size={25} />
                         </a>
                         <a
-                            href={teamMember.email}
+                            href={`mailto:${teamMember.email}`}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='text-mainText'

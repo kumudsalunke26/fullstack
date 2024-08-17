@@ -6,38 +6,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const Hostdata = [
-    {
-        id: 1,
-        name: "Host One",
-        genre: "Genre One",
-        image: "https://framerusercontent.com/images/3uJzVRICn4pm6lVQS9D1Ay6vE3s.png",
-        twitter: "https://twitter.com/hostone",
-        instagram: "https://instagram.com/hostone",
-        facebook: "https://facebook.com/hostone",
-    },
-    {
-        id: 2,
-        name: "Host Two",
-        genre: "Genre Two",
-        image: "https://framerusercontent.com/images/EOoXpC53qqokDoHkOj8EZFqT5a4.png?scale-down-to=1024",
-        twitter: "https://twitter.com/hosttwo",
-        instagram: "https://instagram.com/hosttwo",
-        facebook: "https://facebook.com/hosttwo",
-    },
-    {
-        name: "Host Three",
-        genre: "Genre Three",
-        image: "https://framerusercontent.com/images/0vaI7XIJ0hmlGmTh4HLjPf5uPOA.png",
-        twitter: "https://twitter.com/hostthree",
-        instagram: "https://instagram.com/hostthree",
-        facebook: "https://facebook.com/hostthree",
-    },
-];
-
 const OurTeamSection = ({ teamMembers, loading }) => {
     const [hoverValue, setHoverValue] = useState(null);
 
+    if (loading) {
+        return (
+            <h1 className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl'>
+                Loading...
+            </h1>
+        );
+    }
+    if (!teamMembers) {
+        return (
+            <h1 className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl'>
+                No team members found
+            </h1>
+        );
+    }
     const handleHover = (index) => {
         setHoverValue(index);
     };
@@ -69,10 +54,10 @@ const OurTeamSection = ({ teamMembers, loading }) => {
                         slidesPerView: 3,
                     },
                 }}
-                className='mySwiper min-h-[400px] w-full'
+                className='mySwiper h-fit w-full'
             >
-                {Hostdata.map((teamMember, index) => (
-                    <SwiperSlide key={teamMember._id}>
+                {teamMembers.map((teamMember, index) => (
+                    <SwiperSlide key={teamMember._id} className='h-fit w-full'>
                         <HostCard
                             teamMember={teamMember}
                             index={index}
