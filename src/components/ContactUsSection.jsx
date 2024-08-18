@@ -18,10 +18,10 @@ const ContactUsSection = () => {
                     </div>
                 </div>
                 <div className='grid md:grid-cols-[2fr_3fr] gap-3 rounded-md w-full overflow-hidden'>
-                    <Image
+                    <img
                         src={customerSupport}
                         alt='Contact us'
-                        className='rounded-none object-cover min-w-[430px] mx-auto md:mx-0 md:min-w-[300px] lg:min-w-[400px] h-[450px] md:h-[100%]'
+                        className='object-cover w-full h-[400px] md:h-full'
                     />
                     <div className='bg-primary h-full flex flex-col gap-4 p-3'>
                         <h2 className='text-2xl font-bold'>Contact details</h2>

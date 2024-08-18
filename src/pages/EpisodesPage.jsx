@@ -10,7 +10,7 @@ const EpisodesPage = () => {
 
     if (loading) {
         return (
-            <h1 className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl'>
+            <h1 className='flex flex-col gap-10 mt-10 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl'>
                 Loading...
             </h1>
         );
