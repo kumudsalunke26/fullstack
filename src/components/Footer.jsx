@@ -1,21 +1,24 @@
 import { BsTwitter } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa6";
-import { FaStarOfLife } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { PiApplePodcastsLogo } from "react-icons/pi";
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { RiLinkedinBoxFill } from "react-icons/ri";
 
 const Footer = () => {
     return (
-        <footer className='text-white p-8 border-t-2 border-gray-500 mt-20'>
+        <footer className='text-mainText p-8 border-t-2 border-secondary mt-20'>
             <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_4fr_2fr_2fr] gap-8'>
                 <div className='flex flex-col gap-2 items-center md:items-start'>
-                    <PiApplePodcastsLogo className='text-4xl' />
-                    <h3 className='text-xl font-semibold '>Podkuthar</h3>
+                    <img
+                        src={logo}
+                        alt='Logo'
+                        className='w-28 h-fit ml-[-15px]'
+                    />
                     <p className='text-sm text-center md:text-start'>
-                        Whether you're a seasoned listener or a newcomer to the
-                        world of podcasts, our platform provides a hub for
-                        discovery, connection, and continuous learning.
+                        Journey Story was created to inspire through real-life
+                        experiences of entrepreneurs and leaders, offering
+                        insights and motivation for personal and professional
+                        growth.
                     </p>
                 </div>
                 <div className='flex justify-between flex-1'>
@@ -23,40 +26,29 @@ const Footer = () => {
                         <h2 className='text-2xl font-bold mb-3'>Pages</h2>
                         <ul className='space-y-2'>
                             <li>
-                                <Link to='/' className='hover:underline'>
+                                <Link
+                                    to='/episodes'
+                                    className='hover:underline'
+                                >
                                     Episodes
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/about' className='hover:underline'>
+                                <Link to='/blogs' className='hover:underline'>
                                     Blogs
                                 </Link>
                             </li>
+
                             <li>
-                                <Link
-                                    to='/services'
-                                    className='hover:underline'
-                                >
-                                    About us
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/contact' className='hover:underline'>
-                                    Team
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/contact' className='hover:underline'>
-                                    Subscribe
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/contact' className='hover:underline'>
+                                <Link to='/reviews' className='hover:underline'>
                                     Reviews
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/contact' className='hover:underline'>
+                                <Link
+                                    to='/contact-us'
+                                    className='hover:underline'
+                                >
                                     Contact us
                                 </Link>
                             </li>
@@ -67,51 +59,68 @@ const Footer = () => {
                             Where to listen
                         </h2>
                         <ul className='space-y-2'>
-                            <li>Spotify</li>
-                            <li>Apple Podcasts</li>
-                            <li>Google Podcasts</li>
+                            <li>
+                                <a
+                                    href='https://open.spotify.com/show/1ZQE9AUhjChYhjKTgUr3ld?si=9cc36ba0d51345c5'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='hover:underline'
+                                >
+                                    Spotify
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href='https://www.youtube.com/channel/UCO0mVgRyCGWXOqmJ3UukIlg'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='hover:underline'
+                                >
+                                    Youtube
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div>
                     <h2 className='text-2xl font-bold mb-3'>Contact Info</h2>
-                    <p className='text-sm'>Email: info@podkuthar.com</p>
-                    <p className='text-sm'>Phone: 123-456-7890</p>
+                    <p className='text-sm'>Email: ceo@journeystory.in</p>
+                    <p className='text-sm'>Phone: +91 8530975857</p>
                 </div>
                 <div className='flex flex-col gap-4'>
                     <h2 className='text-2xl font-bold mb-3'>Social Media</h2>
                     <a
-                        href='https://twitter.com'
+                        href='https://x.com/JourneyStory_in'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
                     >
-                        <BsTwitter className='text-3xl bg-[#290324] rounded-full p-1 border border-purple-500' />
+                        <BsTwitter className='text-3xl bg-background rounded-full p-1 border border-primary' />
                         <div className='text-md'>Twitter</div>
                     </a>
                     <a
-                        href='https://instagram.com'
+                        href=' https://www.instagram.com/journeystory_me?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
                     >
-                        <FaInstagram className='text-3xl bg-[#290324] rounded-full p-1 border border-purple-500' />
+                        <FaInstagram className='text-3xl bg-background rounded-full p-1 border border-primary' />
                         <div className='text-md'>Instagram</div>
                     </a>
                     <a
-                        href='https://facebook.com'
+                        href='https://www.linkedin.com/company/journeystory/ '
                         target='_blank'
                         rel='noopener noreferrer'
                         className='flex items-center gap-2'
                     >
-                        <FaFacebook className='text-3xl bg-[#290324] rounded-full p-1 border border-purple-500' />
-                        <div className='text-md'>Facebook</div>
+                        <RiLinkedinBoxFill className='text-3xl bg-background rounded-full p-1 border border-primary' />
+                        <div className='text-md'>LinkedIn</div>
                     </a>
                 </div>
             </div>
 
             <div className='flex justify-center items-center mt-8'>
-                <p className='text-sm'>© 2024 PODKUTHIR.</p>
+                <p className='text-sm'>© 2024 Journey Story.</p>
             </div>
         </footer>
     );

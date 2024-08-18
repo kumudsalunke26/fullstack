@@ -1,77 +1,69 @@
-import { useState } from "react";
-import { Image } from "@nextui-org/react";
-import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { RiLinkedinBoxFill } from "react-icons/ri";
+import { MdOutlineMail } from "react-icons/md";
 
-const HostCard = ({ item, index, hoverValue, handleHover }) => {
-    const navigate = useNavigate();
-
-    const handleClick = (e) => {
-        if (!e.target.closest("a")) {
-            navigate(`/host/${item.id}`);
-        }
-    };
-
+const HostCard = ({ teamMember, index, hoverValue, handleHover }) => {
     return (
         <motion.div
             key={index}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className='relative cursor-pointer w-full max-h-[500px] overflow-hidden'
+            className='relative cursor-pointer overflow-hidden  w-full'
             onMouseEnter={() => handleHover(index)}
             onMouseLeave={() => handleHover(null)}
         >
-            <div className='h-full w-full overflow-hidden'>
-                <Image
-                    src={item.image}
-                    className={`object-cover w-full h-full transition-transform duration-500 ${
+            <div className=' w-full overflow-hidden'>
+                <img
+                    src={teamMember.imageUrl}
+                    className={`object-cover w-full h-[400px] transition-transform duration-500 ${
                         index === hoverValue ? "scale-110" : ""
                     }`}
                 />
             </div>
             <div
-                className={`absolute h-full w-full bottom-0 left-0 right-0 flex justify-center items-end transition-all duration-500 z-10 ${
+                className={`absolute h-full md:w-full bottom-0 left-0 right-0 flex justify-center items-end transition-all duration-500 z-10 ${
                     index === hoverValue
-                        ? "translate-y-0 opacity-100 bg-gradient-to-b from-transparent to-purple-950 bg-opacity-80"
+                        ? "translate-y-0 opacity-100 bg-gradient-to-b from-transparent to-primary bg-opacity-80"
                         : "translate-y-[100%] opacity-100"
                 }`}
-                onClick={handleClick}
             >
                 <div
-                    className={`flex justify-between gap-4 px-4 py-2 items-center m-4 h-fit w-full bg-white`}
+                    className={`flex justify-between gap-4 px-4 py-2 items-center m-4 h-fit w-full bg-secondary`}
                 >
                     <div>
-                        <p className='text-black text-md font-bold mb-1 whitespace-nowrap'>
-                            {item.name}
+                        <p className='text-mainText text-md font-bold mb-1 whitespace-nowrap'>
+                            {teamMember.name}
                         </p>
-                        <p className='text-gray-500 text-md whitespace-nowrap'>{item.genre}</p>
+                        <p className='text-mainText text-md'>
+                            {teamMember.position}
+                        </p>
                     </div>
                     <div className='flex space-x-4'>
                         <a
-                            href={item.twitter}
+                            href={teamMember.linkedin}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-black'
+                            className='text-mainText'
                         >
-                            <FaTwitter size={25} />
+                            <RiLinkedinBoxFill size={25} />
                         </a>
                         <a
-                            href={item.instagram}
+                            href={teamMember.instagram}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-black'
+                            className='text-mainText'
                         >
                             <FaInstagram size={25} />
                         </a>
                         <a
-                            href={item.facebook}
+                            href={`mailto:${teamMember.email}`}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-black'
+                            className='text-mainText'
                         >
-                            <FaFacebook size={25} />
+                            <MdOutlineMail size={25} />
                         </a>
                     </div>
                 </div>
