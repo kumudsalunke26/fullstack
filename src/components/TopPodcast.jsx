@@ -1,10 +1,11 @@
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import PrimaryButton from "./PrimaryButton";
+import TopPodcastImage from "../assets/TopPodcast.png";
 
 const TopPodcast = () => {
     return (
-        <Card className='py-4 mx-auto bg-transparent text-white grid lg:grid-cols-[2fr_3fr] gap-6 w-[90%] lg:w-[70%] md:w-[80%]'>
+        <Card className='py-4 mx-auto bg-transparent text-mainText grid lg:grid-cols-[2fr_3fr] gap-6 w-[90%] lg:w-[70%] md:w-[80%] shadow-none'>
             <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: 0 }}
@@ -13,7 +14,7 @@ const TopPodcast = () => {
             >
                 <CardHeader className='pb-0 pt-2 px-4 flex-col items-start'>
                     <h4 className='font-bold text-3xl'>
-                        Navigating the waves of audio excellence
+                        A platform which inspires millions
                     </h4>
                 </CardHeader>
             </motion.div>
@@ -24,39 +25,34 @@ const TopPodcast = () => {
                 className='flex flex-col md:flex-row justify-center gap-2 flex-1'
             >
                 <div className='flex flex-col md:flex-row justify-center gap-2 flex-1 h-full'>
-                    <CardBody className='overflow-hidden py-2 w-full flex justify-center md:justify-start max-h-[600px]'>
-                        <Image
+                    <CardBody className='overflow-hidden py-2 flex justify-center md:justify-start h-[600px] md:h-[100%]'>
+                        <img
                             alt='Card background'
-                            className='object-cover w-full max-h-[600px]'
-                            src='https://img.freepik.com/premium-photo/podcast-live-streaming-microphone-with-sound-wave-magenta-backdrop-vertical-mobile-wallpaper_892776-28637.jpg'
-                            width={270}
+                            className='object-cover w-full h-full'
+                            src={TopPodcastImage}
                         />
                     </CardBody>
-                    <CardBody className='overflow-visible py-1 flex flex-row md:flex-col gap-4 md:gap-1 justify-between'>
+                    <CardBody className='overflow-visible py-1 flex flex-row md:flex-col gap-8'>
                         <div className='font-semibold'>
                             Total Listeners
-                            <h2 className='text-4xl font-bold text-purple-900'>
-                                1.5M
+                            <h2 className='text-4xl font-bold text-primary'>
+                                50K
                             </h2>
                         </div>
                         <div>
-                            <div className='text-gray-600 font-normal text-md'>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Sunt dignissimos ducimus
-                                veritatis laboriosam ab illo voluptas nemo eaque
-                                reiciendis magnam asperiores consequuntur modi
-                                nesciunt, iure unde facilis quo necessitatibus.
-                                Maiores, totam aut?
+                            <div className='font-normal text-md'>
+                                Journey Story has a growing community of over
+                                50,000 listeners who tune in for unparalleled
+                                insights, inspiration, and wisdom. Be part of
+                                the movement and learn from the best in the
+                                industry.
                             </div>
                             <div className='my-5'>
                                 <ul className='list-disc pl-6'>
-                                    <li>
-                                        Engaging discussions on various topics
-                                    </li>
-                                    <li>Insights from industry experts</li>
-                                    <li>
-                                        Informative and entertaining episodes
-                                    </li>
+                                    <li>Inspiration Hub</li>
+                                    <li>Diverse Journeys</li>
+                                    <li>Expert Insights</li>
+                                    <li>Entrepreneurial Wisdom</li>
                                 </ul>
                             </div>
                             <div>

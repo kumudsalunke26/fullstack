@@ -1,3 +1,5 @@
+import { useGetBlogs } from "../api/BlogApi";
+import { useGetTeamMembers } from "../api/TeamMemberApi";
 import CategoriesList from "../components/CategoriesList";
 import Hero from "../components/Hero";
 import LatestBlogs from "../components/LatestBlogs";
@@ -8,6 +10,8 @@ import SubsciptionSection from "../components/SubsciptionSection";
 import TopPodcast from "../components/TopPodcast";
 
 const HomePage = () => {
+    const { blogs, loading: blogsLoading } = useGetBlogs();
+    const { teamMembers, loading: teamLoading } = useGetTeamMembers();
     return (
         <div>
             <Hero />
@@ -15,8 +19,8 @@ const HomePage = () => {
             <TopPodcast />
             <LatestEpisodesSection />
             <PodcastOverview />
-            <OurTeamSection />
-            <LatestBlogs />
+            <OurTeamSection teamMembers={teamMembers} loading={teamLoading} />
+            <LatestBlogs blogs={blogs} loading={blogsLoading} />
             <SubsciptionSection />
         </div>
     );

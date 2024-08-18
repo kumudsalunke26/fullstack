@@ -1,17 +1,15 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import { RouterProvider } from "react-router";
+import { Navigate, RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
 import { NextUIProvider } from "@nextui-org/react";
 import HomePage from "./pages/HomePage.jsx";
 import EpisodesPage from "./pages/EpisodesPage.jsx";
-import AboutUsPage from "./pages/AboutUsPage.jsx";
 import BlogsPage from "./pages/BlogsPage.jsx";
-import HostsPage from "./pages/HostsPage.jsx";
 import ReviewsPage from "./pages/ReviewsPage.jsx";
-import SubscriptionPage from "./pages/SubscriptionPage.jsx";
 import ConatctUsPage from "./pages/ConatctUsPage.jsx";
+import BlogDetailsPage from "./pages/BlogDetailsPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -31,18 +29,6 @@ const router = createBrowserRouter([
                 element: <BlogsPage />,
             },
             {
-                path: "/about",
-                element: <AboutUsPage />,
-            },
-            {
-                path: "/hosts",
-                element: <HostsPage />,
-            },
-            {
-                path: "/subscribe",
-                element: <SubscriptionPage />,
-            },
-            {
                 path: "/reviews",
                 element: <ReviewsPage />,
             },
@@ -50,7 +36,15 @@ const router = createBrowserRouter([
                 path: "/contact-us",
                 element: <ConatctUsPage />,
             },
+            {
+                path: "/blogs/:id",
+                element: <BlogDetailsPage />,
+            },
         ],
+    },
+    {
+        path: "*",
+        element: <Navigate to='/' />,
     },
 ]);
 
