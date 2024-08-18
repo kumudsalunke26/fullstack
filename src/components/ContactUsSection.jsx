@@ -1,4 +1,5 @@
 import { Image, Input, Textarea } from "@nextui-org/react";
+import customerSupport from "../assets/customer-care.png";
 
 const ContactUsSection = () => {
     return (
@@ -18,7 +19,7 @@ const ContactUsSection = () => {
                 </div>
                 <div className='grid md:grid-cols-[2fr_3fr] gap-3 rounded-md w-full overflow-hidden'>
                     <Image
-                        src='https://framerusercontent.com/images/0NHYFxTJyQ6HrIo0K2WpKu6klg.png'
+                        src={customerSupport}
                         alt='Contact us'
                         className='rounded-none object-cover min-w-[430px] mx-auto md:mx-0 md:min-w-[300px] lg:min-w-[400px] h-[450px] md:h-[100%]'
                     />
