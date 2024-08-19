@@ -29,6 +29,7 @@ const Blog = ({ blog }) => {
                             {blog.title}
                         </h3>
                     </CardBody>
+                    
                 </Card>
             </motion.div>
         </Link>
