@@ -20,7 +20,7 @@ const BlogDetailsPage = () => {
 
     if (!blog) {
         return (
-            <h1 className='mt-10 w-[90%] md:w-[80%] mx-auto text-xl font-semibold'>
+            <h1 className='mt-5 w-[90%] md:w-[80%] mx-auto text-xl font-semibold'>
                 Blog not found
             </h1>
         );

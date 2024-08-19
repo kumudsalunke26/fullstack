@@ -82,6 +82,7 @@ const Header = () => {
                             className='w-full text-mainText'
                             to={item.toLink}
                             size='lg'
+                            onClick={() => handleNavigation(item.toLink)}
                         >
                             {item.label}
                         </Link>
