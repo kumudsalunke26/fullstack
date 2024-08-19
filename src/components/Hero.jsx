@@ -1,7 +1,7 @@
 import heroImage from "../assets/hero.png";
 import spotify from "../assets/Spotify.svg";
 import youtube from "../assets/Youtube.svg";
-
+// jst checking new remote
 const Hero = () => {
     return (
         <div className='w-full mt-8'>
