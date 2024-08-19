@@ -18,7 +18,7 @@ const BlogsPage = () => {
     }
 
     return (
-        <div className='min-h-[100vh] mt-20 mx-auto w-[90%] lg:w-[70%] md:w-[80%]'>
+        <div className='min-h-[100vh] mt-5 mx-auto w-[90%] lg:w-[70%] md:w-[80%]'>
             <div className='flex flex-col md:flex-row w-full md:w-[100%] gap-6'>
                 <h1 className='text-white text-4xl font-bold whitespace-nowrap'>
                     All Articles

@@ -13,7 +13,7 @@ const HomePage = () => {
     const { blogs, loading: blogsLoading } = useGetBlogs();
     const { teamMembers, loading: teamLoading } = useGetTeamMembers();
     return (
-        <div>
+        <div className="mt-5">
             <Hero />
             <CategoriesList />
             <TopPodcast />
