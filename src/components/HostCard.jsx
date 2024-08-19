@@ -17,7 +17,9 @@ const HostCard = ({ teamMember, index, hoverValue, handleHover }) => {
             <div className=' w-full overflow-hidden'>
                 <img
                     src={teamMember.imageUrl}
+
                     className={`object-cover w-full h-[400px] transition-transform duration-500 ${
+
                         index === hoverValue ? "scale-110" : ""
                     }`}
                 />

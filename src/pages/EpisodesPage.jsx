@@ -10,7 +10,7 @@ const EpisodesPage = () => {
 
     if (loading) {
         return (
-            <h1 className='flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl'>
+            <h1 className='flex flex-col gap-10 mt-10 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl'>
                 Loading...
             </h1>
         );
@@ -23,7 +23,7 @@ const EpisodesPage = () => {
         );
     }
     return (
-        <div className='min-h-[100vh] mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
+        <div className='min-h-[100vh] mt-5 w-[90%] lg:w-[70%] md:w-[80%] mx-auto'>
             <div className='flex flex-col md:flex-row gap-6'>
                 <h1 className='text-white text-4xl font-bold whitespace-nowrap'>
                     All Episodes
