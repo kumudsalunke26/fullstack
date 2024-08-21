@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { BASE_URL } from "../constants"; 
 
 export const useGetEpisodes = (page = 1) => {
     const [episodes, setEpisodes] = useState([]);
