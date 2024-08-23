@@ -12,40 +12,40 @@ import ConatctUsPage from "./pages/ConatctUsPage.jsx";
 import BlogDetailsPage from "./pages/BlogDetailsPage.jsx";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
         path: "/",
-        element: <App />,
-        children: [
-            {
-                path: "/",
-                element: <HomePage />,
-            },
-            {
-                path: "/episodes",
-                element: <EpisodesPage />,
-            },
-            {
-                path: "/blogs",
-                element: <BlogsPage />,
-            },
-            {
-                path: "/reviews",
-                element: <ReviewsPage />,
-            },
-            {
-                path: "/contact-us",
-                element: <ConatctUsPage />,
-            },
-            {
-                path: "/blogs/:id",
-                element: <BlogDetailsPage />,
-            },
-        ],
-    },
-    {
-        path: "*",
-        element: <Navigate to='/' />,
-    },
+        element: <HomePage />,
+      },
+      {
+        path: "/episodes",
+        element: <EpisodesPage />,
+      },
+      {
+        path: "/blogs",
+        element: <BlogsPage />,
+      },
+      {
+        path: "/reviews",
+        element: <ReviewsPage />,
+      },
+      {
+        path: "/contact-us",
+        element: <ConatctUsPage />,
+      },
+      {
+        path: "/blogs/:id",
+        element: <BlogDetailsPage />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
