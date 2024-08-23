@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import { useGetEpisodes } from "../api/EpisodeApi";
 import Episode from "./Episode";
 import PrimaryButton from "./PrimaryButton";
+import LoadingSpinner from "./LoadingSpinner";
 
 const LatestEpisodesSection = () => {
   const { episodes, error } = useGetEpisodes();
