@@ -3,18 +3,13 @@ import { useGetEpisodes } from "../api/EpisodeApi";
 import Episode from "../components/Episode";
 import PaginationSection from "../components/PaginationSection";
 import SubsciptionSection from "../components/SubsciptionSection";
+import LoadingSpinner from "../components/LoadingSpinner";
+import { Suspense } from "react";
 
 const EpisodesPage = () => {
   const [page, setPage] = useState(1);
   const { episodes, loading } = useGetEpisodes(page);
 
-  if (loading) {
-    return (
-      <h1 className="flex flex-col gap-10 mt-10 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl">
-        Loading...
-      </h1>
-    );
-  }
   if (!episodes || !episodes.data || episodes.data.length === 0) {
     return (
       <h1 className="flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl">
@@ -35,11 +30,14 @@ const EpisodesPage = () => {
           </p>
         </div>
       </div>
-      <div className="w-full">
-        {episodes.data.map((episode) => (
-          <Episode episode={episode} key={episode.id} />
-        ))}
-      </div>
+      <Suspense fallback={<LoadingSpinner />}>
+        <div className="w-full">
+          {episodes.data.map((episode) => (
+            <Episode episode={episode} key={episode.id} />
+          ))}
+        </div>
+      </Suspense>
+
       <PaginationSection
         pages={episodes.pagination.pages}
         page={episodes.pagination.page}
