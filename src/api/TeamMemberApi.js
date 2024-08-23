@@ -1,25 +1,23 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { BASE_URL } from "../constants"; 
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import { BASE_URL } from '../constants';
+
+const fetchTeamMembers = async () => {
+    const { data } = await axios.get(`${BASE_URL}/api/team-members`);
+    return data.data;
+};
 
 export const useGetTeamMembers = () => {
-    const [teamMembers, setTeamMembers] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { data, error, isLoading, isError } = useQuery({
+        queryKey: ['teamMembers'],
+        queryFn: fetchTeamMembers,
+        retry: 1,  // Number of retry attempts on failure
+        staleTime: 60000,  // Data considered fresh for 1 minute
+    });
 
-    useEffect(() => {
-        const fetchTeamMembers = async () => {
-            try {
-                const res = await axios.get(`${BASE_URL}/api/team-members`);
-                setTeamMembers(res.data.data);
-            } catch (err) {
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchTeamMembers();
-    }, []);
-
-    return { teamMembers, loading };
+    return {
+        teamMembers: data || [],
+        loading: isLoading,
+        error: isError ? error.message : null,
+    };
 };
