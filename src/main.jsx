@@ -25,6 +25,10 @@ const router = createBrowserRouter([
         element: <EpisodesPage />,
       },
       {
+        path: "/blogs",
+        element: <BlogsPage />,
+      },
+      {
         path: "/reviews",
         element: <ReviewsPage />,
       },
