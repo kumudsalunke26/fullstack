@@ -4,6 +4,7 @@ import PaginationSection from "../components/PaginationSection";
 import SubsciptionSection from "../components/SubsciptionSection";
 import LoadingSkeleton from "../components/LoadingSkeleton";
 import { useState } from "react";
+import ErrorAlert from "../components/ErrorAlert";
 
 const BlogsPage = () => {
   const [page, setPage] = useState(1);

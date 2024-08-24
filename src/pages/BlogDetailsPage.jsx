@@ -5,6 +5,7 @@ import BlogTitle from "../components/BlogTitle";
 import PrimaryButton from "../components/PrimaryButton";
 import { useGetBlogById, useGetBlogs } from "../api/BlogApi";
 import { AlertTriangle } from "lucide-react";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const BlogDetailsPage = () => {
   const blogId = useParams().id;
@@ -12,11 +13,7 @@ const BlogDetailsPage = () => {
   const { blogs, loading: SimilerBlogsLoading } = useGetBlogs();
 
   if (blogDetailsLoading || SimilerBlogsLoading) {
-    return (
-      <h1 className="mt-10 w-[90%] md:w-[80%] mx-auto text-xl font-semibold">
-        Loading...
-      </h1>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!blog) {

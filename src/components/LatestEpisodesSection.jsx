@@ -3,6 +3,7 @@ import { useGetEpisodes } from "../api/EpisodeApi";
 import Episode from "./Episode";
 import PrimaryButton from "./PrimaryButton";
 import LoadingSpinner from "./LoadingSpinner";
+import ErrorAlert from "./ErrorAlert";
 
 const LatestEpisodesSection = () => {
   const { episodes, error } = useGetEpisodes();
