@@ -7,16 +7,13 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Suspense } from "react";
 import LoadingSpinner from "./LoadingSpinner";
+import ErrorAlert from "./ErrorAlert";
 
 const OurTeamSection = ({ teamMembers, loading }) => {
   const [hoverValue, setHoverValue] = useState(null);
- 
+
   if (!teamMembers) {
-    return (
-      <h1 className="flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl">
-        No team members found
-      </h1>
-    );
+    return <ErrorAlert name={"Team Members"} />;
   }
   const handleHover = (index) => {
     setHoverValue(index);

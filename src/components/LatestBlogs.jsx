@@ -3,14 +3,12 @@ import PrimaryButton from "./PrimaryButton";
 import LoadingSkeleton from "./LoadingSkeleton";
 import LoadingSpinner from "./LoadingSpinner";
 import { Suspense } from "react";
+import { AlertTriangle } from "lucide-react";
+import ErrorAlert from "./ErrorAlert";
 
 const LatestBlogs = ({ blogs, loading }) => {
   if (!blogs || !blogs.data) {
-    return (
-      <h1 className="flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl">
-        No blogs found
-      </h1>
-    );
+    return <ErrorAlert name={"blogs"} />;
   }
   return (
     <div className="flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto">

@@ -15,11 +15,7 @@ const LatestEpisodesSection = () => {
   }
 
   if (!episodes || !episodes.data || episodes.data.length === 0) {
-    return (
-      <h1 className="flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl">
-        No latest episodes found
-      </h1>
-    );
+    return <ErrorAlert name={"Episodes "} />;
   }
 
   return (
