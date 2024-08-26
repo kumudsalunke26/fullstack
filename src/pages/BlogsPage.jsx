@@ -9,14 +9,6 @@ const BlogsPage = () => {
     const [page, setPage] = useState(1);
     const { blogs, loading } = useGetBlogs(page);
 
-    if (!blogs || !blogs.data) {
-        return (
-            <h1 className='mt-10 w-[90%] md:w-[80%] mx-auto text-xl font-semibold'>
-                No Blogs Found
-            </h1>
-        );
-    }
-
     return (
         <div className='min-h-[100vh] mt-5 mx-auto w-[90%] lg:w-[70%] md:w-[80%]'>
             <div className='flex flex-col md:flex-row w-full md:w-[100%] gap-6'>
@@ -25,8 +17,8 @@ const BlogsPage = () => {
                 </h1>
                 <div className='text-md'>
                     <p className='text-white'>
-                        We are a collective of passionate dedicated to
-                        delivering immersive audio experiences that resonate
+                        We are a collective of passionate individuals dedicated
+                        to delivering immersive audio experiences that resonate
                         with your heart & mind.
                     </p>
                 </div>
@@ -36,18 +28,27 @@ const BlogsPage = () => {
                 {loading
                     ? Array(6)
                           .fill()
-                          .map((_, index) => {
-                              return <LoadingSkeleton key={index} />;
-                          })
-                    : blogs.data.map((blog, index) => (
+                          .map((_, index) => (
+                              <LoadingSkeleton key={index} />
+                          ))
+                    : blogs?.data?.length > 0
+                    ? blogs.data.map((blog, index) => (
                           <Blog blog={blog} key={index} />
-                      ))}
+                      ))
+                    : (
+                          <h1 className='mt-10 w-[90%] md:w-[80%] mx-auto text-xl font-semibold'>
+                              No Blogs Found
+                          </h1>
+                      )}
             </div>
-            <PaginationSection
-                pages={blogs.pagination.pages}
-                page={blogs.pagination.page}
-                setPage={setPage}
-            />
+
+            {!loading && blogs?.pagination?.pages > 1 && (
+                <PaginationSection
+                    pages={blogs.pagination.pages}
+                    page={blogs.pagination.page}
+                    setPage={setPage}
+                />
+            )}
             <SubsciptionSection />
         </div>
     );
