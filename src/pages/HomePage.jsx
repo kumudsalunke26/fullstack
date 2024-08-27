@@ -1,8 +1,7 @@
 
 import { useGetBlogs } from "../api/BlogApi";
 import { useGetTeamMembers } from "../api/TeamMemberApi";
-import PostList from "../components/BlogCard2";
-import CategoriesList from "../components/CategoriesList";
+ import CategoriesList from "../components/CategoriesList";
 import Hero from "../components/Hero";
 import LatestBlogs from "../components/LatestBlogs";
 import LatestEpisodesSection from "../components/LatestEpisodesSection";
@@ -10,14 +9,15 @@ import OurTeamSection from "../components/OurTeamSection";
 import PodcastOverview from "../components/PodcastOverview";
 import SubsciptionSection from "../components/SubsciptionSection";
 import TopPodcast from "../components/TopPodcast";
-import LoadingSpinner from "./../components/LoadingSpinner";
+import Header from './../components/Header';
+import Footer from './../components/Footer';
 
 const HomePage = () => {
     const { blogs, loading: blogsLoading } = useGetBlogs();
     const { teamMembers, loading: teamLoading } = useGetTeamMembers();
     return (
         <div className="bg-background text-white overflow-hidden">
-            <Header />
+        
             <div className="mt-5">
                 <Hero />
                 <CategoriesList />
@@ -31,8 +31,7 @@ const HomePage = () => {
                 <LatestBlogs blogs={blogs} loading={blogsLoading} />
                 <SubsciptionSection />
             </div>
-            <Footer />
-        </div>
+         </div>
     );
 };
 
