@@ -7,16 +7,9 @@ import ErrorAlert from "./ErrorAlert";
 
 const LatestEpisodesSection = () => {
   const { episodes, error } = useGetEpisodes();
-  if (error) {
-    return (
-      <h1 className="flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl">
-        Error loading episodes. Please try again.
-      </h1>
-    );
-  }
 
   if (!episodes || !episodes.data || episodes.data.length === 0) {
-    return <ErrorAlert name={"Episodes "} />;
+    return <ErrorAlert customMsg={error} />;
   }
 
   return (

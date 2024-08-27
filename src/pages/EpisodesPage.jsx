@@ -5,17 +5,14 @@ import PaginationSection from "../components/PaginationSection";
 import SubsciptionSection from "../components/SubsciptionSection";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Suspense } from "react";
+import ErrorAlert from "../components/ErrorAlert";
 
 const EpisodesPage = () => {
-    const [page, setPage] = useState(1);
-    const { episodes, loading } = useGetEpisodes(page);
+  const [page, setPage] = useState(1);
+  const { episodes, loading } = useGetEpisodes(page);
 
   if (!episodes || !episodes.data || episodes.data.length === 0) {
-    return (
-      <h1 className="flex flex-col gap-10 mt-20 w-[90%] lg:w-[70%] md:w-[80%] mx-auto text-xl">
-        No latest episodes found
-      </h1>
-    );
+    return <ErrorAlert name={"episodes"} />;
   }
   return (
     <div className="min-h-[100vh] mt-5 w-[90%] lg:w-[70%] md:w-[80%] mx-auto">
