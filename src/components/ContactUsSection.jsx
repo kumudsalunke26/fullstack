@@ -1,7 +1,7 @@
 import { Button, Image, Input, Textarea } from "@nextui-org/react";
 import customerSupport from "../assets/customer-care.png";
 import { useState } from "react";
-import {WEB3_FORMS_KEY} from "../constants"
+import { WEB3_API_KEY } from "../constants";
 const ContactUsSection = () => {
   const [result, setResult] = useState("");
 
@@ -10,7 +10,7 @@ const ContactUsSection = () => {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", WEB3_FORMS_KEY);
+    formData.append("access_key", WEB3_API_KEY);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -90,7 +90,9 @@ const ContactUsSection = () => {
                 className="w-full text-white rounded-xl border border-gray-800"
                 variant="bordered"
               />
-              <Button className="bg-primary font-bold text-white" type="submit">Send</Button>
+              <Button className="bg-primary font-bold text-white" type="submit">
+                Send
+              </Button>
             </form>
             <span>{result}</span>
           </div>
