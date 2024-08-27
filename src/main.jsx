@@ -10,6 +10,7 @@ import ConatctUsPage from './pages/ConatctUsPage.jsx';
 import EpisodesPage from './pages/EpisodesPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ReviewsPage from './pages/ReviewsPage.jsx';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const router = createBrowserRouter([
     {
@@ -47,11 +48,19 @@ const router = createBrowserRouter([
         element: <Navigate to="/" />,
     },
 ]);
-
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+        },
+    },
+});
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         <NextUIProvider>
-            <RouterProvider router={router} />
+            <QueryClientProvider client={queryClient}>
+                <RouterProvider router={router} />
+            </QueryClientProvider>
         </NextUIProvider>
     </StrictMode>
 );
