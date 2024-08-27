@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "../constants"; 
+import { BASE_URL } from "../constants";  
 
 export const useGetBlogById = (blogId) => {
     const [blog, setBlog] = useState(null);
