@@ -1,6 +1,4 @@
-import logo from "../assets/logo.png";
-import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -9,51 +7,32 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  Link,
+  Button,
 } from "@nextui-org/react";
-import PrimaryButton from "./PrimaryButton";
+import logo from "../assets/logo.png";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
-
-  useEffect(() => {
-    const hash = location.hash;
-    if (hash) {
-      const element = document.getElementById(hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, [location]);
+export default function App() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    { label: "Blogs", toLink: "https://blogs.journeystory.in" },
-    { label: "Episodes", toLink: "/episodes" },
-    { label: "About us", toLink: "#about" },
-    { label: "Team", toLink: "#team" },
-    { label: "Reviews", toLink: "/reviews" },
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Log Out",
   ];
 
-  const handleNavigation = (toLink) => {
-    if (toLink.startsWith("http")) {
-      window.location.href = toLink; // For external links
-    } else if (toLink.startsWith("#")) {
-      navigate("/" + toLink); // For internal links with hash
-    } else {
-      navigate(toLink); // For internal links without hash
-    }
-  };
-
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-transparent">
+    <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
-          // aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
@@ -68,34 +47,54 @@ const Header = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-12" justify="center">
-        {menuItems.map((item, index) => (
-          <NavbarItem
-            key={`${item.label}-${index}`}
-            className="cursor-pointer"
-            onClick={() => handleNavigation(item.toLink)}>
-            <span className="text-white">{item.label}</span>
-          </NavbarItem>
-        ))}
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Features
+          </Link>
+        </NavbarItem>
+        <NavbarItem isActive>
+          <Link href="#" aria-current="page">
+            Customers
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
+        </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <PrimaryButton text="Contact us" toLink="/contact-us" />
+        <NavbarItem>
+          <Button
+            as={Link}
+            color="primary"
+            radius="full"
+            href="#"
+            variant="solid">
+            Sign Up
+          </Button>
+        </NavbarItem>
       </NavbarContent>
-      <NavbarMenu className="bg-background bg-opacity-50">
+      <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item.label}-${index}`}>
+          <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              className="w-full text-mainText"
-              to={item.toLink}
-              size="lg"
-              onClick={() => handleNavigation(item.toLink)}>
-              {item.label}
+              color={
+                index === 2
+                  ? "primary"
+                  : index === menuItems.length - 1
+                  ? "danger"
+                  : "foreground"
+              }
+              className="w-full"
+              href="#"
+              size="lg">
+              {item}
             </Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
     </Navbar>
   );
-};
-
-export default Header;
+}
