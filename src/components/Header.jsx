@@ -32,7 +32,7 @@ const Header = () => {
   }, [location]);
 
   const menuItems = [
-    { label: "Blogs", toLink: "/blogs" },
+    { label: "Blogs", toLink: "https://blogs.journeystory.in" },
     { label: "Episodes", toLink: "/episodes" },
     { label: "About us", toLink: "#about" },
     { label: "Team", toLink: "#team" },
