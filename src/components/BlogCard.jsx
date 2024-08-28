@@ -1,36 +1,43 @@
-import React, { memo } from "react";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { Chip } from "@nextui-org/chip";
-
-import { motion } from "framer-motion";
+import React from "react";
 import { Link } from "react-router-dom";
-import LazyImage from './LazyImage';
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardBody, Chip } from "@nextui-org/react";  
+import LazyImage from "./LazyImage"; 
 
 const Blog = ({ blog }) => {
   return (
-    <Link to={`/blogs/${blog._id}`} className="group">
+    <Link
+      to={`https://blogs.journeystory.in/post/${blog.slug.current}`}
+      className="group">
       <motion.div
         initial={{ scale: 1.2 }}
         whileInView={{ scale: 1 }}
         transition={{ duration: 0.2 }}
         className="relative w-full overflow-hidden">
-        <Card className="bg-transparent text- w-full h-fit pb-4 px-0">
+        <Card className="bg-transparent text-w-full h-fit pb-4 px-0">
           <CardHeader className="w-full aspect-w-16 aspect-h-9 flex-col items-start">
             <LazyImage
-              src={blog.blogImageUrl}
+              src={blog.mainImage.asset.url}
               className="object-cover h-full w-full"
               alt={blog.title}
             />
           </CardHeader>
           <CardBody className="w-full mt-[-25px] flex flex-col gap-2 items-start">
-            <Chip color="success" variant="faded" size="md" className="mt-2">
-              Success Stories
-            </Chip>
+            {blog.categories.length > 0 && (
+              <Chip color="success" variant="faded" size="md" className="mt-2">
+                {blog.categories[0].title}{" "}
+                {/* Display the first category's title */}
+              </Chip>
+            )}
             <h3 className="text-xl md:text-2xl font-semibold p-0">
-              {blog?.title.substr(0, 100)}
+              {blog.title.length > 100
+                ? blog.title.substr(0, 100) + "..."
+                : blog.title}
             </h3>
             <p className="text-md md:text-md">
-              {blog?.description.substr(0, 200)}...
+              {blog.excerpt?.length > 200
+                ? blog.excerpt.substr(0, 200) + "..."
+                : blog.excerpt}
             </p>
           </CardBody>
         </Card>
@@ -39,4 +46,4 @@ const Blog = ({ blog }) => {
   );
 };
 
-export default memo(Blog);
+export default Blog;

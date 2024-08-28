@@ -13,7 +13,7 @@ const Episode = ({ episode }) => {
       className="episode" // Add any necessary classes
     >
       <Link
-        to={episode.EpisodeUrl}
+        to={episode.youtubeLink}
         target="_blank"
         rel="noopener noreferrer"
         className="group">
@@ -35,10 +35,10 @@ const Episode = ({ episode }) => {
             <div className="text-primary font-semibold text-md">
               {episode.category}
             </div>
-            
-              <p className="text-xl md:text-2xl font-semibold">
-                {episode?.title.substr(0, 200)}
-              </p>
+
+            <p className="text-xl md:text-2xl font-semibold">
+              {episode?.title.substr(0, 200)}
+            </p>
             {episode?.description && (
               <p className="text-md ">
                 {episode?.description.substr(0, 200)}...

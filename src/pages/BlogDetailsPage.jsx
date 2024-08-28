@@ -3,14 +3,14 @@ import Blog from "../components/BlogCard";
 import BlogContent from "../components/BlogContent";
 import BlogTitle from "../components/BlogTitle";
 import PrimaryButton from "../components/PrimaryButton";
-import { useGetBlogById, useGetBlogs } from "../api/BlogApi";
+import { useFetchPosts, useGetBlogById, useGetBlogs } from "../api/BlogApi";
 import { AlertTriangle } from "lucide-react";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 const BlogDetailsPage = () => {
   const blogId = useParams().id;
   const { blog, loading: blogDetailsLoading } = useGetBlogById(blogId);
-  const { blogs, loading: SimilerBlogsLoading } = useGetBlogs();
+  const { blogs, loading: SimilerBlogsLoading } = useFetchPosts(1);
 
   if (blogDetailsLoading || SimilerBlogsLoading) {
     return <LoadingSpinner />;
