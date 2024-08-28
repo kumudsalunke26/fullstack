@@ -1,100 +1,100 @@
-import React from "react";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
-  Button,
+  NavbarMenuToggle,
 } from "@nextui-org/react";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
+import PrimaryButton from "./PrimaryButton";
 
-export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
 
-  return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
-          <Link to="/">
-            <img
+    useEffect(() => {
+        const hash = location.hash;
+        if (hash) {
+            const element = document.getElementById(hash.substring(1));
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    }, [location]);
+
+    const menuItems = [
+        { label: "Episodes", toLink: "/episodes" },
+        { label: "Blogs", toLink: "/blogs" },
+        { label: "About us", toLink: "#about" },
+        { label: "Team", toLink: "#team" },
+        { label: "Reviews", toLink: "/reviews" },
+    ];
+
+    const handleNavigation = (toLink) => {
+        if (toLink.startsWith("#")) {
+            navigate("/" + toLink);
+        } else {
+            navigate(toLink);
+        }
+    };
+
+    return (
+        <Navbar onMenuOpenChange={setIsMenuOpen} className='bg-transparent'>
+            <NavbarContent>
+                <NavbarMenuToggle
+                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                    className='sm:hidden'
+                />
+                <NavbarBrand>
+                    <Link to='/'>
+                    <img
               src={logo}
               alt="Logo"
               loading="lazy"
               className="w-28 h-[100%]"
-            />
-          </Link>
-        </NavbarBrand>
-      </NavbarContent>
+            />                    </Link>
+                </NavbarBrand>
+            </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <Button
-            as={Link}
-            color="primary"
-            radius="full"
-            href="#"
-            variant="solid">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg">
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
-  );
-}
+            <NavbarContent className='hidden sm:flex gap-12' justify='center'>
+                {menuItems.map((item, index) => (
+                    <NavbarItem
+                        key={`${item.label}-${index}`}
+                        className='cursor-pointer'
+                        onClick={() => handleNavigation(item.toLink)}
+                    >
+                        <span className='text-white'>{item.label}</span>
+                    </NavbarItem>
+                ))}
+            </NavbarContent>
+            <NavbarContent justify='end'>
+                <PrimaryButton text='Contact us' toLink='/contact-us' />
+            </NavbarContent>
+            <NavbarMenu className='bg-background bg-opacity-50'>
+                {menuItems.map((item, index) => (
+                    <NavbarMenuItem key={`${item.label}-${index}`}>
+                        <Link
+                            className='w-full text-mainText'
+                            to={item.toLink}
+                            size='lg'
+                            onClick={() => handleNavigation(item.toLink)}
+                        >
+                            {item.label}
+                        </Link>
+                    </NavbarMenuItem>
+                ))}
+            </NavbarMenu>
+        </Navbar>
+    );
+};
+
+export default Header;
