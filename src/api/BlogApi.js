@@ -34,8 +34,7 @@ export const useFetchPosts = (page = 1) => {
         const fetchPosts = async () => {
             try {
                 const data = await client.fetch(query);
-                setPosts(data);
-                console.log(JSON.stringify(data[0]))
+                setPosts(data); 
             } catch (err) {
                 setError(err);
             } finally {

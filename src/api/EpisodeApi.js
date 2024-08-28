@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BASE_URL } from '../constants';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { client } from '../sanityClient';
 const fetchEpisodes = async (page) => {
     const { data } = await axios.get(`${BASE_URL}/api/episode`, {
         params: { page }
@@ -36,13 +37,15 @@ export const useFetchEpisodes = (page = 1) => {
     const skip = (page - 1) * pageSize;
     const limit = pageSize;
 
-    const query = `*[_type == "episode"]  {
+    const query = `*[_type == "episode"]{
   _id,
+    
   title,
   categories[]->{
     title
   },
-  youtubeLink,
+  url,
+  duration,
   description,
   thumbnail {
     asset-> {
@@ -50,14 +53,16 @@ export const useFetchEpisodes = (page = 1) => {
       url
     }
   }
-}`;
+}
+
+`;
 
     useEffect(() => {
         const fetchEpisodes = async () => {
             try {
                 const data = await client.fetch(query);
                 setEpisodes(data);
-                console.log(JSON.stringify(data[0]))
+                console.log(data)
             } catch (err) {
                 setError(err);
             } finally {
