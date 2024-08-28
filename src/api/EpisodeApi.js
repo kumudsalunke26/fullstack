@@ -1,6 +1,8 @@
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { BASE_URL } from '../constants';
+import { useState } from 'react';
+import { useEffect } from 'react';
 const fetchEpisodes = async (page) => {
     const { data } = await axios.get(`${BASE_URL}/api/episode`, {
         params: { page }
@@ -22,4 +24,49 @@ export const useGetEpisodes = (page = 1) => {
         loading: isLoading,
         error
     };
+};
+
+export const useFetchEpisodes = (page = 1) => {
+    const [episodes, setEpisodes] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const pageSize = 6;
+
+    const skip = (page - 1) * pageSize;
+    const limit = pageSize;
+
+    const query = `*[_type == "episode"]  {
+  _id,
+  title,
+  categories[]->{
+    title
+  },
+  youtubeLink,
+  description,
+  thumbnail {
+    asset-> {
+      _id,
+      url
+    }
+  }
+}`;
+
+    useEffect(() => {
+        const fetchEpisodes = async () => {
+            try {
+                const data = await client.fetch(query);
+                setEpisodes(data);
+                console.log(JSON.stringify(data[0]))
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchEpisodes();
+    }, []);
+
+    return { episodes, loading, error };
 };

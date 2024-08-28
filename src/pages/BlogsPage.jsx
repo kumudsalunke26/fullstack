@@ -1,4 +1,4 @@
-import { useGetBlogs } from "../api/BlogApi";
+import { useFetchPosts, useGetBlogs } from "../api/BlogApi";
 import Blog from "../components/BlogCard";
 import PaginationSection from "../components/PaginationSection";
 import SubsciptionSection from "../components/SubsciptionSection";
@@ -8,7 +8,7 @@ import ErrorAlert from "../components/ErrorAlert";
 
 const BlogsPage = () => {
   const [page, setPage] = useState(1);
-  const { blogs, loading } = useGetBlogs(page);
+  const { blogs, loading } = useFetchPosts(page);
 
   if (!blogs || !blogs.data) {
     return <ErrorAlert name={"blogs"} />;

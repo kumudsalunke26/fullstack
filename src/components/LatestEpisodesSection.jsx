@@ -1,12 +1,12 @@
 import { Suspense } from "react";
-import { useGetEpisodes } from "../api/EpisodeApi";
+import { useFetchEpisodes, useGetEpisodes } from "../api/EpisodeApi";
 import Episode from "./Episode";
 import PrimaryButton from "./PrimaryButton";
 import LoadingSpinner from "./LoadingSpinner";
 import ErrorAlert from "./ErrorAlert";
 
 const LatestEpisodesSection = () => {
-  const { episodes, error } = useGetEpisodes();
+  const { episodes, error } = useFetchEpisodes();
 
   if (!episodes || !episodes.data || episodes.data.length === 0) {
     return <ErrorAlert customMsg={error} />;
