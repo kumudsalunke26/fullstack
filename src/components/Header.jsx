@@ -53,7 +53,7 @@ const Header = () => {
     <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-transparent">
       <NavbarContent>
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          // aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
