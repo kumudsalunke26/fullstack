@@ -31,7 +31,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blogs" className="hover:underline">
+                  <Link to="https://blogs.journeystory.in" className="hover:underline">
                     Blogs
                   </Link>
                 </li>

@@ -22,13 +22,13 @@ const HomePage = () => {
                 <Hero />
                 <CategoriesList />
                 <TopPodcast />
-                <LatestEpisodesSection />
+                <LatestBlogs blogs={blogs} loading={blogsLoading} />
                 <PodcastOverview />
                 <OurTeamSection
                     teamMembers={teamMembers}
                     loading={teamLoading}
                 />
-                <LatestBlogs blogs={blogs} loading={blogsLoading} />
+                <LatestEpisodesSection />
                 <SubsciptionSection />
             </div>
          </div>
