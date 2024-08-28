@@ -8,9 +8,9 @@ import ErrorAlert from "./ErrorAlert";
 const LatestEpisodesSection = () => {
   const { episodes, error } = useFetchEpisodes();
 
-  if (!episodes || !episodes.data || episodes.data.length === 0) {
-    return <ErrorAlert customMsg={error} />;
-  }
+  // if (!episodes || !episodes.data || episodes.length === 0) {
+  //   return <ErrorAlert customMsg={error} />;
+  // }
 
   return (
     <section className="mt-24 w-[90%] lg:w-[70%] md:w-[80%] mx-auto">
@@ -25,7 +25,7 @@ const LatestEpisodesSection = () => {
             visible: { opacity: 1 },
           }}
           transition={{ duration: 0.5 }}>
-          {episodes.data.slice(0, 3).map((episode) => (
+          {episodes.slice(0, 3).map((episode) => (
             <Episode episode={episode} key={episode._id} />
           ))}
         </div>
