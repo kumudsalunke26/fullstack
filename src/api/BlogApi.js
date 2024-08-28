@@ -23,33 +23,7 @@ export const useGetBlogById = (blogId) => {
 
     return { blog, loading };
 };
-
-// export const useGetBlogs = (page = 1) => {
-//     const [blogs, setBlogs] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     const params = new URLSearchParams();
-//     params.set("page", page.toString());
-
-//     useEffect(() => {
-//         const fetchBlogs = async () => {
-//             try {
-//                 const res = await axios.get(
-//                     `${BASE_URL}/api/blog?${params.toString()}`
-//                 );
-//                 setBlogs(res.data.data);
-//             } catch (err) {
-//                 console.error(err);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-
-//         fetchBlogs();
-//     }, []);
-
-//     return { blogs, loading };
-// };
-
+ 
 export const useGetBlogs = (page = 1) => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
