@@ -1,6 +1,7 @@
 import { NextUIProvider } from '@nextui-org/react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { Navigate, RouterProvider } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
@@ -10,7 +11,6 @@ import ConatctUsPage from './pages/ConatctUsPage.jsx';
 import EpisodesPage from './pages/EpisodesPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ReviewsPage from './pages/ReviewsPage.jsx';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
 const router = createBrowserRouter([
     {
