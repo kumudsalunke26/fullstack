@@ -40,12 +40,14 @@ const Header = () => {
   ];
 
   const handleNavigation = (toLink) => {
-    if (toLink.startsWith("#")) {
+    if (toLink.startsWith("http")) {
+      // For external links, use window.location to navigate
+      window.location.href = toLink;
+    } else if (toLink.startsWith("#")) {
       navigate("/" + toLink);
     } else {
       navigate(toLink);
     }
-    // Close the menu after navigating
     setIsMenuOpen(false);
   };
 
@@ -77,7 +79,17 @@ const Header = () => {
             key={`${item.label}-${index}`}
             className="cursor-pointer"
             onClick={() => handleNavigation(item.toLink)}>
-            <span className="text-white">{item.label}</span>
+            {item.toLink.startsWith("http") ? (
+              <a
+                href={item.toLink}
+                className="text-white"
+                target="_blank"
+                rel="noopener noreferrer">
+                {item.label}
+              </a>
+            ) : (
+              <span className="text-white">{item.label}</span>
+            )}
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -87,13 +99,25 @@ const Header = () => {
       <NavbarMenu className="bg-background bg-opacity-50">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item.label}-${index}`}>
-            <Link
-              className="w-full text-mainText"
-              to={item.toLink}
-              size="lg"
-              onClick={() => handleNavigation(item.toLink)}>
-              {item.label}
-            </Link>
+            {item.toLink.startsWith("http") ? (
+              <a
+                href={item.toLink}
+                className="w-full text-mainText"
+                target="_blank"
+                rel="noopener noreferrer"
+                size="lg"
+                onClick={() => handleNavigation(item.toLink)}>
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                className="w-full text-mainText"
+                to={item.toLink}
+                size="lg"
+                onClick={() => handleNavigation(item.toLink)}>
+                {item.label}
+              </Link>
+            )}
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
