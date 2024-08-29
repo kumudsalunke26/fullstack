@@ -31,7 +31,9 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://blogs.journeystory.in" className="hover:underline">
+                  <Link
+                    to="https://blogs.journeystory.in"
+                    className="hover:underline">
                     Blogs
                   </Link>
                 </li>
@@ -62,7 +64,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.youtube.com/channel/UCO0mVgRyCGWXOqmJ3UukIlg"
+                    href="https://www.youtube.com/@JourneyStoryHindi"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline">
@@ -88,7 +90,7 @@ const Footer = () => {
               <div className="text-md">Twitter</div>
             </a>
             <a
-              href=" https://www.instagram.com/journeystory_me?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw"
+              href=" https://www.instagram.com/journeystory_me"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2">
@@ -96,7 +98,7 @@ const Footer = () => {
               <div className="text-md">Instagram</div>
             </a>
             <a
-              href="https://www.linkedin.com/company/journeystory/ "
+              href="https://www.linkedin.com/company/journeystory/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2">
@@ -107,7 +109,11 @@ const Footer = () => {
         </div>
 
         <div className="flex justify-center items-center mt-8">
-          <p className="text-sm">© 2024 Journey Story.</p>
+          <p className="text-sm">© 2024 Journey Story</p>
+          <br />
+          <p >
+            Made by <Link className="" to="https://edburg.in">Edburg Technologies</Link>
+          </p>
         </div>
       </footer>
     );

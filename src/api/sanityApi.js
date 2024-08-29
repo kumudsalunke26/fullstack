@@ -62,7 +62,7 @@ export const useFetchEpisodes = (page = 1) => {
             try {
                 const data = await client.fetch(query);
                 setEpisodes(data);
-           
+                console.log(data)
             } catch (err) {
                 setError(err);
             } finally {

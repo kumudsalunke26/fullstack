@@ -1,5 +1,5 @@
 import { useFetchPosts, useGetBlogs } from "../api/BlogApi";
-import { useGetTeamMembers } from "../api/TeamMemberApi";
+import { useGetTeamMembers, useTeamMembers } from "../api/TeamMemberApi";
 import CategoriesList from "../components/CategoriesList";
 import Hero from "../components/Hero";
 import LatestBlogs from "../components/LatestBlogs";
@@ -13,7 +13,8 @@ const HomePage = () => {
   const { blogs, loading: blogsLoading } = useFetchPosts();
   const { blogs2, loading2 } = useGetBlogs();
 
-  const { teamMembers, loading: teamLoading } = useGetTeamMembers();
+  const { team, loading: teamLoading, error: teamError } = useTeamMembers();
+  // const { teamMembers, loading: teamLoading } = useGetTeamMembers();
   return (
     <div className="bg-background text-white overflow-hidden">
       <div className="mt-5">
@@ -22,7 +23,7 @@ const HomePage = () => {
         <TopPodcast />
         <LatestBlogs blogs={blogs} loading={blogsLoading} />
         <PodcastOverview />
-        <OurTeamSection teamMembers={teamMembers} loading={teamLoading} />
+        <OurTeamSection teamMembers={team} loading={teamLoading} />
         <LatestEpisodesSection />
         <SubsciptionSection />
       </div>
