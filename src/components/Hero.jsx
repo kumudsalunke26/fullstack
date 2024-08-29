@@ -15,7 +15,7 @@ const Hero = () => {
           <h2 className="text-3xl font-bold">Available on:</h2>
           <div className="ml-3 flex items-center justify-between gap-4">
             <a
-              href="https://www.spotify.com/"
+              href="https://open.spotify.com/show/1ZQE9AUhjChYhjKTgUr3ld"
               target="_blank"
               rel="noopener noreferrer">
               <img
@@ -26,7 +26,7 @@ const Hero = () => {
               />
             </a>
             <a
-              href="https://www.youtube.com/"
+              href="https://www.youtube.com/@JourneyStoryHindi"
               target="_blank"
               rel="noopener noreferrer">
               <img
