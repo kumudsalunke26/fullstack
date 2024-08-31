@@ -23,7 +23,7 @@ const Blog = ({ blog }) => {
             />
           </CardHeader>
           <CardBody className="w-full mt-[-25px] flex flex-col gap-2 items-start">
-            {blog.categories.length > 0 && (
+            {blog.categories.length? > 0 && (
               <Chip color="success" variant="faded" size="md" className="mt-2">
                 {blog.categories[0].title}{" "}
                 {/* Display the first category's title */}
