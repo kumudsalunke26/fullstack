@@ -1,19 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardBody, Chip } from "@nextui-org/react";  
-import LazyImage from "./LazyImage"; 
+import { Card, CardHeader, CardBody, Chip } from "@nextui-org/react";
+import LazyImage from "./LazyImage";
 
 const Blog = ({ blog }) => {
   return (
     <Link
       to={`https://blogs.journeystory.in/post/${blog.slug.current}`}
-      className="group">
+      className="group"
+    >
       <motion.div
         initial={{ scale: 1.2 }}
         whileInView={{ scale: 1 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full overflow-hidden">
+        className="relative w-full overflow-hidden"
+      >
         <Card className="bg-transparent text-w-full h-fit pb-4 px-0">
           <CardHeader className="w-full aspect-w-16 aspect-h-9 flex-col items-start">
             <LazyImage
@@ -23,7 +25,7 @@ const Blog = ({ blog }) => {
             />
           </CardHeader>
           <CardBody className="w-full mt-[-25px] flex flex-col gap-2 items-start">
-            {blog.categories.length? > 0 && (
+            {blog.categories && blog.categories.length > 0 && (
               <Chip color="success" variant="faded" size="md" className="mt-2">
                 {blog.categories[0].title}{" "}
                 {/* Display the first category's title */}
