@@ -111,9 +111,7 @@ const Footer = () => {
         <div className="flex justify-center items-center mt-8">
           <p className="text-sm">© 2024 Journey Story</p>
           <br />
-          <p >
-            Made by <Link className="" to="https://edburg.in">Edburg Technologies</Link>
-          </p>
+  
         </div>
       </footer>
     );
