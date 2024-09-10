@@ -17,6 +17,32 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Set the tab title based on the page
+  useEffect(() => {
+    const pathName = location.pathname;
+
+    switch (pathName) {
+      case "/episodes":
+        document.title = "Journey-Story | Episodes";
+        break;
+      case "/blogs":
+        document.title = "Journey-Story | Blogs";
+        break;
+      case "/reviews":
+        document.title = "Journey-Story | Reviews";
+        break;
+      case "/about":
+        document.title = "Journey-Story | About Us";
+        break;
+      case "/team":
+        document.title = "Journey-Story | Our Team";
+        break;
+      default:
+        document.title = "Journey-Story";
+        break;
+    }
+  }, [location.pathname]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
@@ -41,7 +67,7 @@ const Header = () => {
 
   const handleNavigation = (toLink) => {
     if (toLink.startsWith("http")) {
-      // For external links, use window.location to navigate
+      // For external links, use window.location.href to navigate within the same tab
       window.location.href = toLink;
     } else if (toLink.startsWith("#")) {
       navigate("/" + toLink);
@@ -55,7 +81,8 @@ const Header = () => {
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
-      className="bg-transparent">
+      className="bg-transparent"
+    >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -78,18 +105,9 @@ const Header = () => {
           <NavbarItem
             key={`${item.label}-${index}`}
             className="cursor-pointer"
-            onClick={() => handleNavigation(item.toLink)}>
-            {item.toLink.startsWith("http") ? (
-              <a
-                href={item.toLink}
-                className="text-white"
-                target="_blank"
-                rel="noopener noreferrer">
-                {item.label}
-              </a>
-            ) : (
-              <span className="text-white">{item.label}</span>
-            )}
+            onClick={() => handleNavigation(item.toLink)}
+          >
+            <span className="text-white">{item.label}</span>
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -100,21 +118,20 @@ const Header = () => {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item.label}-${index}`}>
             {item.toLink.startsWith("http") ? (
-              <a
-                href={item.toLink}
+              <span
                 className="w-full text-mainText"
-                target="_blank"
-                rel="noopener noreferrer"
                 size="lg"
-                onClick={() => handleNavigation(item.toLink)}>
+                onClick={() => handleNavigation(item.toLink)}
+              >
                 {item.label}
-              </a>
+              </span>
             ) : (
               <Link
                 className="w-full text-mainText"
                 to={item.toLink}
                 size="lg"
-                onClick={() => handleNavigation(item.toLink)}>
+                onClick={() => handleNavigation(item.toLink)}
+              >
                 {item.label}
               </Link>
             )}
