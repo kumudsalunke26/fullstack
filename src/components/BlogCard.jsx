@@ -18,17 +18,25 @@ const Blog = ({ blog }) => {
       >
         <Card className="bg-transparent text-w-full h-fit pb-4 px-0">
           <CardHeader className="w-full aspect-w-16 aspect-h-9 flex-col items-start">
-            <LazyImage
-              src={blog.mainImage.asset.url}
-              className="object-cover h-full w-full"
-              alt={blog.title}
-            />
+            {blog.mainImage?.asset?.url ? (
+              <LazyImage
+                src={blog.mainImage.asset.url}
+                className="object-cover h-full w-full"
+                alt={blog.title}
+              />
+            ) : (
+              <div
+                className="w-full h-full bg-gray-300"
+                aria-label="No image available"
+              >
+                {/* Optionally add a placeholder or fallback here */}
+              </div>
+            )}
           </CardHeader>
           <CardBody className="w-full mt-[-25px] flex flex-col gap-2 items-start">
             {blog.categories && blog.categories.length > 0 && (
               <Chip color="success" variant="faded" size="md" className="mt-2">
-                {blog.categories[0].title}{" "}
-                {/* Display the first category's title */}
+                {blog.categories[0].title}
               </Chip>
             )}
             <h3 className="text-xl md:text-2xl font-semibold p-0">
