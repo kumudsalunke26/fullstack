@@ -11,6 +11,8 @@ import ConatctUsPage from './pages/ConatctUsPage.jsx';
 import EpisodesPage from './pages/EpisodesPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ReviewsPage from './pages/ReviewsPage.jsx';
+import Stories from './pages/Stories.jsx';
+import Admin from './pages/Admin.jsx';
 
 const router = createBrowserRouter([
     {
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
                 path: '/blogs/:id',
                 element: <BlogDetailsPage />,
             },
+            {
+                path: '/stories',
+                element: <Stories/>,
+            },
+            {
+                path: '/admin',
+                element: <Admin/>,
+            }
         ],
     },
     {

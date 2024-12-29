@@ -28,8 +28,14 @@ const Header = () => {
       case "/blogs":
         document.title = "Journey-Story | Blogs";
         break;
+      case "/stories":
+        document.title = "Journey-Story | Stories";
+        break;
       case "/reviews":
         document.title = "Journey-Story | Reviews";
+        break;
+        case "/admin":
+        document.title = "Journey-Story | Admin";
         break;
       case "/about":
         document.title = "Journey-Story | About Us";
@@ -60,6 +66,7 @@ const Header = () => {
   const menuItems = [
     { label: "Episodes", toLink: "/episodes" },
     { label: "Blogs", toLink: "https://blogs.journeystory.in" },
+    { label: "Stories", toLink: "http://localhost:5174/" },
     { label: "About us", toLink: "#about" },
     { label: "Team", toLink: "#team" },
     { label: "Reviews", toLink: "/reviews" },

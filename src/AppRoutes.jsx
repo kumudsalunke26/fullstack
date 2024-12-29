@@ -5,6 +5,8 @@ import ConatctUsPage from './pages/ConatctUsPage';
 import EpisodesPage from './pages/EpisodesPage';
 import HomePage from './pages/HomePage';
 import ReviewsPage from './pages/ReviewsPage';
+import Stories from './pages/Stories';
+import Admin from './pages/Admin';
 
 const AppRoutes = () => {
     return (
@@ -15,6 +17,8 @@ const AppRoutes = () => {
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/contact-us" element={<ConatctUsPage />} />
             <Route path="/blogs/:id" element={<BlogDetailsPage />} />
+            <Route path="/stories" element={<Stories/>} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
