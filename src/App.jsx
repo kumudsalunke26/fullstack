@@ -4,29 +4,34 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import { useEffect, useState } from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
+
 
 const queryClient = new QueryClient();
-
+  
 const App = () => {
   const[items,setItems]=useState([])
-    useEffect(()=>{
-      const fetchData=async()=>{
-        const res=await fetch('http://localhost:5174/','http://localhost:5173/')
-        const data=await res.json()
-        setItems(data.items)
-      }
-      fetchData();
-    },[])
+    // useEffect(()=>{
+    //   const fetchData=async()=>{
+    //     const res=await fetch('http://localhost:5174/')
+    //     const data=await res.json()
+    //     setItems(data.items)
+    //   }
+    //   fetchData();
+    // },[])
   
     return (
+      
         <QueryClientProvider client={queryClient}>
             <div className="bg-background text-white overflow-hidden">
                 <Header />
                 <Outlet />
                 <Footer />
+                
                 {items.map(i=>(
                   <p>{i.name},{i.description}</p>
                 ))}
+                 
             </div>
         </QueryClientProvider>
     );
@@ -34,3 +39,5 @@ const App = () => {
 
 
 export default App;
+
+

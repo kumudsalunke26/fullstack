@@ -1,30 +1,134 @@
 import React from "react";
 
-const StoryCard = ({ imageUrl, headline, content }) => {
-    return (
-        <div className="h-screen flex items-center justify-center mt-11 ">
-            <div className="relative max-w-sm w-full bg-white rounded-lg shadow-lg overflow-hidden max-h-md">
-                {/* Image */}
-                <div className="relative">
-                    <img
-                        src={imageUrl}
-                        alt="Story"
-                        className="w-full h-52 object-cover"
-                    />
-                </div>
-                <div className="absolute top-4 left-4 bg-white px-2 py-1 rounded-full shadow-lg mt-44">
-                    <span className="text-gray-900 font-semibold text-sm">JourneyStory</span>
-                </div>
-                {/* Text Content */}
-                <div className="p-6 h-[20rem]">
-                    <h2 className="text-xl font-bold text-gray-900 mb-2">{headline}</h2>
-                    <p className="text-gray-800 text-lg">{content}</p>
-                    <h4 className="text-gray-600 text-medium pt-3 italic mb-7">swipe left for more</h4>
-                    <p className="bg-gray-800 absolute bottom-0 left-0 right-0 pb-5 pt-5 pl-6">MORE DETAILS...</p>
-                </div>
-            </div>
-        </div>
-    );
+
+const StoryCard = ({ story, onView }) => {
+  
+  return (
+    <div
+      className="relative bg-black rounded-lg shadow-lg overflow-hidden cursor-pointer w-full mx-auto mb-6"
+      onClick={() => onView(story)} // Trigger onView with the story data
+    >
+      
+{story.imageUrl && (
+  <img
+    src={story.imageUrl}
+    alt="Story"
+    className="w-full h-[20rem] md:h-[25rem] object-cover object-center"
+  />
+)}
+
+
+ <div className="absolute top-[19rem] sm:top-[24rem] left-2 sm:left-4 bg-white py-1 px-2 sm:px-3 rounded-full shadow-lg">
+  <span className="text-black font-semibold text-xs sm:text-sm">JourneyStory</span>
+</div>
+
+
+     
+
+      {/* Story Headline and Content */}
+      <div className="relative p-4 gap-2">
+        {/* Story Headline */}
+        {story.title && (
+          <h2 className="text-lg md:text-xl font-bold text-white h-[3rem] pt-4">
+            {story.title}
+          </h2>
+        )}
+        {/* Story Content Preview */}
+        {story.content && (
+          <p className="text-sm md:text-base text-gray-300 mt-4">
+            {story.content.slice(0, 100)}...
+          </p>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default StoryCard;
+
+
+// import React from "react";
+// import { useNavigate } from "react-router-dom";
+
+// const StoryCard = ({ story }) => {
+//   const navigate = useNavigate();
+
+//   return (
+//     <div
+//       className="relative bg-black rounded-lg shadow-lg overflow-hidden cursor-pointer w-full mx-auto mb-6"
+//       onClick={() => navigate("/story-detail", { state: story })} // Pass story data via state
+//     >
+//       {story.imageUrl && (
+//         <img
+//           src={story.imageUrl}
+//           alt="Story"
+//           className="w-full h-[20rem] md:h-[25rem] object-cover object-center"
+//         />
+//       )}
+//       <div className="absolute top-[19rem] sm:top-[24rem] left-2 sm:left-4 bg-white py-1 px-2 sm:px-3 rounded-full shadow-lg">
+//         <span className="text-black font-semibold text-xs sm:text-sm">JourneyStory</span>
+//       </div>
+//       <div className="relative p-4 gap-2">
+//         {story.title && (
+//           <h2 className="text-lg md:text-xl font-bold text-white h-[3rem] pt-4">
+//             {story.title}
+//           </h2>
+//         )}
+//         {story.content && (
+//           <p className="text-sm md:text-base text-gray-300 mt-4">
+//             {story.content.slice(0, 100)}...
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default StoryCard;
+
+
+
+// import React from "react";
+// import { useNavigate } from "react-router-dom";
+
+// const StoryCard = ({ story }) => {
+//   const navigate = useNavigate();
+
+//   const handleNavigation = () => {
+//     navigate("/story-detail", { state: story }); // Pass story data via state
+//   };
+
+//   return (
+//     <div
+//       className="relative bg-black rounded-lg shadow-lg overflow-hidden cursor-pointer w-full mx-auto mb-6"
+//       onClick={handleNavigation} // Call handleNavigation on click
+//     >
+//       {story.imageUrl && (
+//         <img
+//           src={story.imageUrl}
+//           alt="Story"
+//           className="w-full h-[20rem] md:h-[25rem] object-cover object-center"
+//         />
+//       )}
+//       <div className="absolute top-[19rem] sm:top-[24rem] left-2 sm:left-4 bg-white py-1 px-2 sm:px-3 rounded-full shadow-lg">
+//         <span className="text-black font-semibold text-xs sm:text-sm">JourneyStory</span>
+//       </div>
+//       <div className="relative p-4 gap-2">
+//         {story.title && (
+//           <h2 className="text-lg md:text-xl font-bold text-white h-[3rem] pt-4">
+//             {story.title}
+//           </h2>
+//         )}
+//         {story.content && (
+//           <p className="text-sm md:text-base text-gray-300 mt-4">
+//             {story.content.slice(0, 100)}...
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default StoryCard;
+
+
