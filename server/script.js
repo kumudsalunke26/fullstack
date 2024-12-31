@@ -4,13 +4,16 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
 const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+
 
 // Import the routes from stories.js
 const storiesRoutes = require('./routes/stories');
 const userRoutes = require("./routes/user-route")
 
 const app = express();
+
+
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -19,10 +22,12 @@ app.use(cookieParser())
 
 
 
-app.use(cors({
-  origin: ["http://localhost:5173"], // Replace with your frontend's URL
+app.use(cors(
+  {
+  origin: "http://localhost:5174", // Replace with your frontend's URL
   credentials: true, // Allow cookies and authentication headers
-}));
+}
+));
 
 
 
@@ -46,6 +51,8 @@ mongoose
 // Use the routes defined in stories.js
 app.use('/api/stories', storiesRoutes);
 app.use('/api/auth', userRoutes);
+
+
 
 // Set up the server to listen on the specified port
 const PORT = process.env.PORT || 8401;
