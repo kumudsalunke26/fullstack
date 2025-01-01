@@ -5,30 +5,38 @@ export const useAuthStore = create((set, get) => ({
     stories: null,
     checkAuth: async () => {
         try {
-            const response = await fetch('http://localhost:8401/api/auth/checkAuth', {
+            const baseUrl = import.meta.env.MODE === "development" 
+                ? 'http://localhost:8401/api/auth/checkAuth' 
+                : '/api';
+    
+            const response = await fetch(baseUrl, {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json"
                 },
                 credentials: "include"
-            })
-
+            });
+    
+            const data = await response.json();
+    
             if (!response.ok) {
-                const data = await response.json()
-                return data
+                return data; // Return error details
             }
-            const data = await response.json()
-            set({ authUser: data.user })
-            return data
+    
+            set({ authUser: data.user });
+            return data;
         } catch (error) {
-            console.log("error", error.message)
+            console.log("error", error.message);
         }
     },
 
 
     login: async (details) => {
-        try {
-            const response = await fetch('http://localhost:8401/api/auth/login', {
+        try { const baseUrl = import.meta.env.MODE === "development" 
+            ? 'http://localhost:8401/api/auth/login' 
+            : '/api';
+
+        const response = await fetch(baseUrl, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -59,7 +67,11 @@ export const useAuthStore = create((set, get) => ({
 
     logout: async () => {
         try {
-            const response = await fetch('http://localhost:8401/api/auth/logout', {
+            const baseUrl = import.meta.env.MODE === "development" 
+                ? 'http://localhost:8401/api/auth/logout' 
+                : '/api';
+    
+            const response = await fetch(baseUrl, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -85,7 +97,11 @@ export const useAuthStore = create((set, get) => ({
     signup: async (details) => {
         console.log("details in authstore",details);
         try {
-            const response = await fetch('http://localhost:8401/api/auth/signup', {
+            const baseUrl = import.meta.env.MODE === "development" 
+                ? 'http://localhost:8401/api/auth/signup' 
+                : '/api';
+    
+            const response = await fetch(baseUrl, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -107,7 +123,11 @@ export const useAuthStore = create((set, get) => ({
 
     publishStory: async (story) => {
         try {
-            const response = await fetch("http://localhost:8401/api/stories/publish", {
+            const baseUrl = import.meta.env.MODE === "development" 
+                ? 'http://localhost:8401/api/stories/publish' 
+                : '/api';
+    
+            const response = await fetch(baseUrl, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -130,7 +150,11 @@ export const useAuthStore = create((set, get) => ({
 
     approvedStory: async () => {
         try {
-            const response = await fetch("http://localhost:8401/api/stories/approved", {
+            const baseUrl = import.meta.env.MODE === "development" 
+            ? 'http://localhost:8401/api/stories/approved' 
+            : '/api';
+
+        const response = await fetch(baseUrl, {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json"

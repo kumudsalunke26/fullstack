@@ -1,3 +1,4 @@
+import path from "path";
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -5,7 +6,7 @@ const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-
+const __dirname = path.resolve();
 
 // Import the routes from stories.js
 const storiesRoutes = require('./routes/stories');
@@ -52,7 +53,13 @@ mongoose
 app.use('/api/stories', storiesRoutes);
 app.use('/api/auth', userRoutes);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/dist")));
 
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
+  });
+}
 
 // Set up the server to listen on the specified port
 const PORT = process.env.PORT || 8401;
