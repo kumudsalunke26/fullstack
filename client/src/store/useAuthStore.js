@@ -194,7 +194,7 @@ export const useAuthStore = create((set, get) => ({
   // Dynamically determine the backend URL
   getBaseUrl: () => {
     return import.meta.env.MODE === "development"
-      ? 'http://localhost:8401/api' // Local backend URL for development
+      ? 'http://localhost:8401' // Local backend URL for development
       : backendUrl; // Use VITE_BACKEND_URL for production
   },
 
