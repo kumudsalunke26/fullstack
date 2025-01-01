@@ -1,4 +1,4 @@
-import path from "path";
+
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -7,7 +7,7 @@ const cloudinary = require('cloudinary').v2;
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const __dirname = path.resolve();
-
+const path=require('path');
 // Import the routes from stories.js
 const storiesRoutes = require('./routes/stories');
 const userRoutes = require("./routes/user-route")
