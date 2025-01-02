@@ -124,7 +124,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Start the server
-const PORT = process.env.VITE_BACKEND_URL || process.env.PORT || 8401 ;
+const PORT = process.env.PORT || 8401 ;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
