@@ -196,6 +196,7 @@ export const useAuthStore = create((set, get) => ({
     return import.meta.env.MODE === "development"
       ? 'http://localhost:8401' // Local backend URL for development
       : backendUrl; // Use VITE_BACKEND_URL for production
+      
   },
 
   checkAuth: async () => {
