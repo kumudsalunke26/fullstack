@@ -83,12 +83,14 @@ const userRoutes = require("./routes/user-route");
 
 const app = express();
 
+const frontendUrl = process.env.FRONTEND_URL;
+
 // Middleware setup
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 app.use(cors({
-  origin: "https://fullstack-4-jdac.onrender.com", // Replace with your frontend's URL
+  origin: frontendUrl, // Replace with your frontend's URL
   credentials: true, // Allow cookies and authentication headers
 }));
 
