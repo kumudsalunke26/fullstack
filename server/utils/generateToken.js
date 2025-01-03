@@ -23,7 +23,7 @@ const jwt = require("jsonwebtoken");
 
 function generateToken(res, id) {
     try {
-        const token = jwt.sign({ id }, process.env.JWT_SECRET_KEY, { expiresIn: "1d" }); // Token valid for 1 day
+        const token = jwt.sign({ id }, process.env.JWT_SECRET_KEY); 
 
         res.cookie("token", token, {
             httpOnly: true,        // Prevent client-side JS access
