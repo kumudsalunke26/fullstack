@@ -34,6 +34,7 @@ const USER = require("../models/user.js");
 
 const protectRoute = async (req, res, next) => {
     try {
+        console.log("Cookies received:", req.cookies);
         // Retrieve the token from cookies
         const token = req.cookies.token;
 
