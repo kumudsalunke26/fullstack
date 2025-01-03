@@ -50,29 +50,58 @@ router.get('/pending', protectRoute, async (req, res) => {
 // Route to publish a story with media
 router.post('/publish', protectRoute, async (req, res) => {
   const { title, content, imageUrl } = req.body;
-  
-  let uploadedUrl;
-  const cloudinaryRes = await cloudinary.uploader.upload(imageUrl)
-  uploadedUrl = cloudinaryRes.secure_url
-
 
   try {
-    const newStory = new Story({
-      userId : req.user._id,
-      title,
-      authorName : req.user.fullName,
-      content,
-      imageUrl : uploadedUrl,
-      status: 'pending', // Set the status to 'pending' initially
-    });
-    await newStory.save();
+      // Upload the image to Cloudinary
+      const cloudinaryRes = await cloudinary.uploader.upload(imageUrl);
+      const uploadedUrl = cloudinaryRes.secure_url;
 
-    res.status(201).json({ message: 'Story submitted for review!'});
+      // Create a new story with the user's ID and details
+      const newStory = new Story({
+          userId: req.user._id,
+          title,
+          authorName: req.user.fullName,
+          content,
+          imageUrl: uploadedUrl,
+          status: 'pending', // Story status is pending for review
+      });
+
+      // Save the story to the database
+      await newStory.save();
+
+      res.status(201).json({ success: true, message: 'Story submitted for review!' });
   } catch (error) {
-    console.error('Error publishing story:', error);
-    res.status(500).json({ error: 'Failed to submit story' });
+      console.error('Error publishing story:', error);
+      res.status(500).json({ success: false, message: 'Failed to submit story' });
   }
 });
+
+
+// router.post('/publish', protectRoute, async (req, res) => {
+//   const { title, content, imageUrl } = req.body;
+  
+//   let uploadedUrl;
+//   const cloudinaryRes = await cloudinary.uploader.upload(imageUrl)
+//   uploadedUrl = cloudinaryRes.secure_url
+
+
+//   try {
+//     const newStory = new Story({
+//       userId : req.user._id,
+//       title,
+//       authorName : req.user.fullName,
+//       content,
+//       imageUrl : uploadedUrl,
+//       status: 'pending', // Set the status to 'pending' initially
+//     });
+//     await newStory.save();
+
+//     res.status(201).json({ message: 'Story submitted for review!'});
+//   } catch (error) {
+//     console.error('Error publishing story:', error);
+//     res.status(500).json({ error: 'Failed to submit story' });
+//   }
+// });
 
 // Route to fetch approved stories
 router.get('/approved', async (req, res) => {
