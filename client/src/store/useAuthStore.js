@@ -201,7 +201,7 @@ export const useAuthStore = create((set, get) => ({
 
   checkAuth: async () => {
     try {
-      const baseUrl = get().getBaseUrl() + 'api/auth/checkAuth';
+      const baseUrl = get().getBaseUrl() + '/api/auth/checkAuth';
       const response = await fetch(baseUrl, {
         method: "GET",
         headers: {
@@ -225,7 +225,7 @@ export const useAuthStore = create((set, get) => ({
 
   login: async (details) => {
     try {
-      const baseUrl = get().getBaseUrl() + 'api/auth/login';
+      const baseUrl = get().getBaseUrl() + '/api/auth/login';
       const response = await fetch(baseUrl, {
         method: "POST",
         headers: {
@@ -252,7 +252,7 @@ export const useAuthStore = create((set, get) => ({
 
   logout: async () => {
     try {
-      const baseUrl = get().getBaseUrl() + 'api/auth/logout';
+      const baseUrl = get().getBaseUrl() + '/api/auth/logout';
       const response = await fetch(baseUrl, {
         method: "POST",
         headers: {
@@ -277,7 +277,7 @@ export const useAuthStore = create((set, get) => ({
   signup: async (details) => {
     console.log("details in authstore", details);
     try {
-      const baseUrl = get().getBaseUrl() + 'api/auth/signup';
+      const baseUrl = get().getBaseUrl() + '/api/auth/signup';
       const response = await fetch(baseUrl, {
         method: "POST",
         headers: {
@@ -300,7 +300,7 @@ export const useAuthStore = create((set, get) => ({
 
   publishStory: async (story) => {
     try {
-      const baseUrl = get().getBaseUrl() + 'api/stories/publish';
+      const baseUrl = get().getBaseUrl() + '/api/stories/publish';
       const response = await fetch(baseUrl, {
         method: "POST",
         headers: {
@@ -324,7 +324,7 @@ export const useAuthStore = create((set, get) => ({
 
   approvedStory: async () => {
     try {
-      const baseUrl = get().getBaseUrl() + 'api/stories/approved';
+      const baseUrl = get().getBaseUrl() + '/api/stories/approved';
       const response = await fetch(baseUrl, {
         method: "GET",
         headers: {
