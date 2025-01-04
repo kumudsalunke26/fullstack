@@ -113,8 +113,8 @@ mongoose
   .catch((err) => console.error('MongoDB connection error:', err));
 
 // API routes
-app.use('api/stories', storiesRoutes);
-app.use('api/auth', userRoutes);
+app.use('/api/stories', storiesRoutes);
+app.use('/api/auth', userRoutes);
 
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {
