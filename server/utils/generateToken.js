@@ -31,6 +31,7 @@ function generateToken(res, id) {
             sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax", // Flexibility in development
             maxAge: 24 * 60 * 60 * 1000 // Cookie valid for 1 day
         });
+        console.log("Token generated:", token);
     } catch (error) {
         console.log("Error generating token:", error.message);
     }
