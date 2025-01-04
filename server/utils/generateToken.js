@@ -28,7 +28,7 @@ function generateToken(res, id) {
         res.cookie("token", token, {
             httpOnly: true,        // Prevent client-side JS access
             secure: process.env.NODE_ENV === "production", // Use HTTPS only in production
-            sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax", // Flexibility in development
+            sameSite: none, // Flexibility in development
             maxAge: 24 * 60 * 60 * 1000 // Cookie valid for 1 day
         });
         console.log("Token generated:", token);
