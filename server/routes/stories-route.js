@@ -5,7 +5,7 @@ const { Story } = require('../models/items'); // Import Story model
 const fs = require('fs');
 const { protectRoute } = require('../middleware/protectAuth');
 const cloudinary = require("../cloudinary/cloudinary")
-const {getAllpendingStories,publishStory,getAllApprovedStories,updateTheStatus} = require("../controllers/stories-controllers")
+const {getAllpendingStories,publishStory,getAllApprovedStories,updateTheStatus} = require("../controllers/stories.controllers")
 
 
 

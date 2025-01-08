@@ -11,7 +11,7 @@ const path = require('path');
 
 const __dirname1 = path.resolve()
 console.log(__dirname1)
-const storiesRoutes = require('./routes/stories-routes');
+const storiesRoutes = require('./routes/stories-route');
 const userRoutes = require("./routes/user-route");
 
 const app = express();

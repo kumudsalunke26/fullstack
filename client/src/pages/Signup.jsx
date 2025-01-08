@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { auth } from "../firebase/firebaseConfig";
+import { auth } from "../firebase/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
