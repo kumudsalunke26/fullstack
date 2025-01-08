@@ -6,22 +6,29 @@ import { useAuthStore } from "../store/useAuthStore";
 const Stories = () => {
   const navigate = useNavigate();
 
-  const { stories, approvedStory } = useAuthStore();
+  const { stories, checkAuth, fetchapprovedStory, authUser } = useAuthStore();
 
   const viewStory = (story) => {
     console.log("Navigating to story-detail with story:", story);
-    navigate("/story-detail", { state: {story} });
+    navigate("/story-detail", { state: { story } });
   };
 
   useEffect(() => {
     const funstory = async () => {
-      approvedStory();
+      await fetchapprovedStory();
     };
     funstory();
-  }, [approvedStory]);
+  }, [fetchapprovedStory]);
 
   const handlePublishClick = () => {
-    navigate("/login");
+    if (authUser && authUser.role === "user") {
+      navigate("/publish");
+    }else if(authUser && authUser.role === "admin"){
+      navigate("/admin");
+    }
+    else if(authUser === null){
+      navigate("/login");
+    }
   };
 
   return (
