@@ -21,6 +21,7 @@ import Signup from './pages/Signup.jsx';
 import PublishStory from './pages/PublishStory.jsx';
 import StoryDetail from './pages/StoryDetail.jsx';
 import StoryCard from './components/StoryCard.jsx';
+import Admin from "./pages/Admin.jsx";
 
 // import Admin from './pages/Admin.jsx';
 
@@ -77,12 +78,11 @@ const router = createBrowserRouter([
             {
                 path: '/storycards',
                 element: <StoryCard/>,
+            },
+            {
+                path: '/admin',
+                element: <Admin/>,
             }
-
-            // {
-            //     path: '/admin',
-            //     element: <Admin/>,
-            // }
         ],
     },
     {
