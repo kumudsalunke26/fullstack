@@ -1,110 +1,121 @@
-import React, { useState } from 'react';
-import { FaRegEye } from "react-icons/fa";
-import { LuEyeClosed } from "react-icons/lu";
-import { useAuthStore } from '../store/useAuthStore';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import React, { useState, useEffect } from "react";
+import { auth } from "../firebase/firebaseConfig";
+import { signInWithPopup, GoogleAuthProvider, signInWithCustomToken } from "firebase/auth";
+import { useAuthStore } from "../store/useAuthStore";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
-function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [fullName, setFullName] = useState(""); // Full Name for Signup
-    const [showPass, setShowPass] = useState(false);
-    const [isLogin, setIsLogin] = useState(true); // Track if it's login or signup form
-    const { login, signup } = useAuthStore();
-    const navigate = useNavigate(); // Initialize navigate
+const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-    const handleAuth = async (e) => {
-        e.preventDefault();
+  const navigate = useNavigate();
+  const { setUser, login, setToken, authUser, checkAuth } = useAuthStore();
 
-        // For signup, check if fullName is provided
-        if (!isLogin && !fullName) {
-            console.log("Full Name is required!");
-            return;
-        }
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-        const authData = { email, password, fullName }; // Include fullName in signup
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        let response;
-
-        if (isLogin) {
-            response = await login(authData);
+    try {
+      const response = await login(formData);
+      if (response?.success && response?.user?.role) {
+        if (response.user.role === "user") {
+          try {
+            await signInWithCustomToken(auth, response.token);
+            const idToken = await auth.currentUser.getIdToken();
+            if (idToken) {
+              setToken(idToken);
+              navigate("/publish");
+            } else {
+              console.error("Failed to retrieve ID token");
+            }
+          } catch (authError) {
+            console.error("Authentication failed:", authError);
+          }
+        } else if (response.user.role === "admin") {
+          try {
+            await signInWithCustomToken(auth, response.token);
+            const idToken = await auth.currentUser.getIdToken();
+            if (idToken) {
+              setToken(idToken);
+              navigate("/admin");
+            } else {
+              console.error("Failed to retrieve ID token");
+            }
+          } catch (authError) {
+            console.error("Authentication failed:", authError);
+          }
         } else {
-            response = await signup(authData);
+          console.error("Unexpected role:", response.user.role);
         }
+      } else {
+        console.error("Login failed or invalid response:", response);
+      }
+    } catch (error) {
+      console.error("An error occurred during login:", error);
+    }
+  };
 
-        if (response.success) {
-            console.log(`${isLogin ? "Login" : "Signup"} successful: `, response.message);
+  useEffect(() => {
+    if (authUser && authUser.role === "admin") {
+      navigate("/admin")
+    }
+    else if (authUser && authUser.role === "user") {
+      navigate("/publish")
+    }
+  },)
 
-            // Redirect to PublishStory page after successful login
-            
-                navigate('/publish'); // Adjust this path based on your routing setup
-            
-        } else {
-            console.log(`${isLogin ? "Login" : "Signup"} failed: `, response.message);
-        }
-    };
 
-    return (
-        <div className='w-full h-[calc(100vh-112px)] flex justify-center items-center'>
-            <form onSubmit={handleAuth} className='flex flex-col bg-black p-4 w-[350px] h-[400px] rounded-md'>
-                <h4 className='text-center text-2xl mb-4'>{isLogin ? "LOGIN" : "SIGNUP"}</h4>
 
-                {/* Show Full Name field only if Signup */}
-                {!isLogin && (
-                    <input 
-                        type="text" 
-                        value={fullName} 
-                        className='w-full border-2 rounded-md mb-4 p-2 text-black' 
-                        onChange={(e) => setFullName(e.target.value)} 
-                        placeholder='Full Name' 
-                        required={!isLogin}  // Only required for signup
-                    />
-                )}
-
-                {/* Email Field */}
-                <input 
-                    type="email" 
-                    value={email} 
-                    className='w-full border-2 rounded-md mb-4 p-2 text-black' 
-                    onChange={(e) => setEmail(e.target.value)} 
-                    placeholder='example@gmail.com' 
-                    required
-                />
-
-                {/* Password Field */}
-                <div className='relative'>
-                    <input 
-                        type={showPass ? "text" : "password"} 
-                        value={password} 
-                        className='w-full border-2 rounded-md mb-4 p-2 text-black' 
-                        onChange={(e) => setPassword(e.target.value)} 
-                        placeholder='* * * * * *' 
-                        required
-                    />
-                    {showPass ? (
-                        <FaRegEye className='absolute top-4 right-5' onClick={() => setShowPass(!showPass)} />
-                    ) : (
-                        <LuEyeClosed className='absolute top-4 right-5' onClick={() => setShowPass(!showPass)} />
-                    )}
-                </div>
-
-                {/* Submit Button */}
-                <button type='submit' className='bg-blue-500 text-white p-2 rounded-md mb-4'>
-                    {isLogin ? "LOGIN" : "SIGNUP"}
-                </button>
-
-                {/* Toggle Between Login and Signup */}
-                <div className='text-center'>
-                    <span 
-                        className='text-blue-500 cursor-pointer' 
-                        onClick={() => setIsLogin(!isLogin)}
-                    >
-                        {isLogin ? "Don't have an account? Signup" : "Already have an account? Login"}
-                    </span>
-                </div>
-            </form>
-        </div>
-    );
-}
+  return (
+    <div className="flex justify-center items-center min-h-screen text-black font-sans" style={{ background: '#343434' }}>
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+        <h1 className="text-2xl font-bold text-center text-black mb-6">
+          Welcome Back!
+        </h1>
+        <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
+          />
+          <button
+            type="submit"
+            className="p-3 bg-black text-white rounded-lg focus:outline-none focus:ring-2 "
+          >
+            Login
+          </button>
+          <p className="text-sm text-black font-medium text-center mt-4">
+            Do you have an account?{" "}
+            <Link to="/signup" className="text-blue-500 hover:underline">
+              Sign Up
+            </Link>
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 export default Login;
