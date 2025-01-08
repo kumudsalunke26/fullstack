@@ -1,40 +1,48 @@
-// const jwt = require("jsonwebtoken")
-
-// function generateToken(res, id) {
-//     try {
-//         const token = jwt.sign({ id }, process.env.JWT_SECRET_KEY)
-//         res.cookie("token", token, {
-//             httpOnly: false,        // Prevents client-side JavaScript from accessing the cookie
-//             secure: true,          // Ensures the cookie is sent only over HTTPS
-//             sameSite: "strict"  // Controls cross-site requests (use 'lax' for more flexibility)
-//             // maxAge: 24 * 60 * 60 * 1000
-//         })
-//     } catch (error) {
-//         console.log("error generating token", error.message)
-//     }
-// }
-
-// module.exports = { generateToken }
-
-
-
-
-const jwt = require("jsonwebtoken");
-
-function generateToken(res, id) {
+const { auth } = require("../firebase/firebase")
+function generateFirebaseToken(res, uid, userData, method) {
     try {
-        const token = jwt.sign({ id }, process.env.JWT_SECRET_KEY); 
+        // Generate a Firebase custom token for the provided UID
+        auth.createCustomToken(uid).then((customToken) => {
+            // Return the token in the Authorization header
+            console.log("customToken", customToken)
+            if (method === 'signup') {
+                return res.status(200).json({
+                    success: true,
+                    token: customToken,
+                    user: {
+                        uid: userData.uid,
+                        name: userData.name,
+                        email: userData.email
+                    },
+                    message: 'User created successfully',
+                });
+            } else if (method === 'login') {
+                return res.status(200).json({
+                    success: true,
+                    token: customToken,
+                    user: {
+                        uid: userData.uid,
+                        name: userData.name,
+                        email: userData.email,
+                        role:userData.role
+                    },
+                    message: 'User logged in successfully',
+                });
+            }
 
-        res.cookie("token", token, {
-            httpOnly: true,        // Prevent client-side JS access
-            secure: process.env.NODE_ENV === "production", // Use HTTPS only in production
-            sameSite: none, // Flexibility in development
-            maxAge: 24 * 60 * 60 * 1000 // Cookie valid for 1 day
-        });
-        console.log("Token generated:", token);
+            console.log('Firebase custom token generated:', customToken);
+        })
+            .catch((error) => {
+                console.error('Error generating Firebase custom token:', error.message);
+                res.status(500).json({ success: false, message: 'Token generation failed', error: error.message });
+            });
     } catch (error) {
-        console.log("Error generating token:", error.message);
+        console.error('Error in generateFirebaseToken:', error.message);
+        res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
+
 }
 
-module.exports = { generateToken };
+module.exports = {
+    generateFirebaseToken
+}
